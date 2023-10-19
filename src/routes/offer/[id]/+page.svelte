@@ -1,23 +1,16 @@
 <script lang="ts">
     import { assets } from '$app/paths';
     import { page } from "$app/stores";
+	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
     import "@material/web/button/filled-button"
-    import "@material/web/button/outlined-button"
-    import "@material/web/button/filled-tonal-button"
-    import "@material/web/button/text-button"
     import "@material/web/iconbutton/icon-button"
-    import "@material/web/chips/suggestion-chip"
-    import "@material/web/chips/assist-chip"
-    import "@material/web/fab/fab"
     import "@material/web/icon/icon"
 	import Card from '$lib/components/Card.svelte';
 	import NavBar from '$lib/components/NavBar.svelte';
 	import Details from './details.svelte';
 	import MintInfo from './mint-info.svelte';
-	import Dialog from '$lib/components/Dialog.svelte';
 	import WhatIsAMint from './what-is-a-mint.svelte';
-	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
     
     let modal: HTMLDialogElement;
     function openModal() {
@@ -31,8 +24,10 @@
     }
 
     onMount(() => {
-        const onClose = () => {
-            history.go(-1);
+        const onClose = (e: Event) => {
+            if ($page.url.searchParams.has('modal')) {
+                history.go(-1);
+            }
         };
         modal.addEventListener('close', onClose);
         modal.addEventListener('click', (e) => {
@@ -41,12 +36,14 @@
             }
         });
         const unsubscribe = page.subscribe($page => {
-            if ($page.url.searchParams.get('modal') === 'true') {
+            if ($page.url.searchParams.has('modal')) {
                 if (!modal.open) {
                     modal.showModal();
                 }
             } else {
-                modal.close();
+                if (modal.open) {
+                    modal.close();
+                }
             }
         });
 
@@ -90,8 +87,8 @@
     }
     
     dialog {
-        background-color: var(--md-sys-color-background);
-        color: var(--md-sys-color-on-background);
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
         border-radius: 1.5rem;
         border: none;
         padding: 0;
@@ -140,7 +137,7 @@
         <MintInfo action={openModal} />
     </Card>
     <section class="calltoaction">
-        <md-filled-button>Accept the offer</md-filled-button>
+        <md-filled-button on:click={() => goto('/accounts')}>Accept the offer</md-filled-button>
     </section>
 </div>
 

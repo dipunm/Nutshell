@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { assets } from "$app/paths";
+    import '@material/web/icon/icon'
 
     export let color: "tertiary" | "surface-container-highest"
     export let height: string = 'auto';
@@ -24,6 +25,7 @@
     }
 
     .icon {
+        color: var( --md-sys-color-on-surface );
         border-radius: 100%;
         background-color: var( --md-sys-color-surface );
         width: 2.5rem;
@@ -32,15 +34,11 @@
         left: 50%;
         transform: translateX(-50%);
         top: -1.25rem;
-        border: 1px solid var(--md-sys-color-on-background);
+        border: 1px solid var(--md-sys-color-outline);
         display: flex;
         justify-content: center;
-    }
-
-    .icon img {
-        align-self: center;
-        width: 1.5rem;
-        filter: invert(1);
+        align-items: center;
+        line-height: 0rem;
     }
 </style>
 
@@ -52,7 +50,8 @@
 ">
     {#if icon === 'mint'}        
         <div class="icon">
-            <img src="{assets}/mint.svg" alt="mint icon"/>
+            <md-icon>account_balance</md-icon>
+            <!-- <img src="{assets}/mint.svg" alt="mint icon"/> -->
         </div>
     {/if}
 

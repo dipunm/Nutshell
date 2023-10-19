@@ -5,14 +5,15 @@
 </script>
 <style>
     .container {
-        background-color: var(--md-sys-color-background);
-        color: var(--md-sys-color-on-background);
+        background-color: var(--md-sys-color-surface);
+        color: var(--md-sys-color-on-surface);
         min-height: 100vh;
     }
 </style>
 <svelte:head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">
+    <title>Nutshell</title>
 </svelte:head>
 <div class="container">
     <slot />

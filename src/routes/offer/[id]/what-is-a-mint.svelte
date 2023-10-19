@@ -1,3 +1,6 @@
+<script lang="ts">
+    import "@material/web/icon/icon"
+</script>
 <style>
     .factsheet {
         margin-top: 1.75rem;
@@ -13,13 +16,20 @@
     }
     
     .factsheet .img {
+        font-size: 32px;
         width: 32px;
         min-width: 32px;
         height: 32px;
-        border: 1px solid black;
         margin-right: 24px;
         align-self: center;
         max-width: none;
+        display: flex;
+    }
+
+    .factsheet .img * {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
     }
 
     p + p {
@@ -34,7 +44,7 @@
 </p>
 <section class="factsheet">
     <article class="fact">
-        <div class="img"></div>
+        <div class="img"><md-icon>account_balance</md-icon></div>
         <div class="info">
             <h1 class="title-medium">A mint is a custodian</h1>
             <p>
@@ -45,7 +55,7 @@
     </article>
 
     <article class="fact">
-        <div class="img"></div>
+        <div class="img"><md-icon>error</md-icon></div>
         <div class="info">
             <h1 class="title-medium">Custodians require trust</h1>
             <p>
@@ -58,7 +68,7 @@
     </article>
 
     <article class="fact">
-        <div class="img"></div>
+        <div class="img"><md-icon>visibility_off</md-icon></div>
         <div class="info">
             <h1 class="title-medium">Mints defend your privacy</h1>
             <p>
@@ -72,7 +82,7 @@
     </article>
 
     <article class="fact">
-        <div class="img"></div>
+        <div class="img"><md-icon>gavelwa</md-icon></div>
         <div class="info">
             <h1 class="title-medium">Mints are impartial</h1>
             <p>
@@ -90,7 +100,7 @@
     </p>
     <p>
         This app allows you to manage funds across one or many mints using the cashu protocol. Learn 
-        more at <a href="https://cashu.space">https://cashu.space</a>.
+        more at <a target="_blank" href="https://cashu.space">https://cashu.space</a>.
     </p>
 
 </section>

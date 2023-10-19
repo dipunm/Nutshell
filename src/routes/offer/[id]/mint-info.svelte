@@ -1,4 +1,6 @@
 <script lang="ts">
+    import "@material/web/chips/suggestion-chip"
+
     export let action: () => void;
 </script>
 <style>
