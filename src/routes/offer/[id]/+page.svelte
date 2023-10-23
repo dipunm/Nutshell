@@ -14,7 +14,9 @@
     
     let modal: HTMLDialogElement;
     function openModal() {
-        goto('?modal=true');
+        goto('?modal=true', {
+            noScroll: true
+        });
         modal.showModal();
     }
 
@@ -56,7 +58,7 @@
 
 <style>
     .container {
-        padding: 0 16px;
+        padding: 0 1rem 3rem 1rem;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
@@ -97,10 +99,15 @@
     .modal-container {
         padding: 1rem;
         width: 90vw;
+        height: fit-content;
         max-width: 600px;
-        height: 80vh;
+        max-height: 80vh;
         display: flex;
         flex-direction: column;
+    }
+
+    .modal-container h1 {
+        margin: 0 1rem;
     }
 
     dialog .contents {
@@ -114,6 +121,7 @@
         .modal-container {
             width: 100vw;
             height: 100vh;
+            max-height: none;
         }
 
         dialog {
@@ -147,6 +155,7 @@
             <md-icon-button on:click={closeModal}>
                 <md-icon>arrow_back</md-icon>
             </md-icon-button>
+            <h1 class="headline-medium">What is a mint?</h1>
         </NavBar>
         <section class="contents">
             <WhatIsAMint />

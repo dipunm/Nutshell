@@ -1,12 +1,34 @@
 <script lang="ts">
+	import type { OutlinedTextField } from "@material/web/textfield/internal/outlined-text-field.js";
+
     import "@material/web/iconbutton/icon-button"
+    import "@material/web/iconbutton/filled-icon-button"
     import "@material/web/icon/icon"
     import "@material/web/button/filled-button"
     import "@material/web/button/text-button"
+    import "@material/web/textfield/outlined-text-field"
+    import "@material/web/textfield/filled-text-field"
+
+    import { onNavigate } from '$app/navigation';
 
 	import NavBar from "$lib/components/NavBar.svelte";
 
+
     export let data;
+    $: toggle = data.id ? true : true;
+
+    onNavigate(() => { toggle = true });
+
+    function toggleEditor(on: boolean) {
+        toggle = on;
+    }
+
+    function focus(el: OutlinedTextField) {
+        setTimeout(() => { 
+            el.focus();
+            el.select();
+        }, 10);
+    }
 </script>
 <style>
 
@@ -23,6 +45,15 @@
 
     }
     
+    .edit-form {
+        display:flex;
+        flex-grow: 1;
+        align-items: center;
+    }
+    .edit-form * {
+        margin: 0 0.5rem;
+    }
+
     .container>* {
         max-width: 45rem;
         width: 100%;
@@ -32,6 +63,13 @@
         text-align: center;
         flex-grow: 1;
     }
+
+    #nav-title-edit {
+        flex-grow: 1;
+        margin: 0 1rem;
+    }
+
+
 
     .amount {
         flex-grow: 1;
@@ -74,8 +112,27 @@
     .transaction .col {
         display: flex;
         flex-direction: column;
-        align-items: right;
-        text-align: right;
+        text-align: left;
+        flex-grow: 1;
+        padding-left: 1rem;
+    }
+
+    .transaction md-icon {
+        color: var( --md-sys-color-on-primary );
+        background-color: var( --md-sys-color-primary );
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.4rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .transaction md-icon.neg {
+        color: var( --md-sys-color-on-error );
+        background-color: var( --md-sys-color-error );
+
     }
 
     @media (min-width: 1000px) {
@@ -90,11 +147,17 @@
 
 <section class="nav">
 <NavBar>
-    <md-icon-button on:click={() => history.back()}>
-        <md-icon>arrow_back</md-icon>
-    </md-icon-button>
-    <h1 class="headline-medium">Unnamed Mint 01</h1>
-    <md-text-button href={`/accounts/${data.id}?edit=true`} has-icon><md-icon slot="icon">edit</md-icon>Edit</md-text-button>        
+    {#if toggle}
+    <md-icon-button on:click={() => history.back()}><md-icon>arrow_back</md-icon></md-icon-button>
+    <h1 class="headline-small">Unnamed Mint 01</h1>
+    <md-text-button has-icon on:click={() => toggleEditor(false) }><md-icon slot="icon">edit</md-icon>Edit</md-text-button>
+    {:else}
+    <form class="edit-form">
+        <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={'Unnamed Mint 01'}></md-outlined-text-field>
+        <md-filled-icon-button on:submit={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
+        <md-icon-button on:click={() => toggleEditor(true)}><md-icon>clear</md-icon></md-icon-button>
+    </form>
+    {/if}
 </NavBar>
 </section>
 <div class="container">
@@ -113,99 +176,108 @@
             <md-focus-ring for={`transaction-1`} />
             <md-ripple />
 
-            <span class="title-large">For beer</span>
+            <md-icon class="neg">account_balance_wallet</md-icon>
             <div class="col">
-                <span class="body-large">- 500 sats</span>
-                <span class="label-small">2 days ago</span>
+                <span class="title-large">- 13 500 sats</span>
+                <span class="title-small">For beer</span>
             </div>
+            <span class="label-medium">just now</span>
         </li>
         
         <li class="transaction" id="transaction-2">
             <md-focus-ring for={`transaction-2`} />
             <md-ripple />
 
-            <span class="title-large">zap on nostr</span>
+            <md-icon class="neg">bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">- 50 sats</span>
+                <span class="title-small">zap on nostr</span>
             </div>
+            <span class="label-medium">2 mins ago</span>
         </li>
 
         <li class="transaction" id="transaction-3">
             <md-focus-ring for={`transaction-3`} />
             <md-ripple />
 
-            <span class="title-large">tip to barry@zeus.ln</span>
+            <md-icon class="neg">bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">- 1 500 sats</span>
+                <span class="title-small">tip to barry@zeus.ln</span>
             </div>
+            <span class="label-medium">2 days ago</span>
         </li>
 
         <li class="transaction" id="transaction-1">
             <md-focus-ring for={`transaction-1`} />
             <md-ripple />
 
-            <span class="title-large">For beer</span>
+            <md-icon>account_balance_wallet</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">+ 500 sats</span>
+                <span class="title-small">Gift from Ben</span>
             </div>
+            <span class="label-medium">2 weeks ago</span>
         </li>
         
         <li class="transaction" id="transaction-2">
             <md-focus-ring for={`transaction-2`} />
             <md-ripple />
 
-            <span class="title-large">zap on nostr</span>
+            <md-icon>bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">+ 500 sats</span>
+                <span class="title-small">block clock sale</span>
             </div>
+            <span class="label-medium">2 months ago</span>
         </li>
 
         <li class="transaction" id="transaction-3">
             <md-focus-ring for={`transaction-3`} />
             <md-ripple />
 
-            <span class="title-large">tip to barry@zeus.ln</span>
+            <md-icon class="neg">bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">- 500 sats</span>
+                <span class="title-small">tip to barry@zeus.ln</span>
             </div>
+            <span class="label-medium">6 months ago</span>
         </li>
 
         <li class="transaction" id="transaction-1">
             <md-focus-ring for={`transaction-1`} />
             <md-ripple />
 
-            <span class="title-large">For beer</span>
+            <md-icon class="neg">bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">- 500 sats</span>
+                <span class="title-small">For beer</span>
             </div>
+            <span class="label-medium">1 year ago</span>
         </li>
         
         <li class="transaction" id="transaction-2">
             <md-focus-ring for={`transaction-2`} />
             <md-ripple />
 
-            <span class="title-large">zap on nostr</span>
+            <md-icon class="neg">bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">- 500 sats</span>
+                <span class="title-small">zap on nostr</span>
             </div>
+            <span class="label-medium">2 years ago</span>
         </li>
 
         <li class="transaction" id="transaction-3">
             <md-focus-ring for={`transaction-3`} />
             <md-ripple />
 
-            <span class="title-large">tip to barry@zeus.ln</span>
+            <md-icon class="neg">bolt</md-icon>
             <div class="col">
-                <span>- 500 sats</span>
-                <span>2 days ago</span>
+                <span class="title-large">- 500 sats</span>
+                <span class="title-small">tip to barry@zeus.ln</span>
             </div>
+            <span class="label-medium">2 years ago</span>
         </li>
     </ul>
 
