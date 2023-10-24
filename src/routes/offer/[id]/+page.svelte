@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { assets } from '$app/paths';
+    import { assets, base } from '$app/paths';
     import { page } from "$app/stores";
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
@@ -145,7 +145,7 @@
         <MintInfo action={openModal} />
     </Card>
     <section class="calltoaction">
-        <md-filled-button on:click={() => goto('/accounts')}>Accept the offer</md-filled-button>
+        <md-filled-button on:click={() => goto(`${base}/accounts`)}>Accept the offer</md-filled-button>
     </section>
 </div>
 
