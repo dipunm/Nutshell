@@ -238,7 +238,7 @@
             <md-list-item type="button">
                 <md-icon slot="start">lightbulb</md-icon> Discover
                 <div slot="supporting-text">
-                    Eliminate <strong>counterparty risk</strong> through the power of Bitcoin.
+                    Learn how to protect your funds through the power of Bitcoin.
                 </div>
             </md-list-item>
             <md-list-item type="button">
