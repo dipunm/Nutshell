@@ -1,4 +1,5 @@
 import { goto } from '$app/navigation';
+import { base } from '$app/paths';
 import { page } from '$app/stores';
 import { isCashuToken, readToken } from '$lib/cashu/token.js';
 import type { Proof } from '@cashu/cashu-ts';
@@ -22,7 +23,7 @@ export async function load({ url }) {
         const token = await fetchToken(payload);
         const id = await saveOffer(token!);
         unsubscribe();
-        goto(`/offer/${id}`, {
+        goto(`${base}/offer/${id}`, {
             replaceState: true,
             noScroll: false,
             invalidateAll: true,

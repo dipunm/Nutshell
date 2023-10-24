@@ -9,6 +9,7 @@
 	import NavBar from "$lib/components/NavBar.svelte";
 	import { page } from "$app/stores";
 	import { goto } from "$app/navigation";
+	import { base } from "$app/paths";
 
     export let data;
     $: accountId = data?.id ?? $page.params?.id;
@@ -27,7 +28,7 @@
 
         if (state?.depth ?? 0 > 0) {
             const handler = () => {
-                goto(`/accounts/${id}`, {
+                goto(`${base}/accounts/${id}`, {
                         keepFocus: true,
                         state: {
                             stack: id,
@@ -40,7 +41,7 @@
             window.addEventListener('popstate', handler);
             history.go(-state.depth);
         } else {
-            return goto(`/accounts/${id}`, {
+            return goto(`${base}/accounts/${id}`, {
                 keepFocus: true,
                 state: {
                     stack: id,
