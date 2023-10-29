@@ -38,6 +38,7 @@
 		"@bonosoft/sveltekit-qrcode": "^0.0.3",
 		"@cashu/cashu-ts": "^0.8.1",
 		"@material/web": "^1.0.0",
+		"html5-qrcode": "^2.3.8",
 		"idb": "^7.1.1",
 		"modern-normalize": "^2.0.0"
 	}

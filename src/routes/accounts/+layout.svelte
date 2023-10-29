@@ -5,6 +5,8 @@
     import "@material/web/tabs/secondary-tab.js"
     import "@material/web/list/list.js"
     import "@material/web/list/list-item.js"
+    import "@material/web/iconbutton/icon-button.js"
+    import "@material/web/icon/icon.js"
     
 	import NavBar from "$lib/components/NavBar.svelte";
 	import { page } from "$app/stores";
@@ -26,6 +28,8 @@
             return;
         }
 
+        console.log('switchstack' + JSON.stringify(state));
+
         if (state?.depth ?? 0 > 0) {
             const handler = () => {
                 goto(`${base}/accounts/${id}`, {
@@ -39,6 +43,7 @@
                 el.focus();
             }
             window.addEventListener('popstate', handler);
+            console.log('going back' + state.depth);
             history.go(-state.depth);
         } else {
             return goto(`${base}/accounts/${id}`, {
@@ -64,7 +69,6 @@
         max-width: 24rem;
         display: flex;
         flex-direction: column;
-        /* background-color: red; */
         overflow: auto;
         padding: 1rem;
     }
@@ -74,7 +78,7 @@
     }
 
     .content-container {
-        display:none;
+        display: flex;
         flex-direction: column;
         background-color: var(--md-sys-color-surface-container-low);
         flex-grow: 1;
@@ -86,33 +90,6 @@
         margin: 1rem;
         margin-left: 0;
         margin-bottom: 0;
-    }
-
-    .circle {
-        background-color: var(--md-sys-color-surface-container-high);
-        color: var(--md-sys-on-color-surface);
-        border-radius: 50%;
-        width: 15rem;
-        height: 15rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 3rem;
-    }
-
-    .content-container.empty {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .active .content-container.empty {
-        display: none;
-    }
-
-    .active .content-container {
-        display: flex;
     }
 
     .list-container ul {
@@ -186,10 +163,6 @@
             background-color: var(--md-sys-color-surface);
         }
 
-        .content-container.empty {
-            display: none;
-        }
-
         .list-container {
             width: 100vw;
             max-width: none;
@@ -227,7 +200,7 @@
     }
 
 </style>
-<div class="layout-container" class:active={active}>
+<div class="layout-container" class:active={active} data-sveltekit-noscroll data-sveltekit-keepfocus>
     <div class="menu" class:active={menuOpen}>
         <NavBar>
             <md-icon-button on:click={toggleMenu}>
@@ -277,14 +250,7 @@
             {/each}
         </ul>
     </div>
-    <section class="content-container empty">
-        <div class="circle">
-            Select a mint on the left.
-        </div>
-    </section>
     <section class="content-container">
-
         <slot></slot>
-
     </section>
 </div>

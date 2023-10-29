@@ -2,6 +2,13 @@
     import 'modern-normalize/modern-normalize.css';
     import './app.css';
     import '../css/theme.css'
+
+    export let data;
+    if (data.savedState) {
+        history.replaceState({
+			...data.savedState
+		}, '');
+    }
 </script>
 <style>
     .container {

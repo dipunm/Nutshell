@@ -133,7 +133,7 @@
     }
 </style>
 
-<div class="container">
+<div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
     <NavBar />
     <Card color="tertiary" height="12rem">
         <img class="hero" src="{assets}/offer-hero.png" alt="">
@@ -144,7 +144,7 @@
     <Card color="surface-container-highest" icon="mint" class="mint-info">
         <MintInfo action={openModal} />
     </Card>
-    <section class="calltoaction">
+    <section class="calltoaction" data-sveltekit-noscroll="false" data-sveltekit-keepfocus="false">
         <md-filled-button on:click={() => goto(`${base}/accounts`)}>Accept the offer</md-filled-button>
     </section>
 </div>
