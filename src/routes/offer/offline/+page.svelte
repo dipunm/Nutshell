@@ -6,7 +6,7 @@
 	import NavBar from "$lib/components/NavBar.svelte";
 	import { onMount } from "svelte";
 	import Details from "./details.svelte";
-    import {Html5QrcodeScanner, type Html5QrcodeResult} from "html5-qrcode";
+    import {Html5QrcodeScanner, type Html5QrcodeResult, Html5Qrcode} from "html5-qrcode";
 
     function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
         // handle the scanned code as you like, for example:
@@ -19,7 +19,10 @@
         console.warn(`Code scan error = ${error}`);
     }
 
-    onMount(() => {
+    onMount(async () => {
+        const cameras = await Html5Qrcode.getCameras();
+        cameras.find(c => alert(c.label));
+
         const html5QrcodeScanner = new Html5QrcodeScanner(
             "reader",
             { fps: 10, qrbox: {width: 250, height: 250} },
