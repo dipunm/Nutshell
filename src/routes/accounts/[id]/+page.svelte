@@ -9,7 +9,7 @@
     import "@material/web/textfield/outlined-text-field"
     import "@material/web/textfield/filled-text-field"
 
-    import { goto, onNavigate } from '$app/navigation';
+    import { onNavigate } from '$app/navigation';
 
 	import PageLayout from "../PageLayout.svelte";
 	import { base } from "$app/paths";

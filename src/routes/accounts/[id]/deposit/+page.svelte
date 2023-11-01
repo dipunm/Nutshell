@@ -3,8 +3,6 @@
 	import NavBar from "$lib/components/NavBar.svelte";
     import "@material/web/iconbutton/icon-button"
 
-    import { page } from '$app/stores';
-    import { base } from '$app/paths';
 	import { stackBack } from "$lib/navigation";
 </script>
 <style>

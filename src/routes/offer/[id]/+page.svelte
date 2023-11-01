@@ -11,6 +11,7 @@
 	import Details from './details.svelte';
 	import MintInfo from './mint-info.svelte';
 	import WhatIsAMint from './what-is-a-mint.svelte';
+	import { stackBack } from '$lib/navigation';
     
     let modal: HTMLDialogElement;
 
@@ -29,7 +30,7 @@
     onMount(() => {
         const onClose = (e: Event) => {
             if ($page.url.searchParams.has('modal')) {
-                history.go(-1);
+                stackBack();
             }
         };
         modal.addEventListener('close', onClose);
@@ -38,20 +39,8 @@
                 modal.close();
             }
         });
-        const unsubscribe = page.subscribe($page => {
-            if ($page.url.searchParams.has('modal')) {
-                if (!modal.open) {
-                    modal.showModal();
-                }
-            } else {
-                if (modal.open) {
-                    modal.close();
-                }
-            }
-        });
 
         return () => {
-            unsubscribe();
             modal.removeEventListener('close', onClose);
         }
     });
