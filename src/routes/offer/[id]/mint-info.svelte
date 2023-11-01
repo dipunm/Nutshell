@@ -1,7 +1,5 @@
 <script lang="ts">
     import "@material/web/chips/suggestion-chip"
-
-    export let action: () => void;
 </script>
 <style>
     h1 {
@@ -26,7 +24,7 @@
 
 <h1 class="title-medium">Deposited with the following mint:</h1>
 <p class="body-small">https://legend.lnbits.com/cashu/api/v1/4gr9Xcmz3XEkUNwiBiQGoC</p>
-<md-suggestion-chip on:click={action} label="What's a mint?"></md-suggestion-chip>
+<md-suggestion-chip href="?modal=true" label="What's a mint?"></md-suggestion-chip>
 <!-- <dl>
     <dt class="title-medium">
         Transferring to:

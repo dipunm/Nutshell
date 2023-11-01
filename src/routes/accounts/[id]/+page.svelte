@@ -13,10 +13,10 @@
 
 	import PageLayout from "../PageLayout.svelte";
 	import { base } from "$app/paths";
-
-
-    export let data;
-    $: toggle = data.id ? true : true;
+	import { stackBack, stackGo } from "$lib/navigation";
+    import { page } from '$app/stores';
+    
+    $: toggle = true;
 
     onNavigate(() => { toggle = true });
 
@@ -147,7 +147,7 @@
 
     <svelte:fragment slot="nav">
         {#if toggle}
-        <md-icon-button on:click={() => history.back()}><md-icon>arrow_back</md-icon></md-icon-button>
+        <md-icon-button on:click={() => stackBack()}><md-icon>arrow_back</md-icon></md-icon-button>
         <h1 class="headline-small">Unnamed Mint 01</h1>
         <md-text-button has-icon on:click={() => toggleEditor(false) }><md-icon slot="icon">edit</md-icon>Edit</md-text-button>
         {:else}
@@ -167,11 +167,7 @@
                 1 00 000 000 sats
             </div>
             <div class="btn-row">
-                <md-filled-button on:click={() => goto(`${base}/accounts/${data.id}/deposit`, {
-                    noScroll: true,
-                    state: { stack: data.id,
-                            depth: 2 }
-                })}><md-icon slot="icon">download</md-icon>Deposit</md-filled-button>
+                <md-filled-button on:click={stackGo(`${base}/accounts/${$page.params.id}/deposit`)}><md-icon slot="icon">download</md-icon>Deposit</md-filled-button>
                 <md-filled-button><md-icon slot="icon">file_upload</md-icon>Spend</md-filled-button>
             </div>
         </section>

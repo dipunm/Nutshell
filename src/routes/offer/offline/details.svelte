@@ -17,7 +17,7 @@
     }
 </style>
 
-<h1 class="headline-large">Scan something somethings</h1>
+<h1 class="headline-large">Scan to receive:</h1>
 <h2 class="headline-small zeros">
     <span class="zeros">0</span><span class="amount headline-medium">.</span><span class="zeros"> 00 0</span><span class="amount headline-medium">50 204</span> <span class="label-large">BTC</span>
 </h2>

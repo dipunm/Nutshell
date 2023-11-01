@@ -3,6 +3,9 @@
 	import NavBar from "$lib/components/NavBar.svelte";
     import "@material/web/iconbutton/icon-button"
 
+    import { page } from '$app/stores';
+    import { base } from '$app/paths';
+	import { stackBack } from "$lib/navigation";
 </script>
 <style>
     .container {
@@ -13,7 +16,7 @@
 </style>
 
 <NavBar>
-    <md-icon-button on:click={() => history.back()}><md-icon>arrow_back</md-icon></md-icon-button>
+    <md-icon-button on:click={() => stackBack()}><md-icon>arrow_back</md-icon></md-icon-button>
 </NavBar>
 <div class="container">
     <Card color="surface-container-highest">

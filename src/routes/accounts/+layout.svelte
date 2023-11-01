@@ -10,8 +10,8 @@
     
 	import NavBar from "$lib/components/NavBar.svelte";
 	import { page } from "$app/stores";
-	import { goto } from "$app/navigation";
 	import { base } from "$app/paths";
+	import { stackGo } from "$lib/navigation";
 
     export let data;
     $: accountId = data?.id ?? $page.params?.id;
@@ -21,40 +21,6 @@
     function toggleMenu() {
         menuOpen = !menuOpen;
     }
-
-	function switchStack(id: string, el: HTMLElement) {
-        const { state } = history;
-        if (state?.stack === id) {
-            return;
-        }
-
-        console.log('switchstack' + JSON.stringify(state));
-
-        if (state?.depth ?? 0 > 0) {
-            const handler = () => {
-                goto(`${base}/accounts/${id}`, {
-                        keepFocus: true,
-                        state: {
-                            stack: id,
-                            depth: 1
-                        }
-                    });
-                window.removeEventListener('popstate', handler);
-                el.focus();
-            }
-            window.addEventListener('popstate', handler);
-            console.log('going back' + state.depth);
-            history.go(-state.depth);
-        } else {
-            return goto(`${base}/accounts/${id}`, {
-                keepFocus: true,
-                state: {
-                    stack: id,
-                    depth: 1
-                }
-            });
-        }
-	}
 </script>
 
 <style>
@@ -240,7 +206,7 @@
         <ul>
             {#each ['1','2'] as id}
             <li class="mint-item" class:active={id === accountId}>
-                <button id={`mint-item-${id}`} on:click={(e) => switchStack(`${id}`, e.currentTarget)}>
+                <button id={`mint-item-${id}`} on:click={(e) => stackGo(`${base}/accounts/${id}`, { keepFocus: true })}>
                     <md-focus-ring for={`mint-item-${id}`} />
                     <md-ripple />
                     <h2 class="title-large">Unnamed Mint 0{id}</h2>

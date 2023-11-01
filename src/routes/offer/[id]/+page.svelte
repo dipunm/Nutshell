@@ -1,7 +1,7 @@
 <script lang="ts">
     import { assets, base } from '$app/paths';
     import { page } from "$app/stores";
-	import { goto } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { onMount } from 'svelte';
     import "@material/web/button/filled-button"
     import "@material/web/iconbutton/icon-button"
@@ -13,17 +13,18 @@
 	import WhatIsAMint from './what-is-a-mint.svelte';
     
     let modal: HTMLDialogElement;
-    function openModal() {
-        goto('?modal=true', {
-            noScroll: true
-        });
-        modal.showModal();
-    }
 
-    function closeModal(event: Event) {
-        event.preventDefault(); // We don't want to submit this fake form
-        modal.close(); // Have to send the select box value here.
-    }
+    afterNavigate(() => {
+        if($page.url.searchParams.get('modal')) {
+            if (!modal.open) {
+                modal.showModal();
+            }
+        } else {
+            if (modal.open) {
+                modal.close();
+            }
+        }
+    });
 
     onMount(() => {
         const onClose = (e: Event) => {
@@ -142,17 +143,17 @@
         <Details />
     </section>
     <Card color="surface-container-highest" icon="mint" class="mint-info">
-        <MintInfo action={openModal} />
+        <MintInfo />
     </Card>
     <section class="calltoaction" data-sveltekit-noscroll="false" data-sveltekit-keepfocus="false">
-        <md-filled-button on:click={() => goto(`${base}/accounts`)}>Accept the offer</md-filled-button>
+        <md-filled-button href={`${base}/accounts`}>Accept the offer</md-filled-button>
     </section>
 </div>
 
 <dialog bind:this={modal}>
     <div class="modal-container">
         <NavBar>
-            <md-icon-button on:click={closeModal}>
+            <md-icon-button href={`/Nutshell/offer/${$page.params.id}`}>
                 <md-icon>arrow_back</md-icon>
             </md-icon-button>
             <h1 class="headline-medium">What is a mint?</h1>
