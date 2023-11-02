@@ -4,6 +4,7 @@
 	import Details from "./details.svelte";
     import {type Html5QrcodeResult, Html5Qrcode} from "html5-qrcode";
     import '@material/web/button/filled-button';
+    import '@material/web/progress/linear-progress';
 
     function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
         // handle the scanned code as you like, for example:
@@ -36,6 +37,16 @@
         padding: 1rem;
         border: 1px solid var( --md-sys-color-outline );
     }
+    
+    .progress {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progress md-linear-progress {
+        width: 70%;
+    }
 
     #reader {
         display:flex;
@@ -54,6 +65,10 @@
     </section>
 
     <div class="cam-window">
+        <div class="progress">
+            <md-linear-progress value={4/6} four-color={true} />
+            (4 out of 6)
+        </div>
         <div id="reader">
             <md-filled-button on:click={startCamera}>Click here to start camera</md-filled-button>
         </div>
