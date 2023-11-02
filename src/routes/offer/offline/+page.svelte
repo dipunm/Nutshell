@@ -33,7 +33,7 @@
 
     .cam-window {
         margin: 1rem;
-        padding: 2rem;
+        padding: 1rem;
         border: 1px solid var( --md-sys-color-outline );
     }
 
