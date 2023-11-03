@@ -97,8 +97,10 @@
     @media (max-width: 500px) {
         .modal-container {
             width: 100vw;
-            height: 100vh;
+            height: 100%;
+            background-color: var(--md-sys-color-surface);
             max-height: none;
+            position: fixed;
         }
 
         dialog {
