@@ -67,7 +67,8 @@
             Unlike other custodians, a mint cannot 
             target you, or freeze or restrict access to 
             your funds. Mints don't know who you are, 
-            who you shop with, nor what your balance is.
+            who you shop with, nor what your current balance 
+            is.
         </div>
     </md-list-item>
 </md-list>
