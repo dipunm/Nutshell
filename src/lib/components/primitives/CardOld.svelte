@@ -33,9 +33,8 @@
     }
 
     .icon {
-        color: var( --md-sys-color-on-surface );
         border-radius: 100%;
-        background-color: var( --md-sys-color-surface );
+        background-color: var( --md-sys-color-surface-container );
         width: 2.5rem;
         height: 2.5rem;
         position: absolute;
@@ -47,6 +46,7 @@
         justify-content: center;
         align-items: center;
         line-height: 0rem;
+        color: #F7931A;
     }
 </style>
 
@@ -58,7 +58,7 @@
 ">
     {#if icon === 'mint'}        
         <div class="icon">
-            <md-icon>account_balance</md-icon>
+            <md-icon>currency_bitcoin</md-icon>
             <!-- <img src="{assets}/mint.svg" alt="mint icon"/> -->
         </div>
     {/if}
