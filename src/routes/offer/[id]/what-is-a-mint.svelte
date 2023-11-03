@@ -18,8 +18,13 @@
 </style>
 
 <p>
-    A mint is similar to a banking institution; it provides convenience and
-    defends your online privacy as you spend and receive bitcoin.
+    A mint is similar to a banking institution; it facilitates payments, 
+    provides convenience and defends your online privacy as you spend and receive bitcoin.
+</p>
+<p>
+    This app uses mints to provide a functional wallet while providing resources
+    to help you learn more about bitcoin and how to ultimately eliminate counterparty risk 
+    by practicing self custody.
 </p>
 
 <md-list>
@@ -69,10 +74,6 @@
 </md-list>
 
 <p>
-    This app provides learning resources to help you learn more about bitcoin and 
-    how to eliminate counterparty risk by practicing self custody.
-</p>
-<p>
-    This app allows you to manage funds across one or many mints using the cashu protocol. Learn 
-    more at <a target="_blank" href="https://cashu.space">https://cashu.space</a>.
+    This app uses the cashu protocol. You can learn 
+    more about it at <a target="_blank" href="https://cashu.space">https://cashu.space</a>.
 </p>
