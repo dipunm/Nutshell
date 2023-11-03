@@ -42,7 +42,7 @@
         <md-icon slot="start">error</md-icon>
         <div slot="headline">Custodians require trust</div>
         <div slot="supporting-text">
-            Custodians rely on reputation to establish trust. 
+            All custodians rely on reputation to establish trust. 
             Customers must trust them to secure and 
             facilitate payments, and to minimise counterparty 
             risk on their behalf.
