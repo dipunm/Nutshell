@@ -15,6 +15,10 @@
     p + p {
         margin-top: 1rem;
     }
+
+    a {
+        text-decoration: underline;
+    }
 </style>
 
 <p>
