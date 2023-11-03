@@ -23,7 +23,7 @@
 </p>
 <p>
     This app uses mints to provide a functional wallet while providing resources
-    to help you learn more about bitcoin and how to ultimately eliminate counterparty risk 
+    to help you learn more about bitcoin and ultimately eliminate counterparty risk 
     by practicing self custody.
 </p>
 
@@ -42,10 +42,10 @@
         <md-icon slot="start">error</md-icon>
         <div slot="headline">Custodians require trust</div>
         <div slot="supporting-text">
-            Mints rely on reputation to establish trust. 
-            Customers must trust custodians to secure 
-            and facilitate payments, and to minimise 
-            counterparty risk on their behalf.
+            Custodians rely on reputation to establish trust. 
+            Customers must trust them to secure and 
+            facilitate payments, and to minimise counterparty 
+            risk on their behalf.
         </div>
     </md-list-item>
 
@@ -56,8 +56,7 @@
             Mints operate without collecting your 
             personal information or asking for 
             registration; why should it? Mints don't 
-            keep track of your balance, your device 
-            does.
+            need to know you to serve you.
         </div>
     </md-list-item>
 
@@ -68,12 +67,12 @@
             Unlike other custodians, a mint cannot 
             target you, or freeze or restrict access to 
             your funds. Mints don't know who you are, 
-            nor how wealthy you might be.
+            who you shop with, nor what your balance is.
         </div>
     </md-list-item>
 </md-list>
 
 <p>
-    This app uses the cashu protocol. You can learn 
+    This app operates using the cashu protocol. Learn 
     more about it at <a target="_blank" href="https://cashu.space">https://cashu.space</a>.
 </p>
