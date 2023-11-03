@@ -23,7 +23,7 @@
 </p>
 <p>
     This app uses mints to provide a foundational wallet while providing resources
-    to help you learn more about bitcoin and ultimately eliminate counterparty risk 
+    to help you learn more about Bitcoin and ultimately eliminate counterparty risk 
     through self custody.
 </p>
 
