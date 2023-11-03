@@ -123,6 +123,7 @@
         color: var(--md-sys-color-primary);
         font-weight: 500;
     }
+
 </style>
 
 <SinglePane>

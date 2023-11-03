@@ -27,8 +27,9 @@
         <md-icon slot="start">account_balance</md-icon>
         <div slot="headline">A mint is a custodian</div>
         <div slot="supporting-text">
-            Like all custodial services, a mint is 
-            susceptible to loss of customer funds.
+            Just like banks, exchanges and all custodial 
+            services, a mint is susceptible to loss of 
+            customer funds.
         </div>
     </md-list-item>
     
