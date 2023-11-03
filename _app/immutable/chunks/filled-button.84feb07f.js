@@ -47,4 +47,4 @@ import{_ as a,l as m,s as g,A as r,x as d,i as b,e as _}from"./lit-element.c752f
  * @license
  * Copyright 2021 Google LLC
  * SPDX-License-Identifier: Apache-2.0
- */let p=class extends A{};p.styles=[M,B,R];p=a([_("md-filled-button")],p);export{o as B,D as r,M as s};
+ */let p=class extends A{};p.styles=[M,B,R];p=a([_("md-filled-button")],p);export{o as B,B as a,D as r,M as s};
