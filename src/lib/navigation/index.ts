@@ -11,7 +11,6 @@ export const initializeHistoryStack = async () => {
             stack
         }
     });
-    console.log('initialized stack::', history.state.stack);
 }
 
 const getRelativeUrl = (url: URL | Location) => `${url.pathname}${url.search}${url.hash}`;
@@ -109,8 +108,6 @@ export async function stackGo(url: string, opts: {
             [...stack.slice(0, commonIndex), getRelativeUrl(newUrl)] : 
             [...stack.slice(0, commonIndex + 1), getRelativeUrl(newUrl)];
 
-        console.log('go:::', newStack);
-        debugger;
         await goto(url, {        
             ...(opts ?? {}),
             replaceState: replace,

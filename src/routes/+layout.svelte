@@ -3,7 +3,6 @@
     import './app.css';
     import '../css/theme.css'
 	import { configureNavHandling, initializeHistoryStack } from '$lib/navigation';
-	import { afterNavigate } from '$app/navigation';
 
     export let data;
     if (data.savedState) {
@@ -16,12 +15,7 @@
         initializeHistoryStack();
     }
 
-    console.log('found stack::', history.state.stack);
-    
     configureNavHandling();
-    afterNavigate(() => {
-        console.log('navigation after stack::', history.state.stack);
-    });
 </script>
 <style>
     .container {
@@ -35,6 +29,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">
     <title>Nutshell</title>
 </svelte:head>
-<div class="container">
+<div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
     <slot />
 </div>

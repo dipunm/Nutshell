@@ -8,7 +8,7 @@
 	export { className as class };
     export let icon: "mint" | undefined = undefined;
     const iconSpace = icon === "mint" ? 1.25 : 0;
-    const mtop = icon === "mint" ? 1.25 : 1.1875;
+    const mtop = icon === "mint" ? /*1.25*/ 0 : 1.1875;
 </script>
 <style>
     section {
@@ -20,8 +20,16 @@
         padding-top: var(--padding-top);
         
         position: relative;
-        text-align: center;
         height: var(--height);
+
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 450px;
+
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0px 1px 10px var(--md-sys-color-shadow);
     }
 
     .icon {

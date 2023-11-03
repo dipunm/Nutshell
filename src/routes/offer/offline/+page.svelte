@@ -1,6 +1,6 @@
 <script lang="ts">
 
-	import NavBar from "$lib/components/NavBar.svelte";
+	import NavBar from "$lib/components/primitives/NavBar.svelte";
 	import Details from "./details.svelte";
     import {type Html5QrcodeResult, Html5Qrcode} from "html5-qrcode";
     import '@material/web/button/filled-button';
@@ -42,6 +42,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 1rem
     }
 
     .progress md-linear-progress {

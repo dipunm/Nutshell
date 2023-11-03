@@ -6,12 +6,14 @@
     import "@material/web/button/filled-button"
     import "@material/web/iconbutton/icon-button"
     import "@material/web/icon/icon"
-	import Card from '$lib/components/Card.svelte';
-	import NavBar from '$lib/components/NavBar.svelte';
+	import Card from '$lib/components/primitives/CardOld.svelte';
+	import NavBar from '$lib/components/primitives/NavBar.svelte';
 	import Details from './details.svelte';
 	import MintInfo from './mint-info.svelte';
 	import WhatIsAMint from './what-is-a-mint.svelte';
 	import { stackBack } from '$lib/navigation';
+	import SinglePane from '$lib/components/layouts/SinglePane.svelte';
+	import CashHero from '$lib/components/modules/CashHero.svelte';
     
     let modal: HTMLDialogElement;
 
@@ -47,21 +49,6 @@
 </script>
 
 <style>
-    .container {
-        padding: 0 1rem 3rem 1rem;
-        display: flex;
-        flex-direction: column;
-        margin: 0 auto;
-        max-width: 1000px;
-    }
-
-    img.hero {
-        bottom: 0;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
     .details {
         padding: 0 16px;
         margin-bottom: 3rem;
@@ -121,23 +108,37 @@
             max-width: 100%;
         }
     }
+
+    h2 {
+        text-align: center;
+        font-weight: 400;
+        margin-bottom: 1rem;
+    }
+
+    h2 .zeros {
+        opacity: 40%;
+    }
+
+    h2 .amount {
+        color: var(--md-sys-color-primary);
+        font-weight: 500;
+    }
 </style>
 
-<div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
-    <NavBar />
-    <Card color="tertiary" height="12rem">
-        <img class="hero" src="{assets}/offer-hero.png" alt="">
-    </Card>
+<SinglePane>
     <section class="details">
         <Details />
     </section>
     <Card color="surface-container-highest" icon="mint" class="mint-info">
+        <h2 class="headline-small zeros">
+            <span class="zeros">0</span><span class="amount headline-medium">.</span><span class="zeros"> 00 0</span><span class="amount headline-medium">50 204</span> <span class="label-large">BTC</span>
+        </h2>
         <MintInfo />
     </Card>
     <section class="calltoaction" data-sveltekit-noscroll="false" data-sveltekit-keepfocus="false">
-        <md-filled-button href={`${base}/accounts`}>Accept the offer</md-filled-button>
+        <md-filled-button href={`${base}/accounts`}>Claim the offer</md-filled-button>
     </section>
-</div>
+</SinglePane>
 
 <dialog bind:this={modal}>
     <div class="modal-container">
@@ -145,7 +146,7 @@
             <md-icon-button href={`/Nutshell/offer/${$page.params.id}`}>
                 <md-icon>arrow_back</md-icon>
             </md-icon-button>
-            <h1 class="headline-medium">What is a mint?</h1>
+            <h1 class="headline-small">What is a mint?</h1>
         </NavBar>
         <section class="contents">
             <WhatIsAMint />

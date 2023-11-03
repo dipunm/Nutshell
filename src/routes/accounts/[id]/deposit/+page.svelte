@@ -1,6 +1,6 @@
 <script>
-	import Card from "$lib/components/Card.svelte";
-	import NavBar from "$lib/components/NavBar.svelte";
+	import Card from "$lib/components/primitives/CardOld.svelte";
+	import NavBar from "$lib/components/primitives/NavBar.svelte";
     import "@material/web/iconbutton/icon-button"
 
 	import { stackBack } from "$lib/navigation";

@@ -8,7 +8,7 @@
     import "@material/web/iconbutton/icon-button.js"
     import "@material/web/icon/icon.js"
     
-	import NavBar from "$lib/components/NavBar.svelte";
+	import NavBar from "$lib/components/primitives/NavBar.svelte";
 	import { page } from "$app/stores";
 	import { base } from "$app/paths";
 	import { stackGo } from "$lib/navigation";
@@ -166,7 +166,7 @@
     }
 
 </style>
-<div class="layout-container" class:active={active} data-sveltekit-noscroll data-sveltekit-keepfocus>
+<div class="layout-container" class:active={active}>
     <div class="menu" class:active={menuOpen}>
         <NavBar>
             <md-icon-button on:click={toggleMenu}>
@@ -175,7 +175,8 @@
         </NavBar>
         <md-list>
             <md-list-item type="button">
-                <md-icon slot="start">lightbulb</md-icon> Discover
+                <md-icon slot="start">book</md-icon> 
+                Discover
                 <div slot="supporting-text">
                     Learn how to protect your funds through the power of Bitcoin.
                 </div>
