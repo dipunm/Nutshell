@@ -46,7 +46,7 @@
 
     <md-list-item>
         <md-icon slot="start">visibility_off</md-icon>
-        <div slot="headline">A mint is a custodian</div>
+        <div slot="headline">Mints defend your privacy</div>
         <div slot="supporting-text">
             Mints operate without collecting your 
             personal information or asking for 
@@ -58,7 +58,7 @@
 
     <md-list-item>
         <md-icon slot="start">gavel</md-icon>
-        <div slot="headline">Mints defend your privacy</div>
+        <div slot="headline">Mints are impartial</div>
         <div slot="supporting-text">
             Unlike other custodians, a mint cannot 
             target you, or freeze or restrict access to 
