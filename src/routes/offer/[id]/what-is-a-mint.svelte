@@ -22,9 +22,9 @@
     provides convenience and defends your online privacy as you spend and receive bitcoin.
 </p>
 <p>
-    This app uses mints to provide a functional wallet while providing resources
+    This app uses mints to provide a foundational wallet while providing resources
     to help you learn more about bitcoin and ultimately eliminate counterparty risk 
-    by practicing self custody.
+    through self custody.
 </p>
 
 <md-list>
