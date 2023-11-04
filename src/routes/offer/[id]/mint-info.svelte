@@ -8,15 +8,12 @@
 	import { stackBack, stackPopUrl } from "$lib/navigation";
 	import Modal from "$lib/components/primitives/Modal.svelte";
 	import { page } from "$app/stores";
-	import PortalTarget from "$lib/components/primitives/PortalTarget.svelte";
 </script>
 
-<PortalTarget name="test" />
 <h1 class="title-medium">Deposited at mint:</h1>
 <p class="body-medium">
     https://legend.lnbits.com/cashu/api/v1/4gr9Xcmz3XEkUNwiBiQGoC</p>
 <md-filled-tonal-button href="?modal=true">What's a mint<md-icon slot="icon">help_outline</md-icon></md-filled-tonal-button>
-<Portal target="test"><p>TESTINT</p></Portal>
 
 <Portal target="modal">
     <Modal condition={() => $page.url.searchParams.has('modal')} on:close={() => stackBack()}>
