@@ -33,4 +33,4 @@
 <div class="container">
     <slot />
 </div>
-<PortalTarget name="modal" />
+<PortalTarget name="target:modal" />

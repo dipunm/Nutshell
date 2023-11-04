@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { afterNavigate } from "$app/navigation";
     import { createEventDispatcher } from 'svelte';
+	import NavBar from "./NavBar.svelte";
     
     export let condition: () => boolean;
     let modal: HTMLDialogElement;
@@ -32,7 +33,19 @@
 </script>
 
 <dialog bind:this={modal} on:close={closeHandler}>
-    <slot />
+    <div class="modal-container">
+        <NavBar>
+            <slot name="navStart" />
+            {#if $$slots.navTitle}
+            <h1 class="headline-small">
+                <slot name="navTitle" />
+            </h1>
+            {/if}
+        </NavBar>
+        <div class="contents">
+            <slot />
+        </div>
+    </div>
 </dialog>
 
 <style>
@@ -48,6 +61,16 @@
         padding: 0;
     }
 
+    .modal-container {
+        padding: 1rem;
+        width: 90vw;
+        height: fit-content;
+        max-width: 600px;
+        max-height: 80vh;
+        display: flex;
+        flex-direction: column;
+    }
+
     @media (max-width: 500px) {
         dialog {
             border-radius: 0;
@@ -55,5 +78,24 @@
             max-height: 100%;
             max-width: 100%;
         }
+
+        .modal-container {
+            width: 100vw;
+            height: 100%;
+            background-color: var(--md-sys-color-surface);
+            max-height: none;
+            position: fixed;
+        }
+    }
+
+    .modal-container h1 {
+        margin: 0 1rem;
+    }
+    
+    .modal-container .contents {
+        padding: 1rem; 
+        margin-right: -1rem;
+        padding-right: 2rem;
+        overflow-y: auto
     }
 </style>

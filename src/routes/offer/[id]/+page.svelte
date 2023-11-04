@@ -3,9 +3,9 @@
 	import "@material/web/button/filled-button"
     import "@material/web/icon/icon"
 	import Card from '$lib/components/primitives/Card.svelte';
-	import MintInfo from './mint-info.svelte';
 	import SinglePane from '$lib/components/layouts/SinglePane.svelte';
-	import Amount from './amount.svelte';
+	import MintInfo from '$modules/offer/mint-info.svelte';
+	import Amount from '$modules/offer/amount.svelte';
 </script>
 
 <SinglePane>

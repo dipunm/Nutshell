@@ -1,6 +1,7 @@
 // import adapter from '@sveltejs/adapter-auto';
 import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/kit/vite';
+import { resolve } from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -19,8 +20,11 @@ const config = {
 		}),
 		paths: {
 			base: '/Nutshell'
+		},
+		alias: {
+			$modules: 'src/lib/components/modules'
 		}
-	}
+	},
 };
 
 export default config;
