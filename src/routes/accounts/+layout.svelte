@@ -12,13 +12,17 @@
 	import { base } from "$app/paths";
 	import { stackGo } from "$lib/navigation";
 	import ListDetailMenu from "$lib/components/layouts/ListDetailMenu.svelte";
+	import PortalTarget from "$lib/components/primitives/PortalTarget.svelte";
 
     export let data;
     $: accountId = data?.id ?? $page.params?.id;
-    $: active = typeof accountId !== 'undefined';
+    $: contentActive = typeof accountId !== 'undefined';
 </script>
 
-<ListDetailMenu contentActive={active}>
+<ListDetailMenu {contentActive}>
+    <svelte:fragment slot="navbar">
+        <PortalTarget name="content-navbar" />
+    </svelte:fragment>
     <svelte:fragment slot="menu">
         <md-list>
             <md-list-item type="button">

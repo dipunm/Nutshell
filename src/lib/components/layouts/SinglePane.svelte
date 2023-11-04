@@ -14,7 +14,7 @@
 </style>
 <div class="container">
     <NavBar>
-        <slot name="nav" />
+        <slot name="navbar" />
     </NavBar>
     <slot />
 </div>

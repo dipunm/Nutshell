@@ -10,7 +10,6 @@
     
 	import NavBar from "$lib/components/primitives/NavBar.svelte";
 	import { stackPopUrl } from "$lib/navigation";
-	import PortalTarget from "../primitives/PortalTarget.svelte";
 
     export let contentActive: boolean = false;
     let menuOpen = false;
@@ -44,7 +43,7 @@
         <section class="nav">
             <NavBar>
                 <md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
-                <PortalTarget name="content-navbar" />
+                <slot name="navbar"></slot>
             </NavBar>
         </section>
         <slot />

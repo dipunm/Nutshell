@@ -1,6 +1,3 @@
-<script>
-
-</script>
 <style>
     .circle {
         background-color: var(--md-sys-color-surface-container-high);
@@ -23,10 +20,8 @@
     }
     
 </style>
-<!-- <PageLayout> -->
 <div class="container">
     <div class="circle">
         Select a mint on the left.
     </div>
 </div>
-<!-- </PageLayout> -->
