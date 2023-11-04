@@ -1,5 +1,4 @@
 <script>
-	import PageLayout from "./PageLayout.svelte";
 
 </script>
 <style>
@@ -24,10 +23,10 @@
     }
     
 </style>
-<PageLayout>
+<!-- <PageLayout> -->
 <div class="container">
     <div class="circle">
         Select a mint on the left.
     </div>
 </div>
-</PageLayout>
+<!-- </PageLayout> -->
