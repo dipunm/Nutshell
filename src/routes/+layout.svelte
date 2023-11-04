@@ -2,8 +2,13 @@
     import 'modern-normalize/modern-normalize.css';
     import './app.css';
     import '../css/theme.css'
-	import { configureNavHandling, initializeHistoryStack } from '$lib/navigation';
+	import { activateNavigationStackBehaviour } from '$lib/navigation';
+	import PortalTarget from '$lib/components/primitives/PortalTarget.svelte';
 
+    /**
+     * Workaround: preserve history state after refresh.
+     * Source: https://github.com/sveltejs/kit/issues/9868#issue-1700272768
+     */
     export let data;
     if (data.savedState) {
         history.replaceState({
@@ -11,11 +16,7 @@
 		}, '');
     }
 
-    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
-        initializeHistoryStack();
-    }
-
-    configureNavHandling();
+    activateNavigationStackBehaviour();
 </script>
 <style>
     .container {
@@ -29,6 +30,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet">
     <title>Nutshell</title>
 </svelte:head>
-<div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
+<div class="container">
     <slot />
 </div>
+<PortalTarget name="modal" />

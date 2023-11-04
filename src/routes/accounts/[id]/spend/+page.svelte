@@ -1,5 +1,5 @@
 <script>
-	import Card from "$lib/components/primitives/CardOld.svelte";
+	import Card from "$lib/components/primitives/Card.svelte";
 </script>
 <style>
     .container {

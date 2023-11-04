@@ -1,21 +1,36 @@
 import { goto, beforeNavigate } from "$app/navigation";
+import { page } from "$app/stores";
+import { get, writable } from "svelte/store";
 
-const absoluteTest = /^(?:[a-z+]+:)?\/\//i
-
-export const initializeHistoryStack = async () => {
-    const stack = [getRelativeUrl(window.location)];
-    await goto(window.location.toString(), {
-        replaceState: true,
-        state: {
-            ...history.state,
-            stack
-        }
-    });
+const initializeHistoryStack = async () => {
+    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
+        const stack = [getRelativeUrl(window.location)];
+        await goto(window.location.toString(), {
+            replaceState: true,
+            state: {
+                ...history.state,
+                stack
+            }
+        });
+    }
 }
+
+export const stackPopUrl = writable('');
+page.subscribe((p) => {
+    if (!p?.url) return;
+    
+    if (p.url.search !== '' || p.url.hash !== '') {
+        stackPopUrl.set(p.url.pathname);
+    } else {
+        stackPopUrl.set(p.url.pathname.replace(/\/[^/]+\/?$/, ''));
+    }
+});
 
 const getRelativeUrl = (url: URL | Location) => `${url.pathname}${url.search}${url.hash}`;
 
-export const configureNavHandling = () => beforeNavigate(async nav => {
+export const activateNavigationStackBehaviour = () => {
+    initializeHistoryStack();
+    beforeNavigate(async nav => {
         // introduce form handling when necessary
         if (nav.type === 'link' /*|| nav.type === 'form'*/) {
             if (nav.to === null) return;
@@ -26,22 +41,15 @@ export const configureNavHandling = () => beforeNavigate(async nav => {
                 // navigating away from site.
                 return;
             }
-    
+
             nav.cancel()
             await stackGo(nav.to.url.toString());
         }
     });
+}
 
 export async function stackBack() {
-    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
-        throw new Error(`History API not properly configured!`);
-    }
-
-    if (window.location.search !== '' || window.location.hash !== '') {
-        await stackGo(window.location.pathname);
-    } else {
-        await stackGo(window.location.pathname.replace(/\/[^/]+\/?$/, ''));
-    }
+    return await stackGo(get(stackPopUrl));
 }
 
 export async function stackGo(url: string, opts: {
@@ -87,10 +95,13 @@ export async function stackGo(url: string, opts: {
 
     let backCount = 0;
     let replace = false;
+    const extras = {} as { keepFocus?: boolean, noScroll?: boolean };
     if (commonIndex === -1) {
         // go back to start and replace.
         backCount = stack.length - 1;
         replace = true;
+        extras.keepFocus = false;
+        extras.noScroll = false;
     } else {
         backCount = stack.length - commonIndex - 1;
         if (stack[commonIndex] === newPath) {

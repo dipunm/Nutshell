@@ -1,5 +1,5 @@
 <script>
-	import Card from "$lib/components/primitives/CardOld.svelte";
+	import Card from "$lib/components/primitives/Card.svelte";
 	import NavBar from "$lib/components/primitives/NavBar.svelte";
     import "@material/web/iconbutton/icon-button"
 
