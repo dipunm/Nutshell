@@ -4,6 +4,7 @@
     import "@material/web/iconbutton/icon-button"
 
 	import { stackBack } from "$lib/navigation";
+	import Portal from "$lib/components/primitives/Portal.svelte";
 </script>
 <style>
     .container {
@@ -11,11 +12,16 @@
         grid-template-columns: 1fr 1fr;
         column-gap: 1rem;
     }
+
+    h1 {
+        margin: 0 1rem;
+    }
 </style>
 
-<NavBar>
-    <md-icon-button on:click={() => stackBack()}><md-icon>arrow_back</md-icon></md-icon-button>
-</NavBar>
+<Portal target="content-navbar">
+    <h1 class="headline-small">Deposit</h1>
+</Portal>
+
 <div class="container">
     <Card color="surface-container-highest">
         Create an invoice
