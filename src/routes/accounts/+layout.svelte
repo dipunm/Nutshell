@@ -20,8 +20,8 @@
 </script>
 
 <ListDetailMenu {contentActive}>
-    <svelte:fragment slot="navbar">
-        <PortalTarget name="content-navbar" />
+    <svelte:fragment slot="appbar">
+        <PortalTarget name="content-appbar" />
     </svelte:fragment>
     <svelte:fragment slot="menu">
         <md-list>

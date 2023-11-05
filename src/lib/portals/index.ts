@@ -3,7 +3,7 @@ import { readable, writable } from "svelte/store";
 const portals = writable({} as { [key: string]: any });
 
 export function createPortal(name: string) {
-    return readable<Element[] | null>(null, (set) => {
+    return readable<ChildNode[] | null>(null, (set) => {
         let cache = undefined as unknown;
         portals.subscribe(list => {
             if (list[name] !== cache) {
@@ -14,8 +14,14 @@ export function createPortal(name: string) {
     });
 }
 
-export function bindToPortal(name: string, component: Element[] | null) {
+export function bindToPortal(name: string, components: ChildNode[] | null) {
     portals.update((list => {
-        return { ...list, [name]: component };
+        return { ...list, [name]: components };
     }));
+}
+
+export function appendToPortal(name: string, components: ChildNode[]) {
+    portals.update(list => {
+        return { ...list, [name]: [...list[name], ...components]}
+    });
 }

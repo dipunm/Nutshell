@@ -1,6 +1,6 @@
 <script>
     import { assets } from "$app/paths";
-	import NavBar from "../primitives/NavBar.svelte";
+	import AppBar from "../primitives/AppBar.svelte";
 
 </script>
 <style>
@@ -13,8 +13,8 @@
     }
 </style>
 <div class="container">
-    <NavBar>
-        <slot name="navbar" />
-    </NavBar>
+    <AppBar>
+        <slot name="appbar" />
+    </AppBar>
     <slot />
 </div>

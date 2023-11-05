@@ -1,5 +1,4 @@
 <script lang="ts">
-	import NavBar from "$lib/components/primitives/NavBar.svelte";
 	import Portal from "$lib/components/primitives/Portal.svelte";
     import "@material/web/button/filled-tonal-button"
     import "@material/web/icon/icon"
@@ -17,12 +16,12 @@
 
 <Portal target="target:modal">
     <Modal condition={() => $page.url.searchParams.has('modal')} on:close={() => stackBack()}>
-        <svelte:fragment slot="navStart">
+        <svelte:fragment slot="appBarStart">
             <md-icon-button href={$stackPopUrl}>
                 <md-icon>arrow_back</md-icon>
             </md-icon-button>
         </svelte:fragment>
-        <svelte:fragment slot="navTitle">What is a mint?</svelte:fragment>
+        <svelte:fragment slot="appBarTitle">What is a mint?</svelte:fragment>
         <WhatIsAMint />
     </Modal>
 </Portal>

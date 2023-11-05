@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { afterNavigate } from "$app/navigation";
     import { createEventDispatcher } from 'svelte';
-	import NavBar from "./NavBar.svelte";
+	import AppBar from "./AppBar.svelte";
     
     export let condition: () => boolean;
     let modal: HTMLDialogElement;
@@ -34,14 +34,14 @@
 
 <dialog bind:this={modal} on:close={closeHandler}>
     <div class="modal-container">
-        <NavBar>
-            <slot name="navStart" />
-            {#if $$slots.navTitle}
+        <AppBar>
+            <slot name="appBarStart" />
+            {#if $$slots.appBarTitle}
             <h1 class="headline-small">
-                <slot name="navTitle" />
+                <slot name="appBarTitle" />
             </h1>
             {/if}
-        </NavBar>
+        </AppBar>
         <div class="contents">
             <slot />
         </div>
@@ -91,7 +91,7 @@
     .modal-container h1 {
         margin: 0 1rem;
     }
-    
+
     .modal-container .contents {
         padding: 1rem; 
         margin-right: -1rem;

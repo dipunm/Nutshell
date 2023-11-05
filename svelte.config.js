@@ -23,8 +23,13 @@ const config = {
 		},
 		alias: {
 			$modules: 'src/lib/components/modules'
-		}
+		},
 	},
+	vite: {
+		build: {
+			minify: false
+		}
+	}
 };
 
 export default config;

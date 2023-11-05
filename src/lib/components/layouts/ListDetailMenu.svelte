@@ -8,7 +8,7 @@
     import "@material/web/iconbutton/icon-button.js"
     import "@material/web/icon/icon.js"
     
-	import NavBar from "$lib/components/primitives/NavBar.svelte";
+	import AppBar from "$lib/components/primitives/AppBar.svelte";
 	import { stackPopUrl } from "$lib/navigation";
 
     export let contentActive: boolean = false;
@@ -21,30 +21,30 @@
 
 <div class="layout-container" class:active={contentActive}>
     <div class="menu" class:active={menuOpen}>
-        <NavBar>
+        <AppBar>
             <md-icon-button on:click={toggleMenu}>
                 <md-icon>close</md-icon>
             </md-icon-button>
-        </NavBar>
+        </AppBar>
         <slot name="menu" />
     </div>
     <div class="menu-backdrop" on:click={toggleMenu} role="presentation"></div>
     <div class="list-container">
-        <NavBar>
+        <AppBar>
              <md-icon-button on:click={toggleMenu}>
                 <md-icon>menu</md-icon>
             </md-icon-button> 
             <h1 class="headline-medium">Mints</h1>
-        </NavBar>
+        </AppBar>
 
         <slot name="list" />
     </div>
     <section class="content-container">
         <section class="nav">
-            <NavBar>
+            <AppBar>
                 <md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
-                <slot name="navbar"></slot>
-            </NavBar>
+                <slot name="appbar"></slot>
+            </AppBar>
         </section>
         <slot />
     </section>

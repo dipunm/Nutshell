@@ -1,6 +1,6 @@
 <script lang="ts">
 
-	import NavBar from "$lib/components/primitives/NavBar.svelte";
+	import AppBar from "$lib/components/primitives/AppBar.svelte";
 	import Details from "./details.svelte";
     import {type Html5QrcodeResult, Html5Qrcode} from "html5-qrcode";
     import '@material/web/button/filled-button';
@@ -57,7 +57,7 @@
 </style>
 
 <div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
-    <NavBar />
+    <AppBar />
     <!-- <Card color="tertiary" height="12rem">
         <img class="hero" src="{assets}/offer-hero.png" alt="">
     </Card> -->

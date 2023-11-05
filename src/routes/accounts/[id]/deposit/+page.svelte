@@ -1,9 +1,7 @@
 <script>
 	import Card from "$lib/components/primitives/Card.svelte";
-	import NavBar from "$lib/components/primitives/NavBar.svelte";
     import "@material/web/iconbutton/icon-button"
 
-	import { stackBack } from "$lib/navigation";
 	import Portal from "$lib/components/primitives/Portal.svelte";
 </script>
 <style>
@@ -18,7 +16,7 @@
     }
 </style>
 
-<Portal target="content-navbar">
+<Portal target="content-appbar">
     <h1 class="headline-small">Deposit</h1>
 </Portal>
 
