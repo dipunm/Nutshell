@@ -1,7 +1,7 @@
-import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
-import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, x as set_custom_element_data, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
+import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe, e as compute_slots } from "../chunks/utils.08e12359.js";
+import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, k as text, w as get_svelte_dataset, l as claim_text, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { e as base } from "../chunks/singletons.a017f3f9.js";
+import { e as base } from "../chunks/singletons.842fc171.js";
 import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.7c9e55d4.js";
 import "../chunks/icon.ebc2319f.js";
 import { C as Card } from "../chunks/Card.8779831c.js";
@@ -10,9 +10,9 @@ import { P as Portal } from "../chunks/Portal.e01d24b0.js";
 import { x, i, _ as __decorate, e } from "../chunks/form-submitter.5b8d9ddf.js";
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/list-item.cb4e9d2c.js";
-import { s as stackPopUrl, c as stackBack } from "../chunks/index.fe4bd600.js";
-import { a as afterNavigate } from "../chunks/navigation.e841b03b.js";
-import { p as page } from "../chunks/stores.75542ebc.js";
+import { s as stackPopUrl, c as stackBack } from "../chunks/index.28d77d78.js";
+import { a as afterNavigate } from "../chunks/navigation.11a93899.js";
+import { p as page } from "../chunks/stores.dd56a31c.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -191,7 +191,7 @@ function create_fragment$5(ctx) {
     }
   };
 }
-function instance$2($$self, $$props, $$invalidate) {
+function instance$3($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
   $$self.$$set = ($$props2) => {
     if ("$$scope" in $$props2)
@@ -202,7 +202,7 @@ function instance$2($$self, $$props, $$invalidate) {
 class SinglePane extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$2, create_fragment$5, safe_not_equal, {});
+    init(this, options, instance$3, create_fragment$5, safe_not_equal, {});
   }
 }
 /**
@@ -236,9 +236,9 @@ MdFilledTonalButton = __decorate([
 const whatIsAMint_svelte_svelte_type_style_lang = "";
 function create_fragment$4(ctx) {
   let md_list;
-  let textContent = `<md-list-item><md-icon slot="start">Language</md-icon> <div slot="headline">Digital Cash</div> <div slot="supporting-text"><p class="svelte-1uftpgd">Mints are online servers that facilitate bitcoin payments
-                on behalf of the bearer of their assets.</p></div></md-list-item> <md-list-item><md-icon slot="start">Privacy</md-icon> <div slot="headline">Privacy First</div> <div slot="supporting-text"><p class="svelte-1uftpgd">Using a bearer asset mechanism, mints don&#39;t demand personal 
-                information or track your financial activity.</p></div></md-list-item> <md-list-item><md-icon slot="start">security</md-icon> <div slot="headline">Simple, Secure &amp; Safe</div> <div slot="supporting-text"><p class="svelte-1uftpgd">Cash-like payments eliminate the risk of targeted intrusions 
+  let textContent = `<md-list-item><md-icon slot="start">Language</md-icon> <div slot="headline">Digital Cash</div> <div slot="supporting-text"><p class="svelte-eojriw">Mints are online servers that facilitate bitcoin payments
+                on behalf of the bearer of their assets.</p></div></md-list-item> <md-list-item><md-icon slot="start">Privacy</md-icon> <div slot="headline">Privacy First</div> <div slot="supporting-text"><p class="svelte-eojriw">Using a bearer asset mechanism, mints don&#39;t demand personal 
+                information or track your financial activity.</p></div></md-list-item> <md-list-item><md-icon slot="start">security</md-icon> <div slot="headline">Simple, Secure &amp; Safe</div> <div slot="supporting-text"><p class="svelte-eojriw">Cash-like payments eliminate the risk of targeted intrusions 
                 and identity fraud due to data breaches.</p></div></md-list-item>`;
   let t17;
   let h20;
@@ -252,6 +252,10 @@ function create_fragment$4(ctx) {
   let t23;
   let p4;
   let textContent_4 = "This wallet provides educational resources to guide you\n    in eliminating counterparty risk completely — unlocking \n    the real power of Bitcoin.";
+  let t25;
+  let div6;
+  let md_filled_button;
+  let t26;
   return {
     c() {
       md_list = element("md-list");
@@ -268,6 +272,10 @@ function create_fragment$4(ctx) {
       t23 = space();
       p4 = element("p");
       p4.textContent = textContent_4;
+      t25 = space();
+      div6 = element("div");
+      md_filled_button = element("md-filled-button");
+      t26 = text("Lets Go!");
       this.h();
     },
     l(nodes) {
@@ -298,18 +306,36 @@ function create_fragment$4(ctx) {
       p4 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
       if (get_svelte_dataset(p4) !== "svelte-1ne1at")
         p4.textContent = textContent_4;
+      t25 = claim_space(nodes);
+      div6 = claim_element(nodes, "DIV", { style: true });
+      var div6_nodes = children(div6);
+      md_filled_button = claim_element(div6_nodes, "MD-FILLED-BUTTON", { href: true });
+      var md_filled_button_nodes = children(md_filled_button);
+      t26 = claim_text(md_filled_button_nodes, "Lets Go!");
+      md_filled_button_nodes.forEach(detach);
+      div6_nodes.forEach(detach);
       this.h();
     },
     h() {
       set_style(md_list, "padding", `0`);
-      attr(h20, "class", "title-large svelte-1uftpgd");
+      attr(h20, "class", "title-large svelte-eojriw");
       set_style(h20, "display", "flex");
       set_style(h20, "align-items", "center");
-      attr(p3, "class", "svelte-1uftpgd");
-      attr(h21, "class", "title-large svelte-1uftpgd");
+      attr(p3, "class", "svelte-eojriw");
+      attr(h21, "class", "title-large svelte-eojriw");
       set_style(h21, "display", "flex");
       set_style(h21, "align-items", "center");
-      attr(p4, "class", "svelte-1uftpgd");
+      attr(p4, "class", "svelte-eojriw");
+      set_custom_element_data(
+        md_filled_button,
+        "href",
+        /*$stackPopUrl*/
+        ctx[0]
+      );
+      set_style(md_filled_button, "margin", `2rem 0`);
+      set_style(div6, "display", "flex");
+      set_style(div6, "align-items", "center");
+      set_style(div6, "flex-direction", "column");
     },
     m(target, anchor) {
       insert_hydration(target, md_list, anchor);
@@ -321,8 +347,22 @@ function create_fragment$4(ctx) {
       insert_hydration(target, h21, anchor);
       insert_hydration(target, t23, anchor);
       insert_hydration(target, p4, anchor);
+      insert_hydration(target, t25, anchor);
+      insert_hydration(target, div6, anchor);
+      append_hydration(div6, md_filled_button);
+      append_hydration(md_filled_button, t26);
     },
-    p: noop,
+    p(ctx2, [dirty]) {
+      if (dirty & /*$stackPopUrl*/
+      1) {
+        set_custom_element_data(
+          md_filled_button,
+          "href",
+          /*$stackPopUrl*/
+          ctx2[0]
+        );
+      }
+    },
     i: noop,
     o: noop,
     d(detaching) {
@@ -336,14 +376,21 @@ function create_fragment$4(ctx) {
         detach(h21);
         detach(t23);
         detach(p4);
+        detach(t25);
+        detach(div6);
       }
     }
   };
 }
+function instance$2($$self, $$props, $$invalidate) {
+  let $stackPopUrl;
+  component_subscribe($$self, stackPopUrl, ($$value) => $$invalidate(0, $stackPopUrl = $$value));
+  return [$stackPopUrl];
+}
 class What_is_a_mint extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, null, create_fragment$4, safe_not_equal, {});
+    init(this, options, instance$2, create_fragment$4, safe_not_equal, {});
   }
 }
 const Modal_svelte_svelte_type_style_lang = "";

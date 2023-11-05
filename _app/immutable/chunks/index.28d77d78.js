@@ -1,5 +1,5 @@
-import { b as beforeNavigate, g as goto } from "./navigation.e841b03b.js";
-import { p as page } from "./stores.75542ebc.js";
+import { b as beforeNavigate, g as goto } from "./navigation.11a93899.js";
+import { p as page } from "./stores.dd56a31c.js";
 import { w as writable } from "./index.d60672bb.js";
 import { f as get_store_value } from "./utils.08e12359.js";
 const initializeHistoryStack = async () => {
