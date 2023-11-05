@@ -129,7 +129,7 @@
         padding: 1rem 0;
     }
 
-    .nav .backbutton {
+    .nav :global(.backbutton) {
         display: none;   
     }
 
