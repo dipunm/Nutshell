@@ -42,8 +42,8 @@
 </Portal>
 <Portal target="content-appbar">
     {#if toggle}
-    <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={'Unnamed Wallet 01'}></md-outlined-text-field>
-    <md-filled-icon-button on:submit={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
+    <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={`Unnamed Wallet ${$page.params.id.toString().padStart(2, '0')}`}></md-outlined-text-field>
+    <md-filled-icon-button on:click={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
     <md-icon-button  on:click={() => toggleEditor(false)}><md-icon>clear</md-icon></md-icon-button>
     {:else}
     <h1 class="headline-small">Unnamed Wallet {$page.params.id.toString().padStart(2, '0')}</h1>

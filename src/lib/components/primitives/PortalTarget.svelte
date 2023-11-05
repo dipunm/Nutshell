@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { createPortal } from "$lib/portals";
+	import { observePortal } from "$lib/portals";
 
     export let name: string;
     let handleStart: HTMLDivElement;
     let handleEnd: HTMLDivElement;
 
-    const contents = createPortal(name);
+    const contents = observePortal(name);
     $: {
         if ((handleStart ?? false) && (handleEnd ?? false)) {
             while(handleStart.nextSibling !== handleEnd) {
@@ -21,5 +21,5 @@
     }
 </script>
 
-<div style="display: none;" bind:this={handleStart}></div>
-<div style="display: none;" bind:this={handleEnd}></div>
+<div hidden={true} style="display: none;" bind:this={handleStart}></div>
+<div hidden={true} style="display: none;" bind:this={handleEnd}></div>

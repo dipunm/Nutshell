@@ -1,11 +1,17 @@
 <script lang="ts">
-	import { bindToPortal, appendToPortal } from "$lib/portals";
+	import { openPortal, type Portal } from "$lib/portals";
 	import { onDestroy, tick } from "svelte";
 
     let container: HTMLDivElement;
     export let target: string;
     let observer: MutationObserver;
     let key = 0;
+    let portal: Portal | null;
+    function portalToTarget(target: string) {
+        portal?.close();
+        portal = openPortal(target);
+    }
+    $: portalToTarget(target);
 
     async function forceRerender() {
         // By forcing the component to remove all
@@ -32,7 +38,7 @@
         disconnectObserver();
         if (container?.childNodes ?? false) {
             const content = [...container.childNodes];
-            bindToPortal(target, content);
+            portal?.tunnel(content);
             tick().then(() => {
                 if (container ?? false) {
                     setObserver(new MutationObserver(() => {
@@ -43,13 +49,13 @@
                 }
             });
         } else {
-            bindToPortal(target, null);
+            portal?.clear();
         }
     }
 
     onDestroy(() => {
         observer?.disconnect();
-        bindToPortal(target, null);
+        portal?.close();
     });
     
 </script>
