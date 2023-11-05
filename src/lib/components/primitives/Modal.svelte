@@ -35,10 +35,10 @@
 <dialog bind:this={modal} on:close={closeHandler}>
     <div class="modal-container">
         <AppBar>
-            <slot name="appBarStart" />
-            {#if $$slots.appBarTitle}
+            <slot name="appbar-start" />
+            {#if $$slots["appbar-title"]}
             <h1 class="headline-small">
-                <slot name="appBarTitle" />
+                <slot name="appbar-title" />
             </h1>
             {/if}
         </AppBar>

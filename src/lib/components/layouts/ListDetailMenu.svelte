@@ -34,7 +34,7 @@
              <md-icon-button on:click={toggleMenu}>
                 <md-icon>menu</md-icon>
             </md-icon-button> 
-            <h1 class="headline-medium">Wallets</h1>
+            <h1 class="headline-medium"><slot name="list-headline"></slot></h1>
         </AppBar>
 
         <slot name="list" />
@@ -42,8 +42,8 @@
     <section class="content-container">
         <section class="nav">
             <AppBar>
-                <md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
-                <slot name="appbar"></slot>
+                <slot name="content-appbar-start"><md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button></slot>
+                <slot name="content-appbar"></slot>
             </AppBar>
         </section>
         <slot />
@@ -129,7 +129,7 @@
     }
 
     .nav md-icon-button {
-        display: none;   
+        /* display: none;    */
     }
 
     @media (max-width: 750px) {

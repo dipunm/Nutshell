@@ -13,15 +13,17 @@
 	import { stackGo } from "$lib/navigation";
 	import ListDetailMenu from "$lib/components/layouts/ListDetailMenu.svelte";
 	import PortalTarget from "$lib/components/primitives/PortalTarget.svelte";
+	import { portalActive } from "$lib/portals/index.js";
 
     export let data;
     $: accountId = data?.id ?? $page.params?.id;
     $: contentActive = typeof accountId !== 'undefined';
+    let contentAppbarStartActive = portalActive("content-appbar-start");
 </script>
 
 <ListDetailMenu {contentActive}>
-    <svelte:fragment slot="appbar">
-        <PortalTarget name="content-appbar" />
+    <svelte:fragment slot="list-headline">
+        Wallets
     </svelte:fragment>
     <svelte:fragment slot="menu">
         <md-list>
@@ -62,6 +64,14 @@
         </ul>
     </svelte:fragment>
 
+
+    
+    <!-- <svelte:fragment slot="content-appbar-start">{#if $contentAppbarStartActive}
+        <PortalTarget name="content-appbar-start" />
+        {/if}</svelte:fragment> -->
+    <svelte:fragment slot="content-appbar">
+        <PortalTarget name="content-appbar" />
+    </svelte:fragment>
     <slot />
 </ListDetailMenu>
 

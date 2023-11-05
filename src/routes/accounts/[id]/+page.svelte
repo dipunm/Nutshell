@@ -13,34 +13,38 @@
     import { onNavigate } from '$app/navigation';
 
 	import { base } from "$app/paths";
-	import { stackGo } from "$lib/navigation";
     import { page } from '$app/stores';
 	import Portal from "$lib/components/primitives/Portal.svelte";
 	import DropMenu from "$lib/components/primitives/DropMenu.svelte";
+	import { tick } from "svelte";
     
     $: toggle = false;
 
-    onNavigate(() => { toggle = true });
+
+    onNavigate(() => { 
+        toggle = false 
+    });
 
     function toggleEditor(on: boolean) {
         toggle = on;
     }
 
     function focus(el: OutlinedTextField) {
-        setTimeout(() => { 
+        tick().then(() => {
             el.focus();
             el.select();
-        }, 10);
+        });
     }
 </script>
 
+<Portal target="content-appbar-start">
+    <span>hello</span>
+</Portal>
 <Portal target="content-appbar">
     {#if toggle}
-    <form class="edit-form">
-        <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={'Unnamed Wallet 01'}></md-outlined-text-field>
-        <md-filled-icon-button on:submit={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
-        <md-icon-button on:click={() => toggleEditor(false)}><md-icon>clear</md-icon></md-icon-button>
-    </form>
+    <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={'Unnamed Wallet 01'}></md-outlined-text-field>
+    <md-filled-icon-button on:submit={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
+    <md-icon-button  on:click={() => toggleEditor(false)}><md-icon>clear</md-icon></md-icon-button>
     {:else}
     <h1 class="headline-small">Unnamed Wallet {$page.params.id.toString().padStart(2, '0')}</h1>
     <DropMenu>

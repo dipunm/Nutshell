@@ -31,7 +31,8 @@
     $: {
         disconnectObserver();
         if (container?.childNodes ?? false) {
-            bindToPortal(target, [...container.childNodes]);
+            const content = [...container.childNodes];
+            bindToPortal(target, content);
             tick().then(() => {
                 if (container ?? false) {
                     setObserver(new MutationObserver(() => {
@@ -46,7 +47,10 @@
         }
     }
 
-    onDestroy(() => observer?.disconnect());
+    onDestroy(() => {
+        observer?.disconnect();
+        bindToPortal(target, null);
+    });
     
 </script>
 

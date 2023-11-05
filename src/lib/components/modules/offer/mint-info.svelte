@@ -16,12 +16,12 @@
 
 <Portal target="target:modal">
     <Modal condition={() => $page.url.searchParams.has('modal')} on:close={() => stackBack()}>
-        <svelte:fragment slot="appBarStart">
+        <svelte:fragment slot="appbar-start">
             <md-icon-button href={$stackPopUrl}>
                 <md-icon>arrow_back</md-icon>
             </md-icon-button>
         </svelte:fragment>
-        <svelte:fragment slot="appBarTitle">What is a mint?</svelte:fragment>
+        <svelte:fragment slot="appbar-title">What is a mint?</svelte:fragment>
         <WhatIsAMint />
     </Modal>
 </Portal>
