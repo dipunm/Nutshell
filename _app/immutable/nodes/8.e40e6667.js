@@ -1,7 +1,7 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
-import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, x as set_custom_element_data, k as text, l as claim_text, j as set_style } from "../chunks/scheduler.6906c812.js";
+import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, x as set_custom_element_data, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { e as base } from "../chunks/singletons.36b30bf0.js";
+import { e as base } from "../chunks/singletons.a017f3f9.js";
 import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.7c9e55d4.js";
 import "../chunks/icon.ebc2319f.js";
 import { C as Card } from "../chunks/Card.8779831c.js";
@@ -10,9 +10,9 @@ import { P as Portal } from "../chunks/Portal.e01d24b0.js";
 import { x, i, _ as __decorate, e } from "../chunks/form-submitter.5b8d9ddf.js";
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/list-item.cb4e9d2c.js";
-import { s as stackPopUrl, c as stackBack } from "../chunks/index.30db0640.js";
-import { a as afterNavigate } from "../chunks/navigation.a8b3f3c9.js";
-import { p as page } from "../chunks/stores.e010d8cc.js";
+import { s as stackPopUrl, c as stackBack } from "../chunks/index.fe4bd600.js";
+import { a as afterNavigate } from "../chunks/navigation.e841b03b.js";
+import { p as page } from "../chunks/stores.75542ebc.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -235,89 +235,107 @@ MdFilledTonalButton = __decorate([
 ], MdFilledTonalButton);
 const whatIsAMint_svelte_svelte_type_style_lang = "";
 function create_fragment$4(ctx) {
-  let p0;
-  let textContent = "A mint is similar to a banking institution; it facilitates payments, \n    provides convenience and defends your online privacy as you spend and receive bitcoin.";
-  let t1;
-  let p1;
-  let textContent_1 = "This app uses mints to provide a foundational wallet while providing resources\n    to help you learn more about Bitcoin and ultimately eliminate counterparty risk \n    through self custody.";
-  let t3;
   let md_list;
-  let textContent_2 = `<md-list-item><md-icon slot="start">account_balance</md-icon> <div slot="headline">A mint is a custodian</div> <div slot="supporting-text">Just like banks, exchanges and all custodial 
-            services, a mint is susceptible to loss of 
-            customer funds.</div></md-list-item> <md-list-item><md-icon slot="start">error</md-icon> <div slot="headline">Custodians require trust</div> <div slot="supporting-text">All custodians rely on reputation to establish trust. 
-            Customers must trust them to secure and 
-            facilitate payments, and to minimise counterparty 
-            risk on their behalf.</div></md-list-item> <md-list-item><md-icon slot="start">visibility_off</md-icon> <div slot="headline">Mints defend your privacy</div> <div slot="supporting-text">Mints operate without collecting your 
-            personal information or asking for 
-            registration; why should it? Mints don&#39;t 
-            need to know you to serve you.</div></md-list-item> <md-list-item><md-icon slot="start">gavel</md-icon> <div slot="headline">Mints are impartial</div> <div slot="supporting-text">Unlike other custodians, a mint cannot 
-            target you, or freeze or restrict access to 
-            your funds. Mints don&#39;t know who you are, 
-            who you shop with, nor what your current balance 
-            is.</div></md-list-item>`;
-  let t27;
-  let p2;
-  let textContent_3 = `This app operates using the cashu protocol. Learn 
-    more about it at <a target="_blank" href="https://cashu.space" class="svelte-pk60kd">https://cashu.space</a>.`;
+  let textContent = `<md-list-item><md-icon slot="start">Language</md-icon> <div slot="headline">Digital Cash</div> <div slot="supporting-text"><p class="svelte-1uftpgd">Mints are online servers that facilitate bitcoin payments
+                on behalf of the bearer of their assets.</p></div></md-list-item> <md-list-item><md-icon slot="start">Privacy</md-icon> <div slot="headline">Privacy First</div> <div slot="supporting-text"><p class="svelte-1uftpgd">Using a bearer asset mechanism, mints don&#39;t demand personal 
+                information or track your financial activity.</p></div></md-list-item> <md-list-item><md-icon slot="start">security</md-icon> <div slot="headline">Simple, Secure &amp; Safe</div> <div slot="supporting-text"><p class="svelte-1uftpgd">Cash-like payments eliminate the risk of targeted intrusions 
+                and identity fraud due to data breaches.</p></div></md-list-item>`;
+  let t17;
+  let h20;
+  let textContent_1 = "What about the risks?";
+  let t19;
+  let p3;
+  let textContent_2 = "Like banks, exchanges and other custodial service providers, \n    mints are susceptible to risks such as cyber attacks, \n    vulnerabilities, and regulatory changes which could lead \n    to loss of funds.";
+  let t21;
+  let h21;
+  let textContent_3 = "Educate yourself";
+  let t23;
+  let p4;
+  let textContent_4 = "This wallet provides educational resources to guide you\n    in eliminating counterparty risk completely — unlocking \n    the real power of Bitcoin.";
   return {
     c() {
-      p0 = element("p");
-      p0.textContent = textContent;
-      t1 = space();
-      p1 = element("p");
-      p1.textContent = textContent_1;
-      t3 = space();
       md_list = element("md-list");
-      md_list.innerHTML = textContent_2;
-      t27 = space();
-      p2 = element("p");
-      p2.innerHTML = textContent_3;
+      md_list.innerHTML = textContent;
+      t17 = space();
+      h20 = element("h2");
+      h20.textContent = textContent_1;
+      t19 = space();
+      p3 = element("p");
+      p3.textContent = textContent_2;
+      t21 = space();
+      h21 = element("h2");
+      h21.textContent = textContent_3;
+      t23 = space();
+      p4 = element("p");
+      p4.textContent = textContent_4;
       this.h();
     },
     l(nodes) {
-      p0 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(p0) !== "svelte-e6s8wk")
-        p0.textContent = textContent;
-      t1 = claim_space(nodes);
-      p1 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(p1) !== "svelte-3tdh1r")
-        p1.textContent = textContent_1;
-      t3 = claim_space(nodes);
       md_list = claim_element(nodes, "MD-LIST", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_list) !== "svelte-1px5pvd")
-        md_list.innerHTML = textContent_2;
-      t27 = claim_space(nodes);
-      p2 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(p2) !== "svelte-8j4amv")
-        p2.innerHTML = textContent_3;
+      if (get_svelte_dataset(md_list) !== "svelte-e0efok")
+        md_list.innerHTML = textContent;
+      t17 = claim_space(nodes);
+      h20 = claim_element(nodes, "H2", {
+        class: true,
+        style: true,
+        ["data-svelte-h"]: true
+      });
+      if (get_svelte_dataset(h20) !== "svelte-nhdekw")
+        h20.textContent = textContent_1;
+      t19 = claim_space(nodes);
+      p3 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(p3) !== "svelte-176iv73")
+        p3.textContent = textContent_2;
+      t21 = claim_space(nodes);
+      h21 = claim_element(nodes, "H2", {
+        class: true,
+        style: true,
+        ["data-svelte-h"]: true
+      });
+      if (get_svelte_dataset(h21) !== "svelte-16i8h6x")
+        h21.textContent = textContent_3;
+      t23 = claim_space(nodes);
+      p4 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(p4) !== "svelte-1ne1at")
+        p4.textContent = textContent_4;
       this.h();
     },
     h() {
-      attr(p0, "class", "svelte-pk60kd");
-      attr(p1, "class", "svelte-pk60kd");
-      attr(p2, "class", "svelte-pk60kd");
+      set_style(md_list, "padding", `0`);
+      attr(h20, "class", "title-large svelte-1uftpgd");
+      set_style(h20, "display", "flex");
+      set_style(h20, "align-items", "center");
+      attr(p3, "class", "svelte-1uftpgd");
+      attr(h21, "class", "title-large svelte-1uftpgd");
+      set_style(h21, "display", "flex");
+      set_style(h21, "align-items", "center");
+      attr(p4, "class", "svelte-1uftpgd");
     },
     m(target, anchor) {
-      insert_hydration(target, p0, anchor);
-      insert_hydration(target, t1, anchor);
-      insert_hydration(target, p1, anchor);
-      insert_hydration(target, t3, anchor);
       insert_hydration(target, md_list, anchor);
-      insert_hydration(target, t27, anchor);
-      insert_hydration(target, p2, anchor);
+      insert_hydration(target, t17, anchor);
+      insert_hydration(target, h20, anchor);
+      insert_hydration(target, t19, anchor);
+      insert_hydration(target, p3, anchor);
+      insert_hydration(target, t21, anchor);
+      insert_hydration(target, h21, anchor);
+      insert_hydration(target, t23, anchor);
+      insert_hydration(target, p4, anchor);
     },
     p: noop,
     i: noop,
     o: noop,
     d(detaching) {
       if (detaching) {
-        detach(p0);
-        detach(t1);
-        detach(p1);
-        detach(t3);
         detach(md_list);
-        detach(t27);
-        detach(p2);
+        detach(t17);
+        detach(h20);
+        detach(t19);
+        detach(p3);
+        detach(t21);
+        detach(h21);
+        detach(t23);
+        detach(p4);
       }
     }
   };
@@ -363,7 +381,7 @@ function create_if_block(ctx) {
       this.h();
     },
     h() {
-      attr(h1, "class", "headline-small svelte-1joo0jc");
+      attr(h1, "class", "headline-small svelte-1hqu43q");
     },
     m(target, anchor) {
       insert_hydration(target, h1, anchor);
@@ -588,9 +606,9 @@ function create_fragment$3(ctx) {
       this.h();
     },
     h() {
-      attr(div0, "class", "contents svelte-1joo0jc");
-      attr(div1, "class", "modal-container svelte-1joo0jc");
-      attr(dialog, "class", "svelte-1joo0jc");
+      attr(div0, "class", "contents svelte-1hqu43q");
+      attr(div1, "class", "modal-container svelte-1hqu43q");
+      attr(dialog, "class", "svelte-1hqu43q");
     },
     m(target, anchor) {
       insert_hydration(target, dialog, anchor);
