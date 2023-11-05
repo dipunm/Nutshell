@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { observePortal } from "$lib/portals";
+	import { onDestroy } from "svelte";
 
     export let name: string;
     let handleStart: HTMLDivElement;
@@ -19,6 +20,12 @@
             }
         }
     }
+
+    onDestroy(() => {
+        while(handleStart.nextSibling !== handleEnd) {
+            handleStart.nextSibling?.remove();
+        }
+    });
 </script>
 
 <div hidden={true} style="display: none;" bind:this={handleStart}></div>

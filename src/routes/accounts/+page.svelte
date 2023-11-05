@@ -1,3 +1,8 @@
+<script>
+
+	import Portal from "$lib/components/primitives/Portal.svelte";
+
+</script>
 <style>
     .circle {
         background-color: var(--md-sys-color-surface-container-high);
@@ -20,6 +25,8 @@
     }
     
 </style>
+
+<Portal target="content-appbar-start"></Portal>
 <div class="container">
     <div class="circle">
         Open a wallet via the left panel.

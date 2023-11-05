@@ -21,7 +21,7 @@
     let contentAppbarStartActive = portalActive("content-appbar-start");
 </script>
 
-<ListDetailMenu {contentActive}>
+<ListDetailMenu {contentActive} showBackButton={contentActive}>
     <svelte:fragment slot="list-headline">
         Wallets
     </svelte:fragment>
@@ -66,9 +66,9 @@
 
 
     
-    <!-- <svelte:fragment slot="content-appbar-start">{#if $contentAppbarStartActive}
+    <svelte:fragment slot="content-appbar-start">{#if $contentAppbarStartActive}
         <PortalTarget name="content-appbar-start" />
-        {/if}</svelte:fragment> -->
+        {/if}</svelte:fragment>
     <svelte:fragment slot="content-appbar">
         <PortalTarget name="content-appbar" />
     </svelte:fragment>

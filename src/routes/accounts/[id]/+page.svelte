@@ -37,9 +37,9 @@
     }
 </script>
 
-<Portal target="content-appbar-start">
-    <span>hello</span>
-</Portal>
+{#if toggle}
+<Portal target="content-appbar-start"></Portal>
+{/if}
 <Portal target="content-appbar">
     {#if toggle}
     <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={`Unnamed Wallet ${$page.params.id.toString().padStart(2, '0')}`}></md-outlined-text-field>

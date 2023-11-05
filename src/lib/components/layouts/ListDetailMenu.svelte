@@ -43,7 +43,8 @@
         <section class="nav">
             <AppBar>
                 <!-- TODO: find a workaround with portals to make this button dissapear ONLY if there is a replacement for it -->
-                <slot name="content-appbar-start"><md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button></slot>
+                <slot name="content-appbar-start"></slot>
+                <md-icon-button class="backbutton" href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
                 <slot name="content-appbar"></slot>
             </AppBar>
         </section>
@@ -129,8 +130,8 @@
         padding: 1rem 0;
     }
 
-    .nav md-icon-button {
-        /* display: none;    */
+    .nav .backbutton {
+        display: none;   
     }
 
     @media (max-width: 750px) {
@@ -156,7 +157,11 @@
         }
 
         .nav md-icon-button {
-            display: inherit;   
+            display: inherit;
+        }
+
+        .nav :global(* ~ .backbutton) {
+            display: none;
         }
     }
 
