@@ -21,7 +21,7 @@
     let contentAppbarStartActive = portalActive("content-appbar-start");
 </script>
 
-<ListDetailMenu {contentActive} showBackButton={contentActive}>
+<ListDetailMenu {contentActive}>
     <svelte:fragment slot="list-headline">
         Wallets
     </svelte:fragment>
