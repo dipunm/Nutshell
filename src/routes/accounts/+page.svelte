@@ -1,6 +1,6 @@
 <script>
 
-	import Portal from "$lib/components/primitives/Portal.svelte";
+	import Portal from "$lib/portals/Portal.svelte";
 
 </script>
 <style>

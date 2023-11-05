@@ -14,7 +14,7 @@
 
 	import { base } from "$app/paths";
     import { page } from '$app/stores';
-	import Portal from "$lib/components/primitives/Portal.svelte";
+	import Portal from "$lib/portals/Portal.svelte";
 	import DropMenu from "$lib/components/primitives/DropMenu.svelte";
 	import { tick } from "svelte";
     

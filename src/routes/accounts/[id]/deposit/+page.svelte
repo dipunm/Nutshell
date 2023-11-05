@@ -3,7 +3,7 @@
     import "@material/web/iconbutton/icon-button"
     import "@material/web/icon/icon"
 
-	import Portal from "$lib/components/primitives/Portal.svelte";
+	import Portal from "$lib/portals/Portal.svelte";
 	import { stackPopUrl } from "$lib/navigation";
 </script>
 <style>

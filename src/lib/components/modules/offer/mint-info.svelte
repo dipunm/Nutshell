@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Portal from "$lib/components/primitives/Portal.svelte";
+	import Portal from "$lib/portals/Portal.svelte";
     import "@material/web/button/filled-tonal-button"
     import "@material/web/icon/icon"
     import "@material/web/iconbutton/icon-button"
