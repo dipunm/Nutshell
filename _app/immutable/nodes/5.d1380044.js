@@ -1,16 +1,16 @@
-import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe } from "../chunks/utils.fa1c87cb.js";
-import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, m as set_data } from "../chunks/scheduler.1f8d92cd.js";
-import { S as SvelteComponent, i as init, a as transition_in, t as transition_out, b as create_component, d as claim_component, m as mount_component, e as destroy_component } from "../chunks/index.12b74358.js";
+import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe, d as action_destroyer, r as run_all } from "../chunks/utils.08e12359.js";
+import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, e as empty, m as set_data } from "../chunks/scheduler.7be6e2f1.js";
+import { S as SvelteComponent, i as init, a as transition_in, t as transition_out, b as create_component, d as claim_component, m as mount_component, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.89845fad.js";
 import { s as styles$e, I as IconButton } from "../chunks/icon-button.2ef3c792.js";
 import { i, _ as __decorate, e as e$1, t, n, l as l$1, b as i$1, s as s$1, x, c as o, A, D, E as EASING, d as e$2, f as i$2, g as t$1, T, r as requestUpdateOnAriaChange, h as n$1, j as i$3, a as setupHostAria, k as createAnimationSignal, p as polyfillElementInternalsAria } from "../chunks/form-submitter.5b8d9ddf.js";
 import { N as NavigableKeys, L as ListController, g as getActiveItem, a as getLastActivatableItem, b as getFirstActivatableItem } from "../chunks/icon.1cedd58b.js";
 import { B as Button, s as styles$f, r as redispatchEvent } from "../chunks/filled-button.7c9e55d4.js";
 import { o as o$1 } from "../chunks/style-map.8be08b03.js";
-import { o as onNavigate } from "../chunks/navigation.9b268a38.js";
-import { e as base } from "../chunks/singletons.fe37374b.js";
-import "../chunks/index.a2860090.js";
-import { p as page } from "../chunks/stores.134d222d.js";
-import { P as Portal } from "../chunks/Portal.0afc48bc.js";
+import { o as onNavigate } from "../chunks/navigation.abe3f533.js";
+import { e as base } from "../chunks/singletons.ab8a8e08.js";
+import "../chunks/index.4aa8ab70.js";
+import { p as page } from "../chunks/stores.a3fb07b8.js";
+import { P as Portal } from "../chunks/Portal.67db75b1.js";
 import "../chunks/elevation.b359ddc5.js";
 /**
   * @license
@@ -2514,7 +2514,10 @@ function create_fragment$1(ctx) {
         icon_slot_or_fallback.l(md_icon_button_nodes);
       md_icon_button_nodes.forEach(detach);
       t2 = claim_space(span_nodes);
-      md_menu = claim_element(span_nodes, "MD-MENU", { "anchor-corner": true });
+      md_menu = claim_element(span_nodes, "MD-MENU", {
+        "anchor-corner": true,
+        "menu-corner": true
+      });
       var md_menu_nodes = children(md_menu);
       if (default_slot)
         default_slot.l(md_menu_nodes);
@@ -2523,7 +2526,8 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h() {
-      set_custom_element_data(md_menu, "anchor-corner", "start-start");
+      set_custom_element_data(md_menu, "anchor-corner", "start-end");
+      set_custom_element_data(md_menu, "menu-corner", "start-end");
       set_style(span, "position", "relative");
     },
     m(target, anchor) {
@@ -2673,64 +2677,12 @@ class DropMenu extends SvelteComponent {
   }
 }
 const _page_svelte_svelte_type_style_lang = "";
-function create_default_slot_1(ctx) {
-  let md_menu_item0;
-  let textContent = `<div slot="headline">Apple</div>`;
-  let t1;
-  let md_menu_item1;
-  let textContent_1 = `<div slot="headline">Banana</div>`;
-  let t3;
-  let md_menu_item2;
-  let textContent_2 = `<div slot="headline">Cucumber</div>`;
-  return {
-    c() {
-      md_menu_item0 = element("md-menu-item");
-      md_menu_item0.innerHTML = textContent;
-      t1 = space();
-      md_menu_item1 = element("md-menu-item");
-      md_menu_item1.innerHTML = textContent_1;
-      t3 = space();
-      md_menu_item2 = element("md-menu-item");
-      md_menu_item2.innerHTML = textContent_2;
-    },
-    l(nodes) {
-      md_menu_item0 = claim_element(nodes, "MD-MENU-ITEM", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_menu_item0) !== "svelte-er2ygc")
-        md_menu_item0.innerHTML = textContent;
-      t1 = claim_space(nodes);
-      md_menu_item1 = claim_element(nodes, "MD-MENU-ITEM", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_menu_item1) !== "svelte-a3ezw7")
-        md_menu_item1.innerHTML = textContent_1;
-      t3 = claim_space(nodes);
-      md_menu_item2 = claim_element(nodes, "MD-MENU-ITEM", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_menu_item2) !== "svelte-1nugpmu")
-        md_menu_item2.innerHTML = textContent_2;
-    },
-    m(target, anchor) {
-      insert_hydration(target, md_menu_item0, anchor);
-      insert_hydration(target, t1, anchor);
-      insert_hydration(target, md_menu_item1, anchor);
-      insert_hydration(target, t3, anchor);
-      insert_hydration(target, md_menu_item2, anchor);
-    },
-    p: noop,
-    d(detaching) {
-      if (detaching) {
-        detach(md_menu_item0);
-        detach(t1);
-        detach(md_menu_item1);
-        detach(t3);
-        detach(md_menu_item2);
-      }
-    }
-  };
-}
-function create_default_slot(ctx) {
+function create_else_block(ctx) {
   let h1;
   let t0;
   let t1_value = (
     /*$page*/
-    ctx[0].params.id.toString().padStart(2, "0") + ""
+    ctx[1].params.id.toString().padStart(2, "0") + ""
   );
   let t1;
   let t2;
@@ -2745,7 +2697,7 @@ function create_default_slot(ctx) {
   return {
     c() {
       h1 = element("h1");
-      t0 = text("Unnamsed Mint ");
+      t0 = text("Unnamed Wallet ");
       t1 = text(t1_value);
       t2 = space();
       create_component(dropmenu.$$.fragment);
@@ -2754,7 +2706,7 @@ function create_default_slot(ctx) {
     l(nodes) {
       h1 = claim_element(nodes, "H1", { class: true });
       var h1_nodes = children(h1);
-      t0 = claim_text(h1_nodes, "Unnamsed Mint ");
+      t0 = claim_text(h1_nodes, "Unnamed Wallet ");
       t1 = claim_text(h1_nodes, t1_value);
       h1_nodes.forEach(detach);
       t2 = claim_space(nodes);
@@ -2774,12 +2726,12 @@ function create_default_slot(ctx) {
     },
     p(ctx2, dirty) {
       if ((!current || dirty & /*$page*/
-      1) && t1_value !== (t1_value = /*$page*/
-      ctx2[0].params.id.toString().padStart(2, "0") + ""))
+      2) && t1_value !== (t1_value = /*$page*/
+      ctx2[1].params.id.toString().padStart(2, "0") + ""))
         set_data(t1, t1_value);
       const dropmenu_changes = {};
       if (dirty & /*$$scope*/
-      8) {
+      64) {
         dropmenu_changes.$$scope = { dirty, ctx: ctx2 };
       }
       dropmenu.$set(dropmenu_changes);
@@ -2800,6 +2752,254 @@ function create_default_slot(ctx) {
         detach(t2);
       }
       destroy_component(dropmenu, detaching);
+    }
+  };
+}
+function create_if_block(ctx) {
+  let form;
+  let md_outlined_text_field;
+  let t0;
+  let md_filled_icon_button;
+  let textContent = `<md-icon class="svelte-1aak7bc">done</md-icon>`;
+  let t2;
+  let md_icon_button;
+  let textContent_1 = `<md-icon class="svelte-1aak7bc">clear</md-icon>`;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      form = element("form");
+      md_outlined_text_field = element("md-outlined-text-field");
+      t0 = space();
+      md_filled_icon_button = element("md-filled-icon-button");
+      md_filled_icon_button.innerHTML = textContent;
+      t2 = space();
+      md_icon_button = element("md-icon-button");
+      md_icon_button.innerHTML = textContent_1;
+      this.h();
+    },
+    l(nodes) {
+      form = claim_element(nodes, "FORM", { class: true });
+      var form_nodes = children(form);
+      md_outlined_text_field = claim_element(form_nodes, "MD-OUTLINED-TEXT-FIELD", {
+        id: true,
+        label: true,
+        value: true,
+        class: true
+      });
+      children(md_outlined_text_field).forEach(detach);
+      t0 = claim_space(form_nodes);
+      md_filled_icon_button = claim_element(form_nodes, "MD-FILLED-ICON-BUTTON", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_filled_icon_button) !== "svelte-1s1lshl")
+        md_filled_icon_button.innerHTML = textContent;
+      t2 = claim_space(form_nodes);
+      md_icon_button = claim_element(form_nodes, "MD-ICON-BUTTON", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_icon_button) !== "svelte-19xwzst")
+        md_icon_button.innerHTML = textContent_1;
+      form_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      set_custom_element_data(md_outlined_text_field, "id", "nav-title-edit");
+      set_custom_element_data(md_outlined_text_field, "label", "Name");
+      set_custom_element_data(md_outlined_text_field, "value", "Unnamed Wallet 01");
+      set_custom_element_data(md_outlined_text_field, "class", "svelte-1aak7bc");
+      set_custom_element_data(md_filled_icon_button, "class", "svelte-1aak7bc");
+      set_custom_element_data(md_icon_button, "class", "svelte-1aak7bc");
+      attr(form, "class", "edit-form svelte-1aak7bc");
+    },
+    m(target, anchor) {
+      insert_hydration(target, form, anchor);
+      append_hydration(form, md_outlined_text_field);
+      append_hydration(form, t0);
+      append_hydration(form, md_filled_icon_button);
+      append_hydration(form, t2);
+      append_hydration(form, md_icon_button);
+      if (!mounted) {
+        dispose = [
+          action_destroyer(focus.call(null, md_outlined_text_field)),
+          listen(
+            md_filled_icon_button,
+            "submit",
+            /*submit_handler*/
+            ctx[3]
+          ),
+          listen(
+            md_icon_button,
+            "click",
+            /*click_handler*/
+            ctx[4]
+          )
+        ];
+        mounted = true;
+      }
+    },
+    p: noop,
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(form);
+      }
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function create_default_slot_1(ctx) {
+  let md_menu_item0;
+  let textContent = `<div slot="headline" style="white-space: nowrap;">Rename wallet</div>`;
+  let t1;
+  let md_menu_item1;
+  let textContent_1 = `<div slot="headline" style="white-space: nowrap;">Backup</div>`;
+  let t3;
+  let md_menu_item2;
+  let textContent_2 = `<div slot="headline" style="white-space: nowrap;">Restore</div>`;
+  let t5;
+  let md_menu_item3;
+  let textContent_3 = `<div slot="headline" style="white-space: nowrap;">Erase</div>`;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      md_menu_item0 = element("md-menu-item");
+      md_menu_item0.innerHTML = textContent;
+      t1 = space();
+      md_menu_item1 = element("md-menu-item");
+      md_menu_item1.innerHTML = textContent_1;
+      t3 = space();
+      md_menu_item2 = element("md-menu-item");
+      md_menu_item2.innerHTML = textContent_2;
+      t5 = space();
+      md_menu_item3 = element("md-menu-item");
+      md_menu_item3.innerHTML = textContent_3;
+      this.h();
+    },
+    l(nodes) {
+      md_menu_item0 = claim_element(nodes, "MD-MENU-ITEM", { ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_menu_item0) !== "svelte-a9je7f")
+        md_menu_item0.innerHTML = textContent;
+      t1 = claim_space(nodes);
+      md_menu_item1 = claim_element(nodes, "MD-MENU-ITEM", { href: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_menu_item1) !== "svelte-1nsz4yl")
+        md_menu_item1.innerHTML = textContent_1;
+      t3 = claim_space(nodes);
+      md_menu_item2 = claim_element(nodes, "MD-MENU-ITEM", { href: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_menu_item2) !== "svelte-18ryx69")
+        md_menu_item2.innerHTML = textContent_2;
+      t5 = claim_space(nodes);
+      md_menu_item3 = claim_element(nodes, "MD-MENU-ITEM", { href: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_menu_item3) !== "svelte-xxu8wh")
+        md_menu_item3.innerHTML = textContent_3;
+      this.h();
+    },
+    h() {
+      set_custom_element_data(md_menu_item1, "href", "?backup");
+      set_custom_element_data(md_menu_item2, "href", "?restore");
+      set_custom_element_data(md_menu_item3, "href", "?erase");
+    },
+    m(target, anchor) {
+      insert_hydration(target, md_menu_item0, anchor);
+      insert_hydration(target, t1, anchor);
+      insert_hydration(target, md_menu_item1, anchor);
+      insert_hydration(target, t3, anchor);
+      insert_hydration(target, md_menu_item2, anchor);
+      insert_hydration(target, t5, anchor);
+      insert_hydration(target, md_menu_item3, anchor);
+      if (!mounted) {
+        dispose = listen(
+          md_menu_item0,
+          "click",
+          /*click_handler_1*/
+          ctx[5]
+        );
+        mounted = true;
+      }
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(md_menu_item0);
+        detach(t1);
+        detach(md_menu_item1);
+        detach(t3);
+        detach(md_menu_item2);
+        detach(t5);
+        detach(md_menu_item3);
+      }
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_default_slot(ctx) {
+  let current_block_type_index;
+  let if_block;
+  let if_block_anchor;
+  let current;
+  const if_block_creators = [create_if_block, create_else_block];
+  const if_blocks = [];
+  function select_block_type(ctx2, dirty) {
+    if (
+      /*toggle*/
+      ctx2[0]
+    )
+      return 0;
+    return 1;
+  }
+  current_block_type_index = select_block_type(ctx);
+  if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  return {
+    c() {
+      if_block.c();
+      if_block_anchor = empty();
+    },
+    l(nodes) {
+      if_block.l(nodes);
+      if_block_anchor = empty();
+    },
+    m(target, anchor) {
+      if_blocks[current_block_type_index].m(target, anchor);
+      insert_hydration(target, if_block_anchor, anchor);
+      current = true;
+    },
+    p(ctx2, dirty) {
+      let previous_block_index = current_block_type_index;
+      current_block_type_index = select_block_type(ctx2);
+      if (current_block_type_index === previous_block_index) {
+        if_blocks[current_block_type_index].p(ctx2, dirty);
+      } else {
+        group_outros();
+        transition_out(if_blocks[previous_block_index], 1, 1, () => {
+          if_blocks[previous_block_index] = null;
+        });
+        check_outros();
+        if_block = if_blocks[current_block_type_index];
+        if (!if_block) {
+          if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
+          if_block.c();
+        } else {
+          if_block.p(ctx2, dirty);
+        }
+        transition_in(if_block, 1);
+        if_block.m(if_block_anchor.parentNode, if_block_anchor);
+      }
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(if_block);
+      current = true;
+    },
+    o(local) {
+      transition_out(if_block);
+      current = false;
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(if_block_anchor);
+      }
+      if_blocks[current_block_type_index].d(detaching);
     }
   };
 }
@@ -2890,7 +3090,7 @@ function create_fragment(ctx) {
       attr(div0, "class", "amount headline-medium svelte-1aak7bc");
       set_custom_element_data(md_icon0, "slot", "icon");
       set_custom_element_data(md_filled_button0, "href", md_filled_button0_href_value = `${base}/accounts/${/*$page*/
-      ctx[0].params.id}/deposit`);
+      ctx[1].params.id}/deposit`);
       attr(div1, "class", "btn-row svelte-1aak7bc");
       attr(section, "class", "header svelte-1aak7bc");
       attr(ul, "class", "transactions svelte-1aak7bc");
@@ -2915,14 +3115,14 @@ function create_fragment(ctx) {
     },
     p(ctx2, [dirty]) {
       const portal_changes = {};
-      if (dirty & /*$$scope, $page*/
-      9) {
+      if (dirty & /*$$scope, toggle, $page*/
+      67) {
         portal_changes.$$scope = { dirty, ctx: ctx2 };
       }
       portal.$set(portal_changes);
       if (!current || dirty & /*$page*/
-      1 && md_filled_button0_href_value !== (md_filled_button0_href_value = `${base}/accounts/${/*$page*/
-      ctx2[0].params.id}/deposit`)) {
+      2 && md_filled_button0_href_value !== (md_filled_button0_href_value = `${base}/accounts/${/*$page*/
+      ctx2[1].params.id}/deposit`)) {
         set_custom_element_data(md_filled_button0, "href", md_filled_button0_href_value);
       }
     },
@@ -2945,12 +3145,32 @@ function create_fragment(ctx) {
     }
   };
 }
+function focus(el) {
+  setTimeout(
+    () => {
+      el.focus();
+      el.select();
+    },
+    10
+  );
+}
 function instance($$self, $$props, $$invalidate) {
+  let toggle;
   let $page;
-  component_subscribe($$self, page, ($$value) => $$invalidate(0, $page = $$value));
+  component_subscribe($$self, page, ($$value) => $$invalidate(1, $page = $$value));
   onNavigate(() => {
+    $$invalidate(0, toggle = true);
   });
-  return [$page];
+  function toggleEditor(on) {
+    $$invalidate(0, toggle = on);
+  }
+  const submit_handler = () => {
+    alert("hi");
+  };
+  const click_handler = () => toggleEditor(false);
+  const click_handler_1 = () => toggleEditor(true);
+  $$invalidate(0, toggle = false);
+  return [toggle, $page, toggleEditor, submit_handler, click_handler, click_handler_1];
 }
 class Page extends SvelteComponent {
   constructor(options) {

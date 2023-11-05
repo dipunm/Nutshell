@@ -1,16 +1,16 @@
-import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, b as component_subscribe, n as noop } from "../chunks/utils.fa1c87cb.js";
-import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, u as toggle_class, i as insert_hydration, r as append_hydration, v as listen, w as get_svelte_dataset, x as set_custom_element_data, y as destroy_each, k as text, l as claim_text } from "../chunks/scheduler.1f8d92cd.js";
-import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.12b74358.js";
+import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, b as component_subscribe, n as noop } from "../chunks/utils.08e12359.js";
+import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, u as toggle_class, i as insert_hydration, r as append_hydration, v as listen, w as get_svelte_dataset, x as set_custom_element_data, y as destroy_each, k as text, l as claim_text } from "../chunks/scheduler.7be6e2f1.js";
+import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.89845fad.js";
 import { l, o as o$1, _ as __decorate, n, s, i, e, a as setupHostAria, b as i$1, t, p as polyfillElementInternalsAria, x, c as o$2, A, E as EASING } from "../chunks/form-submitter.5b8d9ddf.js";
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/list-item.cb0bdea9.js";
 import "../chunks/icon-button.2ef3c792.js";
 import "../chunks/icon.1cedd58b.js";
-import { p as page } from "../chunks/stores.134d222d.js";
-import { e as base } from "../chunks/singletons.fe37374b.js";
-import { s as stackPopUrl, b as stackGo } from "../chunks/index.a2860090.js";
-import { A as AppBar } from "../chunks/AppBar.a956d451.js";
-import { P as PortalTarget } from "../chunks/PortalTarget.d794d856.js";
+import { p as page } from "../chunks/stores.a3fb07b8.js";
+import { e as base } from "../chunks/singletons.ab8a8e08.js";
+import { s as stackPopUrl, b as stackGo } from "../chunks/index.4aa8ab70.js";
+import { A as AppBar } from "../chunks/AppBar.3bc1a6f4.js";
+import { P as PortalTarget } from "../chunks/PortalTarget.225a5d5c.js";
 function ensure_array_like(array_like_or_iterator) {
   return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
 }
@@ -570,7 +570,7 @@ function create_default_slot_1(ctx) {
   let textContent = `<md-icon>menu</md-icon>`;
   let t1;
   let h1;
-  let textContent_1 = "Mints";
+  let textContent_1 = "Wallets";
   let mounted;
   let dispose;
   return {
@@ -588,7 +588,7 @@ function create_default_slot_1(ctx) {
         md_icon_button.innerHTML = textContent;
       t1 = claim_space(nodes);
       h1 = claim_element(nodes, "H1", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(h1) !== "svelte-r9pi9a")
+      if (get_svelte_dataset(h1) !== "svelte-17imx2v")
         h1.textContent = textContent_1;
       this.h();
     },
@@ -1197,8 +1197,8 @@ function create_menu_slot(ctx) {
   let md_list;
   let textContent = `<md-list-item type="button"><md-icon slot="start">book</md-icon> 
                 Discover
-                <div slot="supporting-text">Learn how to protect your funds through the power of Bitcoin.</div></md-list-item> <md-list-item type="button"><md-icon slot="start">account_balance</md-icon> Mints
-                <div slot="supporting-text">Manage your counterparties, check your balance, spend and receive.</div></md-list-item> <md-list-item type="button" disabled=""><md-icon slot="start">settings</md-icon> Wallet
+                <div slot="supporting-text">Learn how to protect your funds through the power of Bitcoin.</div></md-list-item> <md-list-item type="button"><md-icon slot="start">account_balance</md-icon> Wallets
+                <div slot="supporting-text">Manage your counterparties, check your balance, spend and receive.</div></md-list-item> <md-list-item type="button" disabled=""><md-icon slot="start">settings</md-icon> Other
                 <div slot="supporting-text">Undecided, configure something maybe?</div></md-list-item>`;
   return {
     c() {
@@ -1207,7 +1207,7 @@ function create_menu_slot(ctx) {
     },
     l(nodes) {
       md_list = claim_element(nodes, "MD-LIST", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_list) !== "svelte-11tya8m")
+      if (get_svelte_dataset(md_list) !== "svelte-aw2lso")
         md_list.innerHTML = textContent;
     },
     m(target, anchor) {
@@ -1256,7 +1256,7 @@ function create_each_block(ctx) {
       md_ripple = element("md-ripple");
       t1 = space();
       h2 = element("h2");
-      t2 = text("Unnamed Mint 0");
+      t2 = text("Unnamed Wallet 0");
       t3 = text(
         /*id*/
         ctx[7]
@@ -1280,7 +1280,7 @@ function create_each_block(ctx) {
       t1 = claim_space(button_nodes);
       h2 = claim_element(button_nodes, "H2", { class: true });
       var h2_nodes = children(h2);
-      t2 = claim_text(h2_nodes, "Unnamed Mint 0");
+      t2 = claim_text(h2_nodes, "Unnamed Wallet 0");
       t3 = claim_text(
         h2_nodes,
         /*id*/
@@ -1297,13 +1297,13 @@ function create_each_block(ctx) {
       this.h();
     },
     h() {
-      set_custom_element_data(md_focus_ring, "for", `mint-item-${/*id*/
+      set_custom_element_data(md_focus_ring, "for", `wallet-item-${/*id*/
       ctx[7]}`);
       attr(h2, "class", "title-large");
-      attr(button, "id", `mint-item-${/*id*/
+      attr(button, "id", `wallet-item-${/*id*/
       ctx[7]}`);
-      attr(button, "class", "svelte-15rm2wz");
-      attr(li, "class", "mint-item svelte-15rm2wz");
+      attr(button, "class", "svelte-1d3tr4o");
+      attr(li, "class", "wallet-item svelte-1d3tr4o");
       toggle_class(
         li,
         "active",

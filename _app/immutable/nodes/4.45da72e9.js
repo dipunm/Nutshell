@@ -1,10 +1,10 @@
-import { s as safe_not_equal, n as noop } from "../chunks/utils.fa1c87cb.js";
-import { b as element, f as claim_element, w as get_svelte_dataset, h as attr, i as insert_hydration, d as detach } from "../chunks/scheduler.1f8d92cd.js";
-import { S as SvelteComponent, i as init } from "../chunks/index.12b74358.js";
+import { s as safe_not_equal, n as noop } from "../chunks/utils.08e12359.js";
+import { b as element, f as claim_element, w as get_svelte_dataset, h as attr, i as insert_hydration, d as detach } from "../chunks/scheduler.7be6e2f1.js";
+import { S as SvelteComponent, i as init } from "../chunks/index.89845fad.js";
 const _page_svelte_svelte_type_style_lang = "";
 function create_fragment(ctx) {
   let div1;
-  let textContent = `<div class="circle svelte-1fmwfy4">Select a mint on the left.</div>`;
+  let textContent = `<div class="circle svelte-1fmwfy4">Open a wallet via the left panel.</div>`;
   return {
     c() {
       div1 = element("div");
@@ -13,7 +13,7 @@ function create_fragment(ctx) {
     },
     l(nodes) {
       div1 = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(div1) !== "svelte-11qr8c6")
+      if (get_svelte_dataset(div1) !== "svelte-rgvxvo")
         div1.innerHTML = textContent;
       this.h();
     },

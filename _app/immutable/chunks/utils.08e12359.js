@@ -95,17 +95,21 @@ function compute_slots(slots) {
   }
   return result;
 }
+function action_destroyer(action_result) {
+  return action_result && is_function(action_result.destroy) ? action_result.destroy : noop;
+}
 export {
   get_slot_changes as a,
   component_subscribe as b,
   create_slot as c,
-  compute_slots as d,
-  get_store_value as e,
-  blank_object as f,
+  action_destroyer as d,
+  compute_slots as e,
+  get_store_value as f,
   get_all_dirty_from_scope as g,
-  is_empty as h,
+  blank_object as h,
   is_function as i,
-  run as j,
+  is_empty as j,
+  run as k,
   noop as n,
   run_all as r,
   safe_not_equal as s,

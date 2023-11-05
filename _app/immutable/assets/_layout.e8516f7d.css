@@ -3,4 +3,4 @@
         }.menu.svelte-af1jsr.svelte-af1jsr{max-width:min(
                 24rem,
                 calc(env(viewport-segment-right 0 0) - env(viewport-segment-left 0 0))
-            )}}.mint-item.svelte-15rm2wz.svelte-15rm2wz{position:relative}.mint-item.svelte-15rm2wz button.svelte-15rm2wz{position:relative;display:block;border-radius:.75rem;padding:2rem;background-color:var(--md-sys-color-surface-container);color:var(--md-sys-color-on-surface);margin-bottom:1rem;outline:none;width:100%;cursor:pointer}.mint-item.active.svelte-15rm2wz button.svelte-15rm2wz{background-color:var(--md-sys-color-surface-container-high)}
+            )}}.wallet-item.svelte-1d3tr4o.svelte-1d3tr4o{position:relative}.wallet-item.svelte-1d3tr4o button.svelte-1d3tr4o{position:relative;display:block;border-radius:.75rem;padding:2rem;background-color:var(--md-sys-color-surface-container);color:var(--md-sys-color-on-surface);margin-bottom:1rem;outline:none;width:100%;cursor:pointer}.wallet-item.active.svelte-1d3tr4o button.svelte-1d3tr4o{background-color:var(--md-sys-color-surface-container-high)}
