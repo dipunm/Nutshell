@@ -155,7 +155,7 @@
             display: none;
         }
 
-        .nav .backbutton {
+        .nav :global(.backbutton) {
             display: inherit;
         }
 
