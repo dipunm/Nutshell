@@ -2,6 +2,8 @@
     import "@material/web/icon/icon"
     import "@material/web/list/list"
     import "@material/web/list/list-item"
+    import "@material/web/button/filled-button"
+	import { stackPopUrl } from "$lib/navigation";
 </script>
 <style>
     p {
@@ -15,10 +17,6 @@
     }
     h2 {
         margin-top: 1rem;
-    }
-
-    p:last-child {
-        margin-bottom: 1rem;
     }
 
     a {
@@ -77,3 +75,9 @@
     in eliminating counterparty risk completely &mdash; unlocking 
     the real power of Bitcoin.
 </p>
+
+<div style="display: flex; align-items:center; flex-direction:column">
+<md-filled-button href={$stackPopUrl}
+    style:margin="2rem 0"
+>Lets Go!</md-filled-button>
+</div>
