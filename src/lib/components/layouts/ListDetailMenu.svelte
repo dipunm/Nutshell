@@ -156,7 +156,7 @@
             display: none;
         }
 
-        .nav md-icon-button {
+        .nav .backbutton {
             display: inherit;
         }
 
