@@ -1,8 +1,10 @@
 <script>
 	import Card from "$lib/components/primitives/Card.svelte";
     import "@material/web/iconbutton/icon-button"
+    import "@material/web/icon/icon"
 
 	import Portal from "$lib/components/primitives/Portal.svelte";
+	import { stackPopUrl } from "$lib/navigation";
 </script>
 <style>
     .container {
@@ -16,6 +18,9 @@
     }
 </style>
 
+<Portal target="content-appbar-start">
+    <md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
+</Portal>
 <Portal target="content-appbar">
     <h1 class="headline-small">Deposit</h1>
 </Portal>

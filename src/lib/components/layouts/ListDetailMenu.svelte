@@ -42,7 +42,6 @@
     <section class="content-container">
         <section class="nav">
             <AppBar>
-                <!-- TODO: find a workaround with portals to make this button dissapear ONLY if there is a replacement for it -->
                 <slot name="content-appbar-start"></slot>
                 <md-icon-button class="backbutton" href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
                 <slot name="content-appbar"></slot>
