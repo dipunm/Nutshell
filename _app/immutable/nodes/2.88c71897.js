@@ -5,9 +5,9 @@ import { l, o as o$1, _ as __decorate, n, s, i, e, a as setupHostAria, b as i$1,
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/list-item.cb4e9d2c.js";
 import "../chunks/icon.ebc2319f.js";
-import { p as page } from "../chunks/stores.34c45022.js";
-import { e as base } from "../chunks/singletons.364ebe88.js";
-import { s as stackPopUrl, b as stackGo } from "../chunks/index.9a2caa1b.js";
+import { p as page } from "../chunks/stores.554c67fa.js";
+import { e as base } from "../chunks/singletons.1665cd5b.js";
+import { s as stackPopUrl, b as stackGo } from "../chunks/index.767268c6.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as PortalTarget } from "../chunks/PortalTarget.b8bf6a9a.js";
 import { p as portalActive } from "../chunks/index.6e691c29.js";
@@ -611,7 +611,7 @@ function create_default_slot_1(ctx) {
       this.h();
     },
     h() {
-      attr(h1, "class", "headline-medium svelte-rvhhrm");
+      attr(h1, "class", "headline-medium svelte-nox9zi");
     },
     m(target, anchor) {
       insert_hydration(target, md_icon_button, anchor);
@@ -737,7 +737,7 @@ function create_default_slot$1(ctx) {
       this.h();
     },
     h() {
-      set_custom_element_data(md_icon_button, "class", "backbutton svelte-rvhhrm");
+      set_custom_element_data(md_icon_button, "class", "backbutton svelte-nox9zi");
       set_custom_element_data(
         md_icon_button,
         "href",
@@ -971,19 +971,19 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h() {
-      attr(div0, "class", "menu svelte-rvhhrm");
+      attr(div0, "class", "menu svelte-nox9zi");
       toggle_class(
         div0,
         "active",
         /*menuOpen*/
         ctx[1]
       );
-      attr(div1, "class", "menu-backdrop svelte-rvhhrm");
+      attr(div1, "class", "menu-backdrop svelte-nox9zi");
       attr(div1, "role", "presentation");
-      attr(div2, "class", "list-container svelte-rvhhrm");
-      attr(section0, "class", "nav svelte-rvhhrm");
-      attr(section1, "class", "content-container svelte-rvhhrm");
-      attr(div3, "class", "layout-container svelte-rvhhrm");
+      attr(div2, "class", "list-container svelte-nox9zi");
+      attr(section0, "class", "nav svelte-nox9zi");
+      attr(section1, "class", "content-container svelte-nox9zi");
+      attr(div3, "class", "layout-container svelte-nox9zi");
       toggle_class(
         div3,
         "active",
