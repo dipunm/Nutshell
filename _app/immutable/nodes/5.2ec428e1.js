@@ -1,15 +1,15 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe, d as action_destroyer, r as run_all } from "../chunks/utils.08e12359.js";
-import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, e as empty, t as tick, m as set_data } from "../chunks/scheduler.7be6e2f1.js";
-import { S as SvelteComponent, i as init, a as transition_in, t as transition_out, b as create_component, d as claim_component, m as mount_component, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.89845fad.js";
+import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, e as empty, t as tick, m as set_data } from "../chunks/scheduler.6906c812.js";
+import { S as SvelteComponent, i as init, a as transition_in, t as transition_out, b as create_component, d as claim_component, m as mount_component, c as check_outros, e as destroy_component, g as group_outros } from "../chunks/index.f9624644.js";
 import { s as styles$e, I as IconButton } from "../chunks/icon-button.2ef3c792.js";
 import { i, _ as __decorate, e as e$1, t, n, l as l$1, b as i$1, s as s$1, x, c as o, A, D, E as EASING, d as e$2, f as i$2, g as t$1, T, r as requestUpdateOnAriaChange, h as n$1, j as i$3, a as setupHostAria, k as createAnimationSignal, p as polyfillElementInternalsAria } from "../chunks/form-submitter.5b8d9ddf.js";
 import { N as NavigableKeys, L as ListController, g as getActiveItem, a as getLastActivatableItem, b as getFirstActivatableItem } from "../chunks/icon.1cedd58b.js";
 import { B as Button, s as styles$f, r as redispatchEvent } from "../chunks/filled-button.7c9e55d4.js";
 import { o as o$1 } from "../chunks/style-map.8be08b03.js";
-import { o as onNavigate } from "../chunks/navigation.ce63c8f4.js";
-import { e as base } from "../chunks/singletons.1f071c79.js";
-import { p as page } from "../chunks/stores.b1d82ad4.js";
-import { P as Portal } from "../chunks/Portal.0ba9ee15.js";
+import { o as onNavigate } from "../chunks/navigation.dd7c0e41.js";
+import { e as base } from "../chunks/singletons.16da1406.js";
+import { p as page } from "../chunks/stores.35b7a160.js";
+import { P as Portal } from "../chunks/Portal.e01d24b0.js";
 import "../chunks/elevation.b359ddc5.js";
 /**
   * @license
@@ -2676,27 +2676,35 @@ class DropMenu extends SvelteComponent {
   }
 }
 const _page_svelte_svelte_type_style_lang = "";
-function create_default_slot_2(ctx) {
-  let span;
-  let textContent = "hello";
+function create_if_block_1(ctx) {
+  let portal;
+  let current;
+  portal = new Portal({
+    props: { target: "content-appbar-start" }
+  });
   return {
     c() {
-      span = element("span");
-      span.textContent = textContent;
+      create_component(portal.$$.fragment);
     },
     l(nodes) {
-      span = claim_element(nodes, "SPAN", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(span) !== "svelte-1n5frkm")
-        span.textContent = textContent;
+      claim_component(portal.$$.fragment, nodes);
     },
     m(target, anchor) {
-      insert_hydration(target, span, anchor);
+      mount_component(portal, target, anchor);
+      current = true;
     },
-    p: noop,
+    i(local) {
+      if (current)
+        return;
+      transition_in(portal.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(portal.$$.fragment, local);
+      current = false;
+    },
     d(detaching) {
-      if (detaching) {
-        detach(span);
-      }
+      destroy_component(portal, detaching);
     }
   };
 }
@@ -3033,9 +3041,8 @@ function create_default_slot(ctx) {
   };
 }
 function create_fragment(ctx) {
-  let portal0;
   let t0;
-  let portal1;
+  let portal;
   let t1;
   let div11;
   let section;
@@ -3055,14 +3062,11 @@ function create_fragment(ctx) {
   let ul;
   let textContent_3 = `<li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">account_balance_wallet</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 13 500 sats</span> <span class="title-small">For beer</span></div> <span class="label-medium">just now</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 50 sats</span> <span class="title-small">zap on nostr</span></div> <span class="label-medium">2 mins ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 1 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">2 days ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="svelte-1aak7bc">account_balance_wallet</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">+ 500 sats</span> <span class="title-small">Gift from Ben</span></div> <span class="label-medium">2 weeks ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">+ 500 sats</span> <span class="title-small">block clock sale</span></div> <span class="label-medium">2 months ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">6 months ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">For beer</span></div> <span class="label-medium">1 year ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">zap on nostr</span></div> <span class="label-medium">2 years ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">2 years ago</span></li>`;
   let current;
-  portal0 = new Portal({
-    props: {
-      target: "content-appbar-start",
-      $$slots: { default: [create_default_slot_2] },
-      $$scope: { ctx }
-    }
-  });
-  portal1 = new Portal({
+  let if_block = (
+    /*toggle*/
+    ctx[0] && create_if_block_1()
+  );
+  portal = new Portal({
     props: {
       target: "content-appbar",
       $$slots: { default: [create_default_slot] },
@@ -3071,9 +3075,10 @@ function create_fragment(ctx) {
   });
   return {
     c() {
-      create_component(portal0.$$.fragment);
+      if (if_block)
+        if_block.c();
       t0 = space();
-      create_component(portal1.$$.fragment);
+      create_component(portal.$$.fragment);
       t1 = space();
       div11 = element("div");
       section = element("section");
@@ -3094,9 +3099,10 @@ function create_fragment(ctx) {
       this.h();
     },
     l(nodes) {
-      claim_component(portal0.$$.fragment, nodes);
+      if (if_block)
+        if_block.l(nodes);
       t0 = claim_space(nodes);
-      claim_component(portal1.$$.fragment, nodes);
+      claim_component(portal.$$.fragment, nodes);
       t1 = claim_space(nodes);
       div11 = claim_element(nodes, "DIV", { class: true });
       var div11_nodes = children(div11);
@@ -3139,9 +3145,10 @@ function create_fragment(ctx) {
       attr(div11, "class", "container svelte-1aak7bc");
     },
     m(target, anchor) {
-      mount_component(portal0, target, anchor);
+      if (if_block)
+        if_block.m(target, anchor);
       insert_hydration(target, t0, anchor);
-      mount_component(portal1, target, anchor);
+      mount_component(portal, target, anchor);
       insert_hydration(target, t1, anchor);
       insert_hydration(target, div11, anchor);
       append_hydration(div11, section);
@@ -3158,18 +3165,34 @@ function create_fragment(ctx) {
       current = true;
     },
     p(ctx2, [dirty]) {
-      const portal0_changes = {};
-      if (dirty & /*$$scope*/
-      128) {
-        portal0_changes.$$scope = { dirty, ctx: ctx2 };
+      if (
+        /*toggle*/
+        ctx2[0]
+      ) {
+        if (if_block) {
+          if (dirty & /*toggle*/
+          1) {
+            transition_in(if_block, 1);
+          }
+        } else {
+          if_block = create_if_block_1();
+          if_block.c();
+          transition_in(if_block, 1);
+          if_block.m(t0.parentNode, t0);
+        }
+      } else if (if_block) {
+        group_outros();
+        transition_out(if_block, 1, 1, () => {
+          if_block = null;
+        });
+        check_outros();
       }
-      portal0.$set(portal0_changes);
-      const portal1_changes = {};
+      const portal_changes = {};
       if (dirty & /*$$scope, $page, toggle*/
       131) {
-        portal1_changes.$$scope = { dirty, ctx: ctx2 };
+        portal_changes.$$scope = { dirty, ctx: ctx2 };
       }
-      portal1.$set(portal1_changes);
+      portal.$set(portal_changes);
       if (!current || dirty & /*$page*/
       2 && md_filled_button0_href_value !== (md_filled_button0_href_value = `${base}/accounts/${/*$page*/
       ctx2[1].params.id}/deposit`)) {
@@ -3179,13 +3202,13 @@ function create_fragment(ctx) {
     i(local) {
       if (current)
         return;
-      transition_in(portal0.$$.fragment, local);
-      transition_in(portal1.$$.fragment, local);
+      transition_in(if_block);
+      transition_in(portal.$$.fragment, local);
       current = true;
     },
     o(local) {
-      transition_out(portal0.$$.fragment, local);
-      transition_out(portal1.$$.fragment, local);
+      transition_out(if_block);
+      transition_out(portal.$$.fragment, local);
       current = false;
     },
     d(detaching) {
@@ -3194,8 +3217,9 @@ function create_fragment(ctx) {
         detach(t1);
         detach(div11);
       }
-      destroy_component(portal0, detaching);
-      destroy_component(portal1, detaching);
+      if (if_block)
+        if_block.d(detaching);
+      destroy_component(portal, detaching);
     }
   };
 }

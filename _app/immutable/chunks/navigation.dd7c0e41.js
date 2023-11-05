@@ -1,4 +1,4 @@
-import { j as client_method } from "./singletons.1f071c79.js";
+import { j as client_method } from "./singletons.16da1406.js";
 const goto = /* @__PURE__ */ client_method("goto");
 const beforeNavigate = /* @__PURE__ */ client_method("before_navigate");
 const onNavigate = /* @__PURE__ */ client_method("on_navigate");

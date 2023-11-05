@@ -393,7 +393,7 @@ function flush_render_callbacks(fns) {
   render_callbacks = filtered;
 }
 export {
-  onDestroy as A,
+  createEventDispatcher as A,
   flush as B,
   add_render_callback as C,
   flush_render_callbacks as D,
@@ -428,5 +428,5 @@ export {
   get_svelte_dataset as w,
   set_custom_element_data as x,
   destroy_each as y,
-  createEventDispatcher as z
+  onDestroy as z
 };
