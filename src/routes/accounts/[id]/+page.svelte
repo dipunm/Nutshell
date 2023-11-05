@@ -18,7 +18,7 @@
 	import Portal from "$lib/components/primitives/Portal.svelte";
 	import DropMenu from "$lib/components/primitives/DropMenu.svelte";
     
-    $: toggle = true;
+    $: toggle = false;
 
     onNavigate(() => { toggle = true });
 
@@ -35,19 +35,29 @@
 </script>
 
 <Portal target="content-appbar">
-    <h1 class="headline-small">Unnamsed Mint {$page.params.id.toString().padStart(2, '0')}</h1>
+    {#if toggle}
+    <form class="edit-form">
+        <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={'Unnamed Wallet 01'}></md-outlined-text-field>
+        <md-filled-icon-button on:submit={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
+        <md-icon-button on:click={() => toggleEditor(false)}><md-icon>clear</md-icon></md-icon-button>
+    </form>
+    {:else}
+    <h1 class="headline-small">Unnamed Wallet {$page.params.id.toString().padStart(2, '0')}</h1>
     <DropMenu>
-        <md-menu-item>
-            <div slot="headline">Apple</div>
+        <md-menu-item on:click={() => toggleEditor(true)}>
+            <div slot="headline" style="white-space: nowrap;">Rename wallet</div>
         </md-menu-item>
-        <md-menu-item>
-            <div slot="headline">Banana</div>
+        <md-menu-item href="?backup">
+            <div slot="headline" style="white-space: nowrap;">Backup</div>
         </md-menu-item>
-        <md-menu-item>
-            <div slot="headline">Cucumber</div>
+        <md-menu-item href="?restore">
+            <div slot="headline" style="white-space: nowrap;">Restore</div>
+        </md-menu-item>
+        <md-menu-item href="?erase">
+            <div slot="headline" style="white-space: nowrap;">Erase</div>
         </md-menu-item>
     </DropMenu>
-</Portal>
+    {/if}
 <!-- 
     Things we can do with the mint:
     - Rename the mint.
@@ -61,19 +71,18 @@
     - Mint url
     - Mint seed
  -->
+</Portal>
+
+
 
 
 <!-- <svelte:fragment slot="nav">
     {#if toggle}
     <md-icon-button on:click={() => stackBack()}><md-icon>arrow_back</md-icon></md-icon-button>
-    <h1 class="headline-small">Unnamed Mint 01</h1>
+    <h1 class="headline-small">Unnamed Wallet 01</h1>
     <md-text-button has-icon on:click={() => toggleEditor(false) }><md-icon slot="icon">edit</md-icon>Edit</md-text-button>
     {:else}
-    <form class="edit-form">
-        <md-outlined-text-field use:focus id="nav-title-edit" label="Name" value={'Unnamed Mint 01'}></md-outlined-text-field>
-        <md-filled-icon-button on:submit={() => {alert('hi')}}><md-icon>done</md-icon></md-filled-icon-button>
-        <md-icon-button on:click={() => toggleEditor(true)}><md-icon>clear</md-icon></md-icon-button>
-    </form>
+
     {/if}
 </svelte:fragment> -->
 

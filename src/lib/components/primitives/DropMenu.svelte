@@ -17,7 +17,7 @@
             <md-icon>more_vert</md-icon>
         </slot>
     </md-icon-button>
-    <md-menu anchor-corner="start-start" bind:this={menu}>
+    <md-menu anchor-corner="start-end" menu-corner="start-end" bind:this={menu} >
         <slot />
     </md-menu>
 </span>

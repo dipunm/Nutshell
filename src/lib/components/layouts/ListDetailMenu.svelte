@@ -34,7 +34,7 @@
              <md-icon-button on:click={toggleMenu}>
                 <md-icon>menu</md-icon>
             </md-icon-button> 
-            <h1 class="headline-medium">Mints</h1>
+            <h1 class="headline-medium">Wallets</h1>
         </AppBar>
 
         <slot name="list" />

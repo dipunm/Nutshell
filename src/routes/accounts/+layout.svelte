@@ -33,13 +33,13 @@
                 </div>
             </md-list-item>
             <md-list-item type="button">
-                <md-icon slot="start">account_balance</md-icon> Mints
+                <md-icon slot="start">account_balance</md-icon> Wallets
                 <div slot="supporting-text">
                     Manage your counterparties, check your balance, spend and receive.
                 </div>
             </md-list-item>
             <md-list-item type="button" disabled>
-                <md-icon slot="start">settings</md-icon> Wallet
+                <md-icon slot="start">settings</md-icon> Other
                 <div slot="supporting-text">
                     Undecided, configure something maybe?
                 </div>
@@ -50,11 +50,11 @@
     <svelte:fragment slot="list">
         <ul>
             {#each ['1','2'] as id}
-            <li class="mint-item" class:active={id === accountId}>
-                <button id={`mint-item-${id}`} on:click={(e) => stackGo(`${base}/accounts/${id}`, { keepFocus: true })}>
-                    <md-focus-ring for={`mint-item-${id}`} />
+            <li class="wallet-item" class:active={id === accountId}>
+                <button id={`wallet-item-${id}`} on:click={(e) => stackGo(`${base}/accounts/${id}`, { keepFocus: true })}>
+                    <md-focus-ring for={`wallet-item-${id}`} />
                     <md-ripple />
-                    <h2 class="title-large">Unnamed Mint 0{id}</h2>
+                    <h2 class="title-large">Unnamed Wallet 0{id}</h2>
                     <p>0.00001033 BTC</p>
                 </button>
             </li>
@@ -67,10 +67,10 @@
 
 
 <style>
-    .mint-item {
+    .wallet-item {
         position: relative;
     }
-    .mint-item button {
+    .wallet-item button {
         position: relative;
         display: block;
         border-radius: .75rem;
@@ -83,7 +83,7 @@
         cursor: pointer;
     }
 
-    .mint-item.active button {
+    .wallet-item.active button {
         background-color: var(--md-sys-color-surface-container-high);
     }
 </style>

@@ -22,6 +22,6 @@
 </style>
 <div class="container">
     <div class="circle">
-        Select a mint on the left.
+        Open a wallet via the left panel.
     </div>
 </div>
