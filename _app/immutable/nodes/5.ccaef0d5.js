@@ -6,10 +6,10 @@ import { i, _ as __decorate, e as e$1, t, n, l as l$1, b as i$1, s as s$1, x, c 
 import { N as NavigableKeys, L as ListController, g as getActiveItem, a as getLastActivatableItem, b as getFirstActivatableItem } from "../chunks/icon.1cedd58b.js";
 import { B as Button, s as styles$f, r as redispatchEvent } from "../chunks/filled-button.7c9e55d4.js";
 import { o as o$1 } from "../chunks/style-map.8be08b03.js";
-import { o as onNavigate } from "../chunks/navigation.937d0b57.js";
-import { e as base } from "../chunks/singletons.1b199c9c.js";
-import { p as page } from "../chunks/stores.cad5c6c8.js";
-import { P as Portal } from "../chunks/Portal.44e08144.js";
+import { o as onNavigate } from "../chunks/navigation.ce63c8f4.js";
+import { e as base } from "../chunks/singletons.1f071c79.js";
+import { p as page } from "../chunks/stores.b1d82ad4.js";
+import { P as Portal } from "../chunks/Portal.0ba9ee15.js";
 import "../chunks/elevation.b359ddc5.js";
 /**
   * @license
@@ -2780,6 +2780,7 @@ function create_else_block(ctx) {
 }
 function create_if_block(ctx) {
   let md_outlined_text_field;
+  let md_outlined_text_field_value_value;
   let t0;
   let md_filled_icon_button;
   let textContent = `<md-icon>done</md-icon>`;
@@ -2809,7 +2810,7 @@ function create_if_block(ctx) {
       children(md_outlined_text_field).forEach(detach);
       t0 = claim_space(nodes);
       md_filled_icon_button = claim_element(nodes, "MD-FILLED-ICON-BUTTON", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_filled_icon_button) !== "svelte-1s1lshl")
+      if (get_svelte_dataset(md_filled_icon_button) !== "svelte-1k534lb")
         md_filled_icon_button.innerHTML = textContent;
       t2 = claim_space(nodes);
       md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { ["data-svelte-h"]: true });
@@ -2820,7 +2821,8 @@ function create_if_block(ctx) {
     h() {
       set_custom_element_data(md_outlined_text_field, "id", "nav-title-edit");
       set_custom_element_data(md_outlined_text_field, "label", "Name");
-      set_custom_element_data(md_outlined_text_field, "value", "Unnamed Wallet 01");
+      set_custom_element_data(md_outlined_text_field, "value", md_outlined_text_field_value_value = `Unnamed Wallet ${/*$page*/
+      ctx[1].params.id.toString().padStart(2, "0")}`);
       set_custom_element_data(md_outlined_text_field, "class", "svelte-1aak7bc");
     },
     m(target, anchor) {
@@ -2837,21 +2839,27 @@ function create_if_block(ctx) {
           ),
           listen(
             md_filled_icon_button,
-            "submit",
-            /*submit_handler*/
+            "click",
+            /*click_handler*/
             ctx[4]
           ),
           listen(
             md_icon_button,
             "click",
-            /*click_handler*/
+            /*click_handler_1*/
             ctx[5]
           )
         ];
         mounted = true;
       }
     },
-    p: noop,
+    p(ctx2, dirty) {
+      if (dirty & /*$page*/
+      2 && md_outlined_text_field_value_value !== (md_outlined_text_field_value_value = `Unnamed Wallet ${/*$page*/
+      ctx2[1].params.id.toString().padStart(2, "0")}`)) {
+        set_custom_element_data(md_outlined_text_field, "value", md_outlined_text_field_value_value);
+      }
+    },
     i: noop,
     o: noop,
     d(detaching) {
@@ -2931,7 +2939,7 @@ function create_default_slot_1(ctx) {
         dispose = listen(
           md_menu_item0,
           "click",
-          /*click_handler_1*/
+          /*click_handler_2*/
           ctx[6]
         );
         mounted = true;
@@ -3157,7 +3165,7 @@ function create_fragment(ctx) {
       }
       portal0.$set(portal0_changes);
       const portal1_changes = {};
-      if (dirty & /*$$scope, toggle, $page*/
+      if (dirty & /*$$scope, $page, toggle*/
       131) {
         portal1_changes.$$scope = { dirty, ctx: ctx2 };
       }
@@ -3207,20 +3215,20 @@ function instance($$self, $$props, $$invalidate) {
       el.select();
     });
   }
-  const submit_handler = () => {
+  const click_handler = () => {
     alert("hi");
   };
-  const click_handler = () => toggleEditor(false);
-  const click_handler_1 = () => toggleEditor(true);
+  const click_handler_1 = () => toggleEditor(false);
+  const click_handler_2 = () => toggleEditor(true);
   $$invalidate(0, toggle = false);
   return [
     toggle,
     $page,
     toggleEditor,
     focus,
-    submit_handler,
     click_handler,
-    click_handler_1
+    click_handler_1,
+    click_handler_2
   ];
 }
 class Page extends SvelteComponent {

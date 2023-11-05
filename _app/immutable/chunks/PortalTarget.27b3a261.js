@@ -1,7 +1,7 @@
 import { s as safe_not_equal, n as noop, b as component_subscribe } from "./utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, j as set_style, i as insert_hydration, n as binding_callbacks } from "./scheduler.7be6e2f1.js";
 import { S as SvelteComponent, i as init } from "./index.89845fad.js";
-import { c as createPortal } from "./index.35cfacc3.js";
+import { o as observePortal } from "./index.6e691c29.js";
 function create_fragment(ctx) {
   let div0;
   let t;
@@ -22,7 +22,9 @@ function create_fragment(ctx) {
       this.h();
     },
     h() {
+      div0.hidden = true;
       set_style(div0, "display", "none");
+      div1.hidden = true;
       set_style(div1, "display", "none");
     },
     m(target, anchor) {
@@ -51,7 +53,7 @@ function instance($$self, $$props, $$invalidate) {
   let { name } = $$props;
   let handleStart;
   let handleEnd;
-  const contents = createPortal(name);
+  const contents = observePortal(name);
   component_subscribe($$self, contents, (value) => $$invalidate(4, $contents = value));
   function div0_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {

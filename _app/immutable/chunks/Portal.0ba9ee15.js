@@ -1,18 +1,18 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes } from "./utils.08e12359.js";
 import { b as element, f as claim_element, g as children, d as detach, j as set_style, i as insert_hydration, A as onDestroy, n as binding_callbacks, t as tick } from "./scheduler.7be6e2f1.js";
 import { S as SvelteComponent, i as init, a as transition_in, g as group_outros, t as transition_out, c as check_outros } from "./index.89845fad.js";
-import { b as bindToPortal } from "./index.35cfacc3.js";
+import { a as openPortal } from "./index.6e691c29.js";
 function create_if_block(ctx) {
   let current;
   const default_slot_template = (
     /*#slots*/
-    ctx[4].default
+    ctx[5].default
   );
   const default_slot = create_slot(
     default_slot_template,
     ctx,
     /*$$scope*/
-    ctx[3],
+    ctx[4],
     null
   );
   return {
@@ -33,20 +33,20 @@ function create_if_block(ctx) {
     p(ctx2, dirty) {
       if (default_slot) {
         if (default_slot.p && (!current || dirty & /*$$scope*/
-        8)) {
+        16)) {
           update_slot_base(
             default_slot,
             default_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[3],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[3]
+              ctx2[4]
             ) : get_slot_changes(
               default_slot_template,
               /*$$scope*/
-              ctx2[3],
+              ctx2[4],
               dirty,
               null
             ),
@@ -100,7 +100,7 @@ function create_fragment(ctx) {
       insert_hydration(target, div, anchor);
       if (if_block)
         if_block.m(div, null);
-      ctx[5](div);
+      ctx[6](div);
       current = true;
     },
     p(ctx2, [dirty]) {
@@ -144,7 +144,7 @@ function create_fragment(ctx) {
       }
       if (if_block)
         if_block.d();
-      ctx[5](null);
+      ctx[6](null);
     }
   };
 }
@@ -154,6 +154,11 @@ function instance($$self, $$props, $$invalidate) {
   let { target } = $$props;
   let observer;
   let key = 0;
+  let portal;
+  function portalToTarget(target2) {
+    portal == null ? void 0 : portal.close();
+    $$invalidate(3, portal = openPortal(target2));
+  }
   async function forceRerender() {
     $$invalidate(1, key = 1);
     await tick();
@@ -170,7 +175,7 @@ function instance($$self, $$props, $$invalidate) {
   }
   onDestroy(() => {
     observer == null ? void 0 : observer.disconnect();
-    bindToPortal(target, null);
+    portal == null ? void 0 : portal.close();
   });
   function div_binding($$value) {
     binding_callbacks[$$value ? "unshift" : "push"](() => {
@@ -182,16 +187,20 @@ function instance($$self, $$props, $$invalidate) {
     if ("target" in $$props2)
       $$invalidate(2, target = $$props2.target);
     if ("$$scope" in $$props2)
-      $$invalidate(3, $$scope = $$props2.$$scope);
+      $$invalidate(4, $$scope = $$props2.$$scope);
   };
   $$self.$$.update = () => {
-    if ($$self.$$.dirty & /*container, target*/
-    5) {
+    if ($$self.$$.dirty & /*target*/
+    4) {
+      portalToTarget(target);
+    }
+    if ($$self.$$.dirty & /*container, portal*/
+    9) {
       {
         disconnectObserver();
         if ((container == null ? void 0 : container.childNodes) ?? false) {
           const content = [...container.childNodes];
-          bindToPortal(target, content);
+          portal == null ? void 0 : portal.tunnel(content);
           tick().then(() => {
             if (container ?? false) {
               setObserver(new MutationObserver(() => {
@@ -201,12 +210,12 @@ function instance($$self, $$props, $$invalidate) {
             }
           });
         } else {
-          bindToPortal(target, null);
+          portal == null ? void 0 : portal.clear();
         }
       }
     }
   };
-  return [container, key, target, $$scope, slots, div_binding];
+  return [container, key, target, portal, $$scope, slots, div_binding];
 }
 class Portal extends SvelteComponent {
   constructor(options) {
