@@ -5,9 +5,9 @@ import { l, o as o$1, _ as __decorate, n, s, i, e, a as setupHostAria, b as i$1,
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/list-item.cb4e9d2c.js";
 import "../chunks/icon.ebc2319f.js";
-import { p as page } from "../chunks/stores.52440db3.js";
-import { e as base } from "../chunks/singletons.a9fe45c8.js";
-import { s as stackPopUrl, b as stackGo } from "../chunks/index.349e3b0e.js";
+import { p as page } from "../chunks/stores.34c45022.js";
+import { e as base } from "../chunks/singletons.364ebe88.js";
+import { s as stackPopUrl, b as stackGo } from "../chunks/index.9a2caa1b.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as PortalTarget } from "../chunks/PortalTarget.b8bf6a9a.js";
 import { p as portalActive } from "../chunks/index.6e691c29.js";
@@ -1643,10 +1643,6 @@ function create_fragment(ctx) {
         /*contentActive*/
         ctx[1]
       ),
-      showBackButton: (
-        /*contentActive*/
-        ctx[1]
-      ),
       $$slots: {
         "content-appbar": [create_content_appbar_slot],
         "content-appbar-start": [create_content_appbar_start_slot],
@@ -1674,10 +1670,6 @@ function create_fragment(ctx) {
       if (dirty & /*contentActive*/
       2)
         listdetailmenu_changes.contentActive = /*contentActive*/
-        ctx2[1];
-      if (dirty & /*contentActive*/
-      2)
-        listdetailmenu_changes.showBackButton = /*contentActive*/
         ctx2[1];
       if (dirty & /*$$scope, $contentAppbarStartActive, accountId*/
       261) {
