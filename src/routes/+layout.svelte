@@ -3,7 +3,7 @@
     import './app.css';
     import '../css/theme.css'
 	import { activateNavigationStackBehaviour } from '$lib/navigation';
-	import PortalTarget from '$lib/components/primitives/PortalTarget.svelte';
+	import PortalTarget from '$lib/portals/PortalTarget.svelte';
 
     /**
      * Workaround: preserve history state after refresh.
