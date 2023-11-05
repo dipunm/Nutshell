@@ -1,16 +1,15 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe, d as action_destroyer, r as run_all } from "../chunks/utils.08e12359.js";
-import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, e as empty, m as set_data } from "../chunks/scheduler.7be6e2f1.js";
+import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, e as empty, t as tick, m as set_data } from "../chunks/scheduler.7be6e2f1.js";
 import { S as SvelteComponent, i as init, a as transition_in, t as transition_out, b as create_component, d as claim_component, m as mount_component, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.89845fad.js";
 import { s as styles$e, I as IconButton } from "../chunks/icon-button.2ef3c792.js";
 import { i, _ as __decorate, e as e$1, t, n, l as l$1, b as i$1, s as s$1, x, c as o, A, D, E as EASING, d as e$2, f as i$2, g as t$1, T, r as requestUpdateOnAriaChange, h as n$1, j as i$3, a as setupHostAria, k as createAnimationSignal, p as polyfillElementInternalsAria } from "../chunks/form-submitter.5b8d9ddf.js";
 import { N as NavigableKeys, L as ListController, g as getActiveItem, a as getLastActivatableItem, b as getFirstActivatableItem } from "../chunks/icon.1cedd58b.js";
 import { B as Button, s as styles$f, r as redispatchEvent } from "../chunks/filled-button.7c9e55d4.js";
 import { o as o$1 } from "../chunks/style-map.8be08b03.js";
-import { o as onNavigate } from "../chunks/navigation.abe3f533.js";
-import { e as base } from "../chunks/singletons.ab8a8e08.js";
-import "../chunks/index.4aa8ab70.js";
-import { p as page } from "../chunks/stores.a3fb07b8.js";
-import { P as Portal } from "../chunks/Portal.67db75b1.js";
+import { o as onNavigate } from "../chunks/navigation.937d0b57.js";
+import { e as base } from "../chunks/singletons.1b199c9c.js";
+import { p as page } from "../chunks/stores.cad5c6c8.js";
+import { P as Portal } from "../chunks/Portal.44e08144.js";
 import "../chunks/elevation.b359ddc5.js";
 /**
   * @license
@@ -2677,6 +2676,30 @@ class DropMenu extends SvelteComponent {
   }
 }
 const _page_svelte_svelte_type_style_lang = "";
+function create_default_slot_2(ctx) {
+  let span;
+  let textContent = "hello";
+  return {
+    c() {
+      span = element("span");
+      span.textContent = textContent;
+    },
+    l(nodes) {
+      span = claim_element(nodes, "SPAN", { ["data-svelte-h"]: true });
+      if (get_svelte_dataset(span) !== "svelte-1n5frkm")
+        span.textContent = textContent;
+    },
+    m(target, anchor) {
+      insert_hydration(target, span, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(span);
+      }
+    }
+  };
+}
 function create_else_block(ctx) {
   let h1;
   let t0;
@@ -2731,7 +2754,7 @@ function create_else_block(ctx) {
         set_data(t1, t1_value);
       const dropmenu_changes = {};
       if (dirty & /*$$scope*/
-      64) {
+      128) {
         dropmenu_changes.$$scope = { dirty, ctx: ctx2 };
       }
       dropmenu.$set(dropmenu_changes);
@@ -2756,19 +2779,17 @@ function create_else_block(ctx) {
   };
 }
 function create_if_block(ctx) {
-  let form;
   let md_outlined_text_field;
   let t0;
   let md_filled_icon_button;
-  let textContent = `<md-icon class="svelte-1aak7bc">done</md-icon>`;
+  let textContent = `<md-icon>done</md-icon>`;
   let t2;
   let md_icon_button;
-  let textContent_1 = `<md-icon class="svelte-1aak7bc">clear</md-icon>`;
+  let textContent_1 = `<md-icon>clear</md-icon>`;
   let mounted;
   let dispose;
   return {
     c() {
-      form = element("form");
       md_outlined_text_field = element("md-outlined-text-field");
       t0 = space();
       md_filled_icon_button = element("md-filled-icon-button");
@@ -2779,24 +2800,21 @@ function create_if_block(ctx) {
       this.h();
     },
     l(nodes) {
-      form = claim_element(nodes, "FORM", { class: true });
-      var form_nodes = children(form);
-      md_outlined_text_field = claim_element(form_nodes, "MD-OUTLINED-TEXT-FIELD", {
+      md_outlined_text_field = claim_element(nodes, "MD-OUTLINED-TEXT-FIELD", {
         id: true,
         label: true,
         value: true,
         class: true
       });
       children(md_outlined_text_field).forEach(detach);
-      t0 = claim_space(form_nodes);
-      md_filled_icon_button = claim_element(form_nodes, "MD-FILLED-ICON-BUTTON", { class: true, ["data-svelte-h"]: true });
+      t0 = claim_space(nodes);
+      md_filled_icon_button = claim_element(nodes, "MD-FILLED-ICON-BUTTON", { ["data-svelte-h"]: true });
       if (get_svelte_dataset(md_filled_icon_button) !== "svelte-1s1lshl")
         md_filled_icon_button.innerHTML = textContent;
-      t2 = claim_space(form_nodes);
-      md_icon_button = claim_element(form_nodes, "MD-ICON-BUTTON", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_icon_button) !== "svelte-19xwzst")
+      t2 = claim_space(nodes);
+      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_icon_button) !== "svelte-ul8rlf")
         md_icon_button.innerHTML = textContent_1;
-      form_nodes.forEach(detach);
       this.h();
     },
     h() {
@@ -2804,31 +2822,30 @@ function create_if_block(ctx) {
       set_custom_element_data(md_outlined_text_field, "label", "Name");
       set_custom_element_data(md_outlined_text_field, "value", "Unnamed Wallet 01");
       set_custom_element_data(md_outlined_text_field, "class", "svelte-1aak7bc");
-      set_custom_element_data(md_filled_icon_button, "class", "svelte-1aak7bc");
-      set_custom_element_data(md_icon_button, "class", "svelte-1aak7bc");
-      attr(form, "class", "edit-form svelte-1aak7bc");
     },
     m(target, anchor) {
-      insert_hydration(target, form, anchor);
-      append_hydration(form, md_outlined_text_field);
-      append_hydration(form, t0);
-      append_hydration(form, md_filled_icon_button);
-      append_hydration(form, t2);
-      append_hydration(form, md_icon_button);
+      insert_hydration(target, md_outlined_text_field, anchor);
+      insert_hydration(target, t0, anchor);
+      insert_hydration(target, md_filled_icon_button, anchor);
+      insert_hydration(target, t2, anchor);
+      insert_hydration(target, md_icon_button, anchor);
       if (!mounted) {
         dispose = [
-          action_destroyer(focus.call(null, md_outlined_text_field)),
+          action_destroyer(
+            /*focus*/
+            ctx[3].call(null, md_outlined_text_field)
+          ),
           listen(
             md_filled_icon_button,
             "submit",
             /*submit_handler*/
-            ctx[3]
+            ctx[4]
           ),
           listen(
             md_icon_button,
             "click",
             /*click_handler*/
-            ctx[4]
+            ctx[5]
           )
         ];
         mounted = true;
@@ -2839,7 +2856,11 @@ function create_if_block(ctx) {
     o: noop,
     d(detaching) {
       if (detaching) {
-        detach(form);
+        detach(md_outlined_text_field);
+        detach(t0);
+        detach(md_filled_icon_button);
+        detach(t2);
+        detach(md_icon_button);
       }
       mounted = false;
       run_all(dispose);
@@ -2911,7 +2932,7 @@ function create_default_slot_1(ctx) {
           md_menu_item0,
           "click",
           /*click_handler_1*/
-          ctx[5]
+          ctx[6]
         );
         mounted = true;
       }
@@ -3004,27 +3025,36 @@ function create_default_slot(ctx) {
   };
 }
 function create_fragment(ctx) {
-  let portal;
+  let portal0;
   let t0;
+  let portal1;
+  let t1;
   let div11;
   let section;
   let div0;
   let textContent = "1 00 000 000 sats";
-  let t2;
+  let t3;
   let div1;
   let md_filled_button0;
   let md_icon0;
   let textContent_1 = "download";
-  let t4;
-  let md_filled_button0_href_value;
   let t5;
+  let md_filled_button0_href_value;
+  let t6;
   let md_filled_button1;
   let textContent_2 = `<md-icon slot="icon">file_upload</md-icon>Spend`;
-  let t8;
+  let t9;
   let ul;
   let textContent_3 = `<li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">account_balance_wallet</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 13 500 sats</span> <span class="title-small">For beer</span></div> <span class="label-medium">just now</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 50 sats</span> <span class="title-small">zap on nostr</span></div> <span class="label-medium">2 mins ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 1 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">2 days ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="svelte-1aak7bc">account_balance_wallet</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">+ 500 sats</span> <span class="title-small">Gift from Ben</span></div> <span class="label-medium">2 weeks ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">+ 500 sats</span> <span class="title-small">block clock sale</span></div> <span class="label-medium">2 months ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">6 months ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">For beer</span></div> <span class="label-medium">1 year ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">zap on nostr</span></div> <span class="label-medium">2 years ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">2 years ago</span></li>`;
   let current;
-  portal = new Portal({
+  portal0 = new Portal({
+    props: {
+      target: "content-appbar-start",
+      $$slots: { default: [create_default_slot_2] },
+      $$scope: { ctx }
+    }
+  });
+  portal1 = new Portal({
     props: {
       target: "content-appbar",
       $$slots: { default: [create_default_slot] },
@@ -3033,29 +3063,33 @@ function create_fragment(ctx) {
   });
   return {
     c() {
-      create_component(portal.$$.fragment);
+      create_component(portal0.$$.fragment);
       t0 = space();
+      create_component(portal1.$$.fragment);
+      t1 = space();
       div11 = element("div");
       section = element("section");
       div0 = element("div");
       div0.textContent = textContent;
-      t2 = space();
+      t3 = space();
       div1 = element("div");
       md_filled_button0 = element("md-filled-button");
       md_icon0 = element("md-icon");
       md_icon0.textContent = textContent_1;
-      t4 = text("Deposit");
-      t5 = space();
+      t5 = text("Deposit");
+      t6 = space();
       md_filled_button1 = element("md-filled-button");
       md_filled_button1.innerHTML = textContent_2;
-      t8 = space();
+      t9 = space();
       ul = element("ul");
       ul.innerHTML = textContent_3;
       this.h();
     },
     l(nodes) {
-      claim_component(portal.$$.fragment, nodes);
+      claim_component(portal0.$$.fragment, nodes);
       t0 = claim_space(nodes);
+      claim_component(portal1.$$.fragment, nodes);
+      t1 = claim_space(nodes);
       div11 = claim_element(nodes, "DIV", { class: true });
       var div11_nodes = children(div11);
       section = claim_element(div11_nodes, "SECTION", { class: true });
@@ -3063,7 +3097,7 @@ function create_fragment(ctx) {
       div0 = claim_element(section_nodes, "DIV", { class: true, ["data-svelte-h"]: true });
       if (get_svelte_dataset(div0) !== "svelte-1inw283")
         div0.textContent = textContent;
-      t2 = claim_space(section_nodes);
+      t3 = claim_space(section_nodes);
       div1 = claim_element(section_nodes, "DIV", { class: true });
       var div1_nodes = children(div1);
       md_filled_button0 = claim_element(div1_nodes, "MD-FILLED-BUTTON", { href: true });
@@ -3071,15 +3105,15 @@ function create_fragment(ctx) {
       md_icon0 = claim_element(md_filled_button0_nodes, "MD-ICON", { slot: true, ["data-svelte-h"]: true });
       if (get_svelte_dataset(md_icon0) !== "svelte-1qgucco")
         md_icon0.textContent = textContent_1;
-      t4 = claim_text(md_filled_button0_nodes, "Deposit");
+      t5 = claim_text(md_filled_button0_nodes, "Deposit");
       md_filled_button0_nodes.forEach(detach);
-      t5 = claim_space(div1_nodes);
+      t6 = claim_space(div1_nodes);
       md_filled_button1 = claim_element(div1_nodes, "MD-FILLED-BUTTON", { ["data-svelte-h"]: true });
       if (get_svelte_dataset(md_filled_button1) !== "svelte-1wp7swn")
         md_filled_button1.innerHTML = textContent_2;
       div1_nodes.forEach(detach);
       section_nodes.forEach(detach);
-      t8 = claim_space(div11_nodes);
+      t9 = claim_space(div11_nodes);
       ul = claim_element(div11_nodes, "UL", { class: true, ["data-svelte-h"]: true });
       if (get_svelte_dataset(ul) !== "svelte-mt1vvl")
         ul.innerHTML = textContent_3;
@@ -3097,29 +3131,37 @@ function create_fragment(ctx) {
       attr(div11, "class", "container svelte-1aak7bc");
     },
     m(target, anchor) {
-      mount_component(portal, target, anchor);
+      mount_component(portal0, target, anchor);
       insert_hydration(target, t0, anchor);
+      mount_component(portal1, target, anchor);
+      insert_hydration(target, t1, anchor);
       insert_hydration(target, div11, anchor);
       append_hydration(div11, section);
       append_hydration(section, div0);
-      append_hydration(section, t2);
+      append_hydration(section, t3);
       append_hydration(section, div1);
       append_hydration(div1, md_filled_button0);
       append_hydration(md_filled_button0, md_icon0);
-      append_hydration(md_filled_button0, t4);
-      append_hydration(div1, t5);
+      append_hydration(md_filled_button0, t5);
+      append_hydration(div1, t6);
       append_hydration(div1, md_filled_button1);
-      append_hydration(div11, t8);
+      append_hydration(div11, t9);
       append_hydration(div11, ul);
       current = true;
     },
     p(ctx2, [dirty]) {
-      const portal_changes = {};
-      if (dirty & /*$$scope, toggle, $page*/
-      67) {
-        portal_changes.$$scope = { dirty, ctx: ctx2 };
+      const portal0_changes = {};
+      if (dirty & /*$$scope*/
+      128) {
+        portal0_changes.$$scope = { dirty, ctx: ctx2 };
       }
-      portal.$set(portal_changes);
+      portal0.$set(portal0_changes);
+      const portal1_changes = {};
+      if (dirty & /*$$scope, toggle, $page*/
+      131) {
+        portal1_changes.$$scope = { dirty, ctx: ctx2 };
+      }
+      portal1.$set(portal1_changes);
       if (!current || dirty & /*$page*/
       2 && md_filled_button0_href_value !== (md_filled_button0_href_value = `${base}/accounts/${/*$page*/
       ctx2[1].params.id}/deposit`)) {
@@ -3129,40 +3171,41 @@ function create_fragment(ctx) {
     i(local) {
       if (current)
         return;
-      transition_in(portal.$$.fragment, local);
+      transition_in(portal0.$$.fragment, local);
+      transition_in(portal1.$$.fragment, local);
       current = true;
     },
     o(local) {
-      transition_out(portal.$$.fragment, local);
+      transition_out(portal0.$$.fragment, local);
+      transition_out(portal1.$$.fragment, local);
       current = false;
     },
     d(detaching) {
       if (detaching) {
         detach(t0);
+        detach(t1);
         detach(div11);
       }
-      destroy_component(portal, detaching);
+      destroy_component(portal0, detaching);
+      destroy_component(portal1, detaching);
     }
   };
-}
-function focus(el) {
-  setTimeout(
-    () => {
-      el.focus();
-      el.select();
-    },
-    10
-  );
 }
 function instance($$self, $$props, $$invalidate) {
   let toggle;
   let $page;
   component_subscribe($$self, page, ($$value) => $$invalidate(1, $page = $$value));
   onNavigate(() => {
-    $$invalidate(0, toggle = true);
+    $$invalidate(0, toggle = false);
   });
   function toggleEditor(on) {
     $$invalidate(0, toggle = on);
+  }
+  function focus(el) {
+    tick().then(() => {
+      el.focus();
+      el.select();
+    });
   }
   const submit_handler = () => {
     alert("hi");
@@ -3170,7 +3213,15 @@ function instance($$self, $$props, $$invalidate) {
   const click_handler = () => toggleEditor(false);
   const click_handler_1 = () => toggleEditor(true);
   $$invalidate(0, toggle = false);
-  return [toggle, $page, toggleEditor, submit_handler, click_handler, click_handler_1];
+  return [
+    toggle,
+    $page,
+    toggleEditor,
+    focus,
+    submit_handler,
+    click_handler,
+    click_handler_1
+  ];
 }
 class Page extends SvelteComponent {
   constructor(options) {

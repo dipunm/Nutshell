@@ -1,19 +1,19 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, v as listen, z as createEventDispatcher, e as empty, n as binding_callbacks, x as set_custom_element_data, k as text, l as claim_text, j as set_style } from "../chunks/scheduler.7be6e2f1.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.89845fad.js";
-import { e as base } from "../chunks/singletons.ab8a8e08.js";
+import { e as base } from "../chunks/singletons.1b199c9c.js";
 import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.7c9e55d4.js";
 import "../chunks/icon.1cedd58b.js";
 import { C as Card } from "../chunks/Card.1b857f0f.js";
 import { A as AppBar } from "../chunks/AppBar.3bc1a6f4.js";
-import { P as Portal } from "../chunks/Portal.67db75b1.js";
+import { P as Portal } from "../chunks/Portal.44e08144.js";
 import { x, i, _ as __decorate, e } from "../chunks/form-submitter.5b8d9ddf.js";
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/icon-button.2ef3c792.js";
 import "../chunks/list-item.cb0bdea9.js";
-import { s as stackPopUrl, c as stackBack } from "../chunks/index.4aa8ab70.js";
-import { a as afterNavigate } from "../chunks/navigation.abe3f533.js";
-import { p as page } from "../chunks/stores.a3fb07b8.js";
+import { s as stackPopUrl, c as stackBack } from "../chunks/index.ea69e95f.js";
+import { a as afterNavigate } from "../chunks/navigation.937d0b57.js";
+import { p as page } from "../chunks/stores.cad5c6c8.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -330,36 +330,36 @@ class What_is_a_mint extends SvelteComponent {
   }
 }
 const Modal_svelte_svelte_type_style_lang = "";
-const get_appBarTitle_slot_changes = (dirty) => ({});
-const get_appBarTitle_slot_context = (ctx) => ({});
-const get_appBarStart_slot_changes = (dirty) => ({});
-const get_appBarStart_slot_context = (ctx) => ({});
+const get_appbar_title_slot_changes = (dirty) => ({});
+const get_appbar_title_slot_context = (ctx) => ({});
+const get_appbar_start_slot_changes = (dirty) => ({});
+const get_appbar_start_slot_context = (ctx) => ({});
 function create_if_block(ctx) {
   let h1;
   let current;
-  const appBarTitle_slot_template = (
+  const appbar_title_slot_template = (
     /*#slots*/
-    ctx[4].appBarTitle
+    ctx[4]["appbar-title"]
   );
-  const appBarTitle_slot = create_slot(
-    appBarTitle_slot_template,
+  const appbar_title_slot = create_slot(
+    appbar_title_slot_template,
     ctx,
     /*$$scope*/
     ctx[6],
-    get_appBarTitle_slot_context
+    get_appbar_title_slot_context
   );
   return {
     c() {
       h1 = element("h1");
-      if (appBarTitle_slot)
-        appBarTitle_slot.c();
+      if (appbar_title_slot)
+        appbar_title_slot.c();
       this.h();
     },
     l(nodes) {
       h1 = claim_element(nodes, "H1", { class: true });
       var h1_nodes = children(h1);
-      if (appBarTitle_slot)
-        appBarTitle_slot.l(h1_nodes);
+      if (appbar_title_slot)
+        appbar_title_slot.l(h1_nodes);
       h1_nodes.forEach(detach);
       this.h();
     },
@@ -368,18 +368,18 @@ function create_if_block(ctx) {
     },
     m(target, anchor) {
       insert_hydration(target, h1, anchor);
-      if (appBarTitle_slot) {
-        appBarTitle_slot.m(h1, null);
+      if (appbar_title_slot) {
+        appbar_title_slot.m(h1, null);
       }
       current = true;
     },
     p(ctx2, dirty) {
-      if (appBarTitle_slot) {
-        if (appBarTitle_slot.p && (!current || dirty & /*$$scope*/
+      if (appbar_title_slot) {
+        if (appbar_title_slot.p && (!current || dirty & /*$$scope*/
         64)) {
           update_slot_base(
-            appBarTitle_slot,
-            appBarTitle_slot_template,
+            appbar_title_slot,
+            appbar_title_slot_template,
             ctx2,
             /*$$scope*/
             ctx2[6],
@@ -387,13 +387,13 @@ function create_if_block(ctx) {
               /*$$scope*/
               ctx2[6]
             ) : get_slot_changes(
-              appBarTitle_slot_template,
+              appbar_title_slot_template,
               /*$$scope*/
               ctx2[6],
               dirty,
-              get_appBarTitle_slot_changes
+              get_appbar_title_slot_changes
             ),
-            get_appBarTitle_slot_context
+            get_appbar_title_slot_context
           );
         }
       }
@@ -401,19 +401,19 @@ function create_if_block(ctx) {
     i(local) {
       if (current)
         return;
-      transition_in(appBarTitle_slot, local);
+      transition_in(appbar_title_slot, local);
       current = true;
     },
     o(local) {
-      transition_out(appBarTitle_slot, local);
+      transition_out(appbar_title_slot, local);
       current = false;
     },
     d(detaching) {
       if (detaching) {
         detach(h1);
       }
-      if (appBarTitle_slot)
-        appBarTitle_slot.d(detaching);
+      if (appbar_title_slot)
+        appbar_title_slot.d(detaching);
     }
   };
 }
@@ -421,41 +421,41 @@ function create_default_slot$2(ctx) {
   let t;
   let if_block_anchor;
   let current;
-  const appBarStart_slot_template = (
+  const appbar_start_slot_template = (
     /*#slots*/
-    ctx[4].appBarStart
+    ctx[4]["appbar-start"]
   );
-  const appBarStart_slot = create_slot(
-    appBarStart_slot_template,
+  const appbar_start_slot = create_slot(
+    appbar_start_slot_template,
     ctx,
     /*$$scope*/
     ctx[6],
-    get_appBarStart_slot_context
+    get_appbar_start_slot_context
   );
   let if_block = (
     /*$$slots*/
-    ctx[2].appBarTitle && create_if_block(ctx)
+    ctx[2]["appbar-title"] && create_if_block(ctx)
   );
   return {
     c() {
-      if (appBarStart_slot)
-        appBarStart_slot.c();
+      if (appbar_start_slot)
+        appbar_start_slot.c();
       t = space();
       if (if_block)
         if_block.c();
       if_block_anchor = empty();
     },
     l(nodes) {
-      if (appBarStart_slot)
-        appBarStart_slot.l(nodes);
+      if (appbar_start_slot)
+        appbar_start_slot.l(nodes);
       t = claim_space(nodes);
       if (if_block)
         if_block.l(nodes);
       if_block_anchor = empty();
     },
     m(target, anchor) {
-      if (appBarStart_slot) {
-        appBarStart_slot.m(target, anchor);
+      if (appbar_start_slot) {
+        appbar_start_slot.m(target, anchor);
       }
       insert_hydration(target, t, anchor);
       if (if_block)
@@ -464,12 +464,12 @@ function create_default_slot$2(ctx) {
       current = true;
     },
     p(ctx2, dirty) {
-      if (appBarStart_slot) {
-        if (appBarStart_slot.p && (!current || dirty & /*$$scope*/
+      if (appbar_start_slot) {
+        if (appbar_start_slot.p && (!current || dirty & /*$$scope*/
         64)) {
           update_slot_base(
-            appBarStart_slot,
-            appBarStart_slot_template,
+            appbar_start_slot,
+            appbar_start_slot_template,
             ctx2,
             /*$$scope*/
             ctx2[6],
@@ -477,19 +477,19 @@ function create_default_slot$2(ctx) {
               /*$$scope*/
               ctx2[6]
             ) : get_slot_changes(
-              appBarStart_slot_template,
+              appbar_start_slot_template,
               /*$$scope*/
               ctx2[6],
               dirty,
-              get_appBarStart_slot_changes
+              get_appbar_start_slot_changes
             ),
-            get_appBarStart_slot_context
+            get_appbar_start_slot_context
           );
         }
       }
       if (
         /*$$slots*/
-        ctx2[2].appBarTitle
+        ctx2[2]["appbar-title"]
       ) {
         if (if_block) {
           if_block.p(ctx2, dirty);
@@ -514,12 +514,12 @@ function create_default_slot$2(ctx) {
     i(local) {
       if (current)
         return;
-      transition_in(appBarStart_slot, local);
+      transition_in(appbar_start_slot, local);
       transition_in(if_block);
       current = true;
     },
     o(local) {
-      transition_out(appBarStart_slot, local);
+      transition_out(appbar_start_slot, local);
       transition_out(if_block);
       current = false;
     },
@@ -528,8 +528,8 @@ function create_default_slot$2(ctx) {
         detach(t);
         detach(if_block_anchor);
       }
-      if (appBarStart_slot)
-        appBarStart_slot.d(detaching);
+      if (appbar_start_slot)
+        appbar_start_slot.d(detaching);
       if (if_block)
         if_block.d(detaching);
     }
@@ -753,7 +753,7 @@ function create_default_slot_1$1(ctx) {
     }
   };
 }
-function create_appBarStart_slot(ctx) {
+function create_appbar_start_slot(ctx) {
   let md_icon_button;
   let md_icon;
   let textContent = "arrow_back";
@@ -803,7 +803,7 @@ function create_appBarStart_slot(ctx) {
     }
   };
 }
-function create_appBarTitle_slot(ctx) {
+function create_appbar_title_slot(ctx) {
   let t;
   return {
     c() {
@@ -832,8 +832,8 @@ function create_default_slot$1(ctx) {
         ctx[2]
       ),
       $$slots: {
-        appBarTitle: [create_appBarTitle_slot],
-        appBarStart: [create_appBarStart_slot],
+        "appbar-title": [create_appbar_title_slot],
+        "appbar-start": [create_appbar_start_slot],
         default: [create_default_slot_1$1]
       },
       $$scope: { ctx }
