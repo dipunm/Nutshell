@@ -5,6 +5,7 @@
 </script>
 <style>
     p {
+        max-width: 35em;
         font-family: var(--md-sys-typescale-body-medium-font-family-name);
         font-style: var(--md-sys-typescale-body-medium-font-family-style);
         font-weight: var(--md-sys-typescale-body-medium-font-weight);
@@ -12,8 +13,12 @@
         line-height: var(--md-sys-typescale-body-medium-line-height);
         letter-spacing: var(--md-sys-typescale-body-medium-letter-spacing);
     }
-    p + p {
+    h2 {
         margin-top: 1rem;
+    }
+
+    p:last-child {
+        margin-bottom: 1rem;
     }
 
     a {
@@ -21,63 +26,54 @@
     }
 </style>
 
-<p>
-    A mint is similar to a banking institution; it facilitates payments, 
-    provides convenience and defends your online privacy as you spend and receive bitcoin.
-</p>
-<p>
-    This app uses mints to provide a foundational wallet while providing resources
-    to help you learn more about Bitcoin and ultimately eliminate counterparty risk 
-    through self custody.
-</p>
-
-<md-list>
+<md-list style:padding=0>
     <md-list-item>
-        <md-icon slot="start">account_balance</md-icon>
-        <div slot="headline">A mint is a custodian</div>
+        <md-icon slot="start">Language</md-icon>
+        <div slot="headline">Digital Cash</div>
         <div slot="supporting-text">
-            Just like banks, exchanges and all custodial 
-            services, a mint is susceptible to loss of 
-            customer funds.
+            <p>
+                Mints are online servers that facilitate bitcoin payments
+                on behalf of the bearer of their assets.
+            </p>
         </div>
     </md-list-item>
-    
     <md-list-item>
-        <md-icon slot="start">error</md-icon>
-        <div slot="headline">Custodians require trust</div>
+        <md-icon slot="start">Privacy</md-icon>
+        <div slot="headline">Privacy First</div>
         <div slot="supporting-text">
-            All custodians rely on reputation to establish trust. 
-            Customers must trust them to secure and 
-            facilitate payments, and to minimise counterparty 
-            risk on their behalf.
+            <p>
+                Using a bearer asset mechanism, mints don't demand personal 
+                information or track your financial activity.
+            </p>
         </div>
     </md-list-item>
-
     <md-list-item>
-        <md-icon slot="start">visibility_off</md-icon>
-        <div slot="headline">Mints defend your privacy</div>
+        <md-icon slot="start">security</md-icon>
+        <div slot="headline">Simple, Secure &amp; Safe</div>
         <div slot="supporting-text">
-            Mints operate without collecting your 
-            personal information or asking for 
-            registration; why should it? Mints don't 
-            need to know you to serve you.
-        </div>
-    </md-list-item>
-
-    <md-list-item>
-        <md-icon slot="start">gavel</md-icon>
-        <div slot="headline">Mints are impartial</div>
-        <div slot="supporting-text">
-            Unlike other custodians, a mint cannot 
-            target you, or freeze or restrict access to 
-            your funds. Mints don't know who you are, 
-            who you shop with, nor what your current balance 
-            is.
+            <p>
+                Cash-like payments eliminate the risk of targeted intrusions 
+                and identity fraud due to data breaches.
+            </p>
         </div>
     </md-list-item>
 </md-list>
 
+<h2 class="title-large" style="display: flex; align-items: center;">
+    What about the risks?
+</h2>
 <p>
-    This app operates using the cashu protocol. Learn 
-    more about it at <a target="_blank" href="https://cashu.space">https://cashu.space</a>.
+    Like banks, exchanges and other custodial service providers, 
+    mints are susceptible to risks such as cyber attacks, 
+    vulnerabilities, and regulatory changes which could lead 
+    to loss of funds.
+</p>
+
+<h2 class="title-large" style="display: flex; align-items: center;">
+    Educate yourself
+</h2>
+<p>
+    This wallet provides educational resources to guide you
+    in eliminating counterparty risk completely &mdash; unlocking 
+    the real power of Bitcoin.
 </p>

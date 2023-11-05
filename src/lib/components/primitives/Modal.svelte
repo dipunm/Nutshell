@@ -63,9 +63,9 @@
 
     .modal-container {
         padding: 1rem;
-        width: 90vw;
+        width: fit-content;
         height: fit-content;
-        max-width: 600px;
+        max-width: 50em;
         max-height: 80vh;
         display: flex;
         flex-direction: column;
@@ -93,7 +93,7 @@
     }
 
     .modal-container .contents {
-        padding: 1rem; 
+        padding: 0 1rem; 
         margin-right: -1rem;
         padding-right: 2rem;
         overflow-y: auto
