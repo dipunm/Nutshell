@@ -1,8 +1,8 @@
 var _a, _b;
 import { w as writable } from "./index.d60672bb.js";
-const base = ((_a = globalThis.__sveltekit_vncniw) == null ? void 0 : _a.base) ?? "/Nutshell";
-const assets = ((_b = globalThis.__sveltekit_vncniw) == null ? void 0 : _b.assets) ?? base;
-const version = "1699219226565";
+const base = ((_a = globalThis.__sveltekit_14xymxd) == null ? void 0 : _a.base) ?? "/Nutshell";
+const assets = ((_b = globalThis.__sveltekit_14xymxd) == null ? void 0 : _b.assets) ?? base;
+const version = "1699330231737";
 const SNAPSHOT_KEY = "sveltekit:snapshot";
 const SCROLL_KEY = "sveltekit:scroll";
 const INDEX_KEY = "sveltekit:index";

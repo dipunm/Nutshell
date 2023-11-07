@@ -5,12 +5,13 @@ import { l, o as o$1, _ as __decorate, n, s, i, e, a as setupHostAria, b as i$1,
 import "../chunks/elevation.b359ddc5.js";
 import "../chunks/list-item.cb4e9d2c.js";
 import "../chunks/icon.ebc2319f.js";
-import { p as page } from "../chunks/stores.dd56a31c.js";
-import { e as base } from "../chunks/singletons.842fc171.js";
-import { s as stackPopUrl, b as stackGo } from "../chunks/index.28d77d78.js";
+import { p as page } from "../chunks/stores.cdbb8ead.js";
+import { e as base } from "../chunks/singletons.559c154c.js";
+import { s as stackPopUrl } from "../chunks/index.ce7817dc.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as PortalTarget } from "../chunks/PortalTarget.b8bf6a9a.js";
 import { p as portalActive } from "../chunks/index.6e691c29.js";
+import { C as Card } from "../chunks/Card.71a55d86.js";
 function ensure_array_like(array_like_or_iterator) {
   return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
 }
@@ -569,7 +570,7 @@ function create_default_slot_2(ctx) {
     }
   };
 }
-function create_default_slot_1(ctx) {
+function create_default_slot_1$1(ctx) {
   let md_icon_button;
   let textContent = `<md-icon>menu</md-icon>`;
   let t1;
@@ -878,7 +879,7 @@ function create_fragment$1(ctx) {
   );
   appbar1 = new AppBar({
     props: {
-      $$slots: { default: [create_default_slot_1] },
+      $$slots: { default: [create_default_slot_1$1] },
       $$scope: { ctx }
     }
   });
@@ -1198,10 +1199,10 @@ class ListDetailMenu extends SvelteComponent {
 const _layout_svelte_svelte_type_style_lang = "";
 function get_each_context(ctx, list, i2) {
   const child_ctx = ctx.slice();
-  child_ctx[9] = list[i2];
+  child_ctx[8] = list[i2];
   return child_ctx;
 }
-function create_default_slot(ctx) {
+function create_default_slot_1(ctx) {
   let current;
   const default_slot_template = (
     /*#slots*/
@@ -1211,7 +1212,7 @@ function create_default_slot(ctx) {
     default_slot_template,
     ctx,
     /*$$scope*/
-    ctx[8],
+    ctx[7],
     null
   );
   return {
@@ -1232,20 +1233,20 @@ function create_default_slot(ctx) {
     p(ctx2, dirty) {
       if (default_slot) {
         if (default_slot.p && (!current || dirty & /*$$scope*/
-        256)) {
+        128)) {
           update_slot_base(
             default_slot,
             default_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[8],
+            ctx2[7],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[8]
+              ctx2[7]
             ) : get_slot_changes(
               default_slot_template,
               /*$$scope*/
-              ctx2[8],
+              ctx2[7],
               dirty,
               null
             ),
@@ -1317,144 +1318,152 @@ function create_menu_slot(ctx) {
     }
   };
 }
-function create_each_block(ctx) {
-  let li;
-  let button;
-  let md_focus_ring;
-  let t0;
-  let md_ripple;
-  let t1;
+function create_default_slot(ctx) {
+  let div;
   let h2;
+  let t0;
+  let t1;
   let t2;
-  let t3;
-  let t4;
   let p;
   let textContent = "0.00001033 BTC";
-  let t6;
-  let mounted;
-  let dispose;
-  function click_handler(...args) {
-    return (
-      /*click_handler*/
-      ctx[7](
+  return {
+    c() {
+      div = element("div");
+      h2 = element("h2");
+      t0 = text("Unnamed Wallet 0");
+      t1 = text(
         /*id*/
-        ctx[9],
-        ...args
-      )
-    );
-  }
+        ctx[8]
+      );
+      t2 = space();
+      p = element("p");
+      p.textContent = textContent;
+      this.h();
+    },
+    l(nodes) {
+      div = claim_element(nodes, "DIV", { class: true });
+      var div_nodes = children(div);
+      h2 = claim_element(div_nodes, "H2", { class: true });
+      var h2_nodes = children(h2);
+      t0 = claim_text(h2_nodes, "Unnamed Wallet 0");
+      t1 = claim_text(
+        h2_nodes,
+        /*id*/
+        ctx[8]
+      );
+      h2_nodes.forEach(detach);
+      t2 = claim_space(div_nodes);
+      p = claim_element(div_nodes, "P", { ["data-svelte-h"]: true });
+      if (get_svelte_dataset(p) !== "svelte-fqfbpe")
+        p.textContent = textContent;
+      div_nodes.forEach(detach);
+      this.h();
+    },
+    h() {
+      attr(h2, "class", "title-large");
+      attr(div, "class", "wallet-item-inner svelte-wkktkl");
+    },
+    m(target, anchor) {
+      insert_hydration(target, div, anchor);
+      append_hydration(div, h2);
+      append_hydration(h2, t0);
+      append_hydration(h2, t1);
+      append_hydration(div, t2);
+      append_hydration(div, p);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(div);
+      }
+    }
+  };
+}
+function create_each_block(ctx) {
+  let li;
+  let card;
+  let t2;
+  let current;
+  card = new Card({
+    props: {
+      href: `${base}/accounts/${/*id*/
+      ctx[8]}`,
+      color: (
+        /*id*/
+        ctx[8] === /*accountId*/
+        ctx[0] ? "surface-container-highest" : "surface-container"
+      ),
+      borderRadius: ".75rem",
+      $$slots: { default: [create_default_slot] },
+      $$scope: { ctx }
+    }
+  });
   return {
     c() {
       li = element("li");
-      button = element("button");
-      md_focus_ring = element("md-focus-ring");
-      t0 = space();
-      md_ripple = element("md-ripple");
-      t1 = space();
-      h2 = element("h2");
-      t2 = text("Unnamed Wallet 0");
-      t3 = text(
-        /*id*/
-        ctx[9]
-      );
-      t4 = space();
-      p = element("p");
-      p.textContent = textContent;
-      t6 = space();
+      create_component(card.$$.fragment);
+      t2 = space();
       this.h();
     },
     l(nodes) {
       li = claim_element(nodes, "LI", { class: true });
       var li_nodes = children(li);
-      button = claim_element(li_nodes, "BUTTON", { id: true, class: true });
-      var button_nodes = children(button);
-      md_focus_ring = claim_element(button_nodes, "MD-FOCUS-RING", { for: true });
-      children(md_focus_ring).forEach(detach);
-      t0 = claim_space(button_nodes);
-      md_ripple = claim_element(button_nodes, "MD-RIPPLE", {});
-      children(md_ripple).forEach(detach);
-      t1 = claim_space(button_nodes);
-      h2 = claim_element(button_nodes, "H2", { class: true });
-      var h2_nodes = children(h2);
-      t2 = claim_text(h2_nodes, "Unnamed Wallet 0");
-      t3 = claim_text(
-        h2_nodes,
-        /*id*/
-        ctx[9]
-      );
-      h2_nodes.forEach(detach);
-      t4 = claim_space(button_nodes);
-      p = claim_element(button_nodes, "P", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(p) !== "svelte-fqfbpe")
-        p.textContent = textContent;
-      button_nodes.forEach(detach);
-      t6 = claim_space(li_nodes);
+      claim_component(card.$$.fragment, li_nodes);
+      t2 = claim_space(li_nodes);
       li_nodes.forEach(detach);
       this.h();
     },
     h() {
-      set_custom_element_data(md_focus_ring, "for", `wallet-item-${/*id*/
-      ctx[9]}`);
-      attr(h2, "class", "title-large");
-      attr(button, "id", `wallet-item-${/*id*/
-      ctx[9]}`);
-      attr(button, "class", "svelte-1d3tr4o");
-      attr(li, "class", "wallet-item svelte-1d3tr4o");
-      toggle_class(
-        li,
-        "active",
-        /*id*/
-        ctx[9] === /*accountId*/
-        ctx[0]
-      );
+      attr(li, "class", "wallet-item svelte-wkktkl");
     },
     m(target, anchor) {
       insert_hydration(target, li, anchor);
-      append_hydration(li, button);
-      append_hydration(button, md_focus_ring);
-      append_hydration(button, t0);
-      append_hydration(button, md_ripple);
-      append_hydration(button, t1);
-      append_hydration(button, h2);
-      append_hydration(h2, t2);
-      append_hydration(h2, t3);
-      append_hydration(button, t4);
-      append_hydration(button, p);
-      append_hydration(li, t6);
-      if (!mounted) {
-        dispose = listen(button, "click", click_handler);
-        mounted = true;
-      }
+      mount_component(card, li, null);
+      append_hydration(li, t2);
+      current = true;
     },
-    p(new_ctx, dirty) {
-      ctx = new_ctx;
+    p(ctx2, dirty) {
+      const card_changes = {};
       if (dirty & /*accountId*/
-      1) {
-        toggle_class(
-          li,
-          "active",
-          /*id*/
-          ctx[9] === /*accountId*/
-          ctx[0]
-        );
+      1)
+        card_changes.color = /*id*/
+        ctx2[8] === /*accountId*/
+        ctx2[0] ? "surface-container-highest" : "surface-container";
+      if (dirty & /*$$scope*/
+      128) {
+        card_changes.$$scope = { dirty, ctx: ctx2 };
       }
+      card.$set(card_changes);
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(card.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(card.$$.fragment, local);
+      current = false;
     },
     d(detaching) {
       if (detaching) {
         detach(li);
       }
-      mounted = false;
-      dispose();
+      destroy_component(card);
     }
   };
 }
 function create_list_slot(ctx) {
   let ul;
+  let current;
   let each_value = ensure_array_like(["1", "2"]);
   let each_blocks = [];
   for (let i2 = 0; i2 < 2; i2 += 1) {
     each_blocks[i2] = create_each_block(get_each_context(ctx, each_value, i2));
   }
+  const out = (i2) => transition_out(each_blocks[i2], 1, 1, () => {
+    each_blocks[i2] = null;
+  });
   return {
     c() {
       ul = element("ul");
@@ -1477,6 +1486,7 @@ function create_list_slot(ctx) {
           each_blocks[i2].m(ul, null);
         }
       }
+      current = true;
     },
     p(ctx2, dirty) {
       if (dirty & /*accountId*/
@@ -1487,16 +1497,35 @@ function create_list_slot(ctx) {
           const child_ctx = get_each_context(ctx2, each_value, i2);
           if (each_blocks[i2]) {
             each_blocks[i2].p(child_ctx, dirty);
+            transition_in(each_blocks[i2], 1);
           } else {
             each_blocks[i2] = create_each_block(child_ctx);
             each_blocks[i2].c();
+            transition_in(each_blocks[i2], 1);
             each_blocks[i2].m(ul, null);
           }
         }
-        for (; i2 < 2; i2 += 1) {
-          each_blocks[i2].d(1);
+        group_outros();
+        for (i2 = 2; i2 < 2; i2 += 1) {
+          out(i2);
         }
+        check_outros();
       }
+    },
+    i(local) {
+      if (current)
+        return;
+      for (let i2 = 0; i2 < 2; i2 += 1) {
+        transition_in(each_blocks[i2]);
+      }
+      current = true;
+    },
+    o(local) {
+      each_blocks = each_blocks.filter(Boolean);
+      for (let i2 = 0; i2 < 2; i2 += 1) {
+        transition_out(each_blocks[i2]);
+      }
+      current = false;
     },
     d(detaching) {
       if (detaching) {
@@ -1649,7 +1678,7 @@ function create_fragment(ctx) {
         list: [create_list_slot],
         menu: [create_menu_slot],
         "list-headline": [create_list_headline_slot],
-        default: [create_default_slot]
+        default: [create_default_slot_1]
       },
       $$scope: { ctx }
     }
@@ -1672,7 +1701,7 @@ function create_fragment(ctx) {
         listdetailmenu_changes.contentActive = /*contentActive*/
         ctx2[1];
       if (dirty & /*$$scope, $contentAppbarStartActive, accountId*/
-      261) {
+      133) {
         listdetailmenu_changes.$$scope = { dirty, ctx: ctx2 };
       }
       listdetailmenu.$set(listdetailmenu_changes);
@@ -1702,12 +1731,11 @@ function instance($$self, $$props, $$invalidate) {
   let { data } = $$props;
   let contentAppbarStartActive = portalActive("content-appbar-start");
   component_subscribe($$self, contentAppbarStartActive, (value) => $$invalidate(2, $contentAppbarStartActive = value));
-  const click_handler = (id, e2) => stackGo(`${base}/accounts/${id}`, { keepFocus: true });
   $$self.$$set = ($$props2) => {
     if ("data" in $$props2)
       $$invalidate(4, data = $$props2.data);
     if ("$$scope" in $$props2)
-      $$invalidate(8, $$scope = $$props2.$$scope);
+      $$invalidate(7, $$scope = $$props2.$$scope);
   };
   $$self.$$.update = () => {
     var _a2;
@@ -1728,7 +1756,6 @@ function instance($$self, $$props, $$invalidate) {
     data,
     $page,
     slots,
-    click_handler,
     $$scope
   ];
 }

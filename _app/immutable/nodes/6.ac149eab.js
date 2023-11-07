@@ -1,10 +1,11 @@
 import { s as safe_not_equal, b as component_subscribe, n as noop } from "../chunks/utils.08e12359.js";
-import { s as space, b as element, c as claim_space, f as claim_element, g as children, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, x as set_custom_element_data, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
+import { s as space, b as element, c as claim_space, f as claim_element, g as children, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, x as set_custom_element_data } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.f9624644.js";
-import { C as Card } from "../chunks/Card.8779831c.js";
+import { C as Card } from "../chunks/Card.71a55d86.js";
 import "../chunks/icon.ebc2319f.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
-import { s as stackPopUrl } from "../chunks/index.28d77d78.js";
+import { s as stackPopUrl } from "../chunks/index.ce7817dc.js";
+import { e as base } from "../chunks/singletons.559c154c.js";
 const _page_svelte_svelte_type_style_lang = "";
 function create_default_slot_4(ctx) {
   let md_icon_button;
@@ -72,7 +73,7 @@ function create_default_slot_3(ctx) {
       this.h();
     },
     h() {
-      attr(h1, "class", "headline-small svelte-19620hz");
+      attr(h1, "class", "headline-small svelte-1l072c1");
     },
     m(target, anchor) {
       insert_hydration(target, h1, anchor);
@@ -86,58 +87,88 @@ function create_default_slot_3(ctx) {
   };
 }
 function create_default_slot_2(ctx) {
-  let t;
+  let div;
+  let textContent = `<h1 class="headline-small svelte-1l072c1">Create an invoice</h1> <p class="svelte-1l072c1">Request a payment on the Bitcoin Lightning Network</p> <md-icon class="icon svelte-1l072c1">bolt</md-icon>`;
   return {
     c() {
-      t = text("Create an invoice");
+      div = element("div");
+      div.innerHTML = textContent;
+      this.h();
     },
     l(nodes) {
-      t = claim_text(nodes, "Create an invoice");
+      div = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(div) !== "svelte-1brgmh7")
+        div.innerHTML = textContent;
+      this.h();
+    },
+    h() {
+      attr(div, "class", "card-inner svelte-1l072c1");
     },
     m(target, anchor) {
-      insert_hydration(target, t, anchor);
+      insert_hydration(target, div, anchor);
     },
+    p: noop,
     d(detaching) {
       if (detaching) {
-        detach(t);
+        detach(div);
       }
     }
   };
 }
 function create_default_slot_1(ctx) {
-  let t;
+  let div;
+  let textContent = `<h1 class="headline-small svelte-1l072c1">Import an offer</h1> <p class="svelte-1l072c1">Scan or import a mint offer</p> <md-icon class="icon svelte-1l072c1">file_download</md-icon>`;
   return {
     c() {
-      t = text("Import an offer");
+      div = element("div");
+      div.innerHTML = textContent;
+      this.h();
     },
     l(nodes) {
-      t = claim_text(nodes, "Import an offer");
+      div = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(div) !== "svelte-mjdlu3")
+        div.innerHTML = textContent;
+      this.h();
+    },
+    h() {
+      attr(div, "class", "card-inner svelte-1l072c1");
     },
     m(target, anchor) {
-      insert_hydration(target, t, anchor);
+      insert_hydration(target, div, anchor);
     },
+    p: noop,
     d(detaching) {
       if (detaching) {
-        detach(t);
+        detach(div);
       }
     }
   };
 }
 function create_default_slot(ctx) {
-  let t;
+  let div;
+  let textContent = `<h1 class="headline-small svelte-1l072c1">Reclaim an offer</h1> <p class="svelte-1l072c1">Take back an unclaimed offer</p> <md-icon class="icon svelte-1l072c1">undo</md-icon>`;
   return {
     c() {
-      t = text("Reclaim an offer");
+      div = element("div");
+      div.innerHTML = textContent;
+      this.h();
     },
     l(nodes) {
-      t = claim_text(nodes, "Reclaim an offer");
+      div = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(div) !== "svelte-17bomsz")
+        div.innerHTML = textContent;
+      this.h();
+    },
+    h() {
+      attr(div, "class", "card-inner svelte-1l072c1");
     },
     m(target, anchor) {
-      insert_hydration(target, t, anchor);
+      insert_hydration(target, div, anchor);
     },
+    p: noop,
     d(detaching) {
       if (detaching) {
-        detach(t);
+        detach(div);
       }
     }
   };
@@ -170,21 +201,25 @@ function create_fragment(ctx) {
   });
   card0 = new Card({
     props: {
-      color: "surface-container-highest",
+      color: "surface-container-high",
+      href: "#",
       $$slots: { default: [create_default_slot_2] },
       $$scope: { ctx }
     }
   });
   card1 = new Card({
     props: {
-      color: "surface-container-highest",
+      color: "surface-container-high",
+      href: base + "/offer/offline",
+      preserveStack: true,
       $$slots: { default: [create_default_slot_1] },
       $$scope: { ctx }
     }
   });
   card2 = new Card({
     props: {
-      color: "surface-container-highest",
+      color: "surface-container-high",
+      href: "#",
       $$slots: { default: [create_default_slot] },
       $$scope: { ctx }
     }
@@ -219,7 +254,7 @@ function create_fragment(ctx) {
       this.h();
     },
     h() {
-      attr(div, "class", "container svelte-19620hz");
+      attr(div, "class", "container-grid svelte-1l072c1");
     },
     m(target, anchor) {
       mount_component(portal0, target, anchor);

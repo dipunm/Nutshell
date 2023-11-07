@@ -1,7 +1,7 @@
 import { s as safe_not_equal } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.f9624644.js";
-import { C as Card } from "../chunks/Card.8779831c.js";
+import { C as Card } from "../chunks/Card.71a55d86.js";
 const _page_svelte_svelte_type_style_lang = "";
 function create_default_slot_2(ctx) {
   let t;
