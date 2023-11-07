@@ -12,32 +12,58 @@
 
     export let height: string = 'auto';
     export let shadow: boolean = false;
+    export let borderRadius: string = '1.5rem';
 
     const iconSpace = $$slots.icon ? 1.25 : 0;
+
+
+    export let href: string | null = null;
+    export let preserveStack: boolean = false;
+
+    $: type = href != null ? 'anchor' : 'card';
 </script>
 
-<section class:shadow style="
+{#if type === 'card'}
+    <section class:shadow style="
     background-color: var(--md-sys-color-{color});
     padding-top: {0.75 + iconSpace}rem;
     height: {height};
-">
-    {#if $$slots.icon}        
-        <div class="icon">
-            <slot name="icon"></slot>
-        </div>
-    {/if}
+    border-radius: {borderRadius}
 
+        ">
+        {#if $$slots.icon}        
+            <div class="icon">
+                <slot name="icon"></slot>
+            </div>
+        {/if}
+
+        <slot></slot>
+    </section>
+{:else if type === 'anchor'}
+<a {href} data-preserve-stack={preserveStack} style:position="relative"
+
+    class:shadow
+
+    style="
+    background-color: var(--md-sys-color-{color});
+    height: {height};
+    border-radius: {borderRadius};
+    --md-focus-ring-shape: {borderRadius};
+        "
+>
+    <md-focus-ring />
+    <md-ripple />
     <slot></slot>
-</section>
+</a>
+{/if}
 
 <style>
-    section {
-        border-radius: 1.5rem;
+    section, a {
         padding: 0.75rem;
         
         position: relative;
 
-        width: 100%;
+        width: fit-content;
         margin-left: auto;
         margin-right: auto;
         max-width: 450px;
@@ -46,7 +72,11 @@
         flex-direction: column;
     }
 
-    section.shadow { box-shadow: 0px 1px 10px var(--md-sys-color-shadow); }
+    a {
+        padding: 0;
+    }
+
+    .shadow { box-shadow: 0px 1px 10px var(--md-sys-color-shadow); }
 
     .icon {
         border-radius: 100%;

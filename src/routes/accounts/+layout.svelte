@@ -14,6 +14,7 @@
 	import ListDetailMenu from "$lib/components/layouts/ListDetailMenu.svelte";
 	import PortalTarget from "$lib/portals/PortalTarget.svelte";
 	import { portalActive } from "$lib/portals/index.js";
+	import Card from "$lib/components/primitives/Card.svelte";
 
     export let data;
     $: accountId = data?.id ?? $page.params?.id;
@@ -52,13 +53,17 @@
     <svelte:fragment slot="list">
         <ul>
             {#each ['1','2'] as id}
-            <li class="wallet-item" class:active={id === accountId}>
-                <button id={`wallet-item-${id}`} on:click={(e) => stackGo(`${base}/accounts/${id}`, { keepFocus: true })}>
-                    <md-focus-ring for={`wallet-item-${id}`} />
-                    <md-ripple />
-                    <h2 class="title-large">Unnamed Wallet 0{id}</h2>
-                    <p>0.00001033 BTC</p>
-                </button>
+            <li class="wallet-item">
+                <Card 
+                    href="{`${base}/accounts/${id}`}" 
+                    color="{id === accountId ? 'surface-container-highest' : 'surface-container'}"
+                    borderRadius=".75rem"
+                >
+                    <div class="wallet-item-inner">
+                        <h2 class="title-large">Unnamed Wallet 0{id}</h2>
+                        <p>0.00001033 BTC</p>
+                    </div>
+                </Card>
             </li>
             {/each}
         </ul>
@@ -79,21 +84,11 @@
 <style>
     .wallet-item {
         position: relative;
-    }
-    .wallet-item button {
-        position: relative;
-        display: block;
-        border-radius: .75rem;
-        padding: 2rem;
-        background-color: var(--md-sys-color-surface-container);
-        color: var(--md-sys-color-on-surface);
         margin-bottom: 1rem;
-        outline: none;
-        width: 100%;
-        cursor: pointer;
     }
 
-    .wallet-item.active button {
-        background-color: var(--md-sys-color-surface-container-high);
+    .wallet-item-inner {
+        padding: 2rem;
+        color: var(--md-sys-color-on-surface);
     }
 </style>
