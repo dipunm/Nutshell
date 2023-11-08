@@ -77,19 +77,6 @@
  -->
 </Portal>
 
-
-
-
-<!-- <svelte:fragment slot="nav">
-    {#if toggle}
-    <md-icon-button on:click={() => stackBack()}><md-icon>arrow_back</md-icon></md-icon-button>
-    <h1 class="headline-small">Unnamed Wallet 01</h1>
-    <md-text-button has-icon on:click={() => toggleEditor(false) }><md-icon slot="icon">edit</md-icon>Edit</md-text-button>
-    {:else}
-
-    {/if}
-</svelte:fragment> -->
-
 <div class="container">
 
     <section class="header">

@@ -1,8 +1,7 @@
 import { goto, beforeNavigate } from "$app/navigation";
 import { page } from "$app/stores";
 import { get, writable } from "svelte/store";
-import { getOptionState, getRouterOptions } from "./utils";
-import { base } from "$app/paths";
+import { getOptionState, getRelativeUrl, getRouterOptions } from "./utils";
 
 const container = document.documentElement; // TODO: allow this to be overridden for library purposes.
 const lastClickedLink = writable<HTMLAnchorElement | SVGAElement | null>(null);
@@ -29,44 +28,6 @@ const initClickedAnchorTracker = () => {
     }, { passive: true, capture: true });
 }
 
-const initializeHistoryStack = async () => {
-    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
-        const stack = [getRelativeUrl(window.location)];
-        await goto(window.location.toString(), {
-            replaceState: true,
-            state: {
-                ...history.state,
-                stack
-            }
-        });
-    }
-}
-
-export const stackPopUrl = writable('');
-page.subscribe((p) => {
-    if (!p?.url) return;
-    
-    if (p.url.search !== '' || p.url.hash !== '') {
-        stackPopUrl.set(p.url.pathname);
-    } else {
-        stackPopUrl.set('/' + (p.url.pathname.replace(/\/[^/]+\/?$/, '')).replace(/^\//, ''));
-    }
-});
-
-export function stackContainsParent() {
-    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
-        throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
-    }
-
-    return history.state.stack.length > 1;
-}
-
-const getRelativeUrl = (url: URL | Location) => `${url.pathname}${url.search}${url.hash}`;
-
-function promoteToElement(target: EventTarget): target is Element {
-    return true;
-}
-
 function interceptAnchorWithProtocol(protocol: string, handler: (url: URL) => void) {
     container.addEventListener('click', function(event) {
         let element = event.composedPath()[0] as ParentNode | null;
@@ -91,6 +52,39 @@ function interceptAnchorWithProtocol(protocol: string, handler: (url: URL) => vo
           handler(new URL(href, window.location.href));
         }
       });
+}
+
+const initializeHistoryStack = async () => {
+    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
+        const stack = [getRelativeUrl(window.location)];
+        await goto(window.location.toString(), {
+            replaceState: true,
+            state: {
+                ...history.state,
+                stack,
+                preservedIndexes: [],
+            }
+        });
+    }
+}
+
+const stackPopUrl = writable('');
+page.subscribe((p) => {
+    if (!p?.url) return;
+    
+    if (p.url.search !== '' || p.url.hash !== '') {
+        stackPopUrl.set(p.url.pathname);
+    } else {
+        stackPopUrl.set('/' + (p.url.pathname.replace(/\/[^/]+\/?$/, '')).replace(/^\//, ''));
+    }
+});
+
+export function stackContainsParent() {
+    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
+        throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
+    }
+
+    return history.state.stack.length > 1;
 }
 
 export const activateNavigationStackBehaviour = () => {

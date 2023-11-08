@@ -34,3 +34,9 @@ export function getRouterOptions(element: Element) {
 		replaceState: getOptionState(replace_state)
 	};
 }
+
+export const getRelativeUrl = (url: URL | Location) => `${url.pathname}${url.search}${url.hash}`;
+
+export function promoteToElement(target: EventTarget): target is Element {
+    return true;
+}
