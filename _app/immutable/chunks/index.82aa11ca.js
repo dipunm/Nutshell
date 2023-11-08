@@ -1,6 +1,7 @@
-import { b as beforeNavigate, g as goto } from "./navigation.8c11ec17.js";
-import { p as page } from "./stores.cdbb8ead.js";
+import { b as beforeNavigate, g as goto } from "./navigation.75d1feee.js";
+import { p as page } from "./stores.84616ea4.js";
 import { w as writable } from "./index.d60672bb.js";
+import "./paths.6590256a.js";
 import { f as get_store_value } from "./utils.08e12359.js";
 function getOptionState(value) {
   switch (value) {
@@ -39,9 +40,9 @@ function getRouterOptions(element) {
     replaceState: getOptionState(replace_state)
   };
 }
+const container = document.documentElement;
 const lastClickedLink = writable(null);
 const initClickedAnchorTracker = () => {
-  const container = document.documentElement;
   container.addEventListener("click", (event) => {
     if (event.button || event.which !== 1)
       return;
@@ -84,10 +85,46 @@ page.subscribe((p) => {
     stackPopUrl.set("/" + p.url.pathname.replace(/\/[^/]+\/?$/, "").replace(/^\//, ""));
   }
 });
+function stackContainsParent() {
+  var _a, _b;
+  if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
+    throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
+  }
+  return history.state.stack.length > 1;
+}
 const getRelativeUrl = (url) => `${url.pathname}${url.search}${url.hash}`;
+function promoteToElement(target) {
+  return true;
+}
+function interceptAnchorWithProtocol(protocol, handler) {
+  container.addEventListener("click", function(event) {
+    let element = event.composedPath()[0];
+    while (element && element.nodeName !== "A") {
+      element = element.parentNode;
+      if (element === container)
+        break;
+    }
+    if (!element || element.nodeName !== "A" || !promoteToElement())
+      return;
+    const href = element.getAttribute("href");
+    if (href && href.startsWith(`${protocol}`)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handler(new URL(href, window.location.href));
+    }
+  });
+}
 const activateNavigationStackBehaviour = () => {
   initializeHistoryStack();
   initClickedAnchorTracker();
+  interceptAnchorWithProtocol("router:", async (url) => {
+    switch (url.pathname) {
+      case "pop-stack":
+        return await stackBack();
+      default:
+        throw new Error(`Unable to handle router command, URI was unrecognized: '${url.toString()}'.`);
+    }
+  });
   beforeNavigate(async (nav) => {
     if (nav.type === "link") {
       if (nav.to === null)
@@ -103,14 +140,13 @@ const activateNavigationStackBehaviour = () => {
         noScroll = false,
         replaceState = false
       } = anchor === null ? {} : {
-        preserveStack: getOptionState((anchor == null ? void 0 : anchor.getAttribute("data-preserve-stack")) ?? ""),
+        preserveStack: getOptionState((anchor == null ? void 0 : anchor.getAttribute("data-preserve-stack")) ?? "false"),
         ...getRouterOptions(anchor)
       };
       if (reload)
         return;
       nav.cancel();
-      console.log("PRESERVESTACK", preserveStack);
-      await stackGo(nav.to.url.toString(), {
+      await stackGoInternal(nav.to.url.toString(), {
         preserveStack,
         keepFocus,
         noScroll,
@@ -120,10 +156,15 @@ const activateNavigationStackBehaviour = () => {
   });
 };
 async function stackBack() {
-  return await stackGoInternal(get_store_value(stackPopUrl), { breakPreserves: true });
-}
-async function stackGo(url, opts = {}) {
-  stackGoInternal(url, opts);
+  var _a, _b;
+  if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
+    throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
+  }
+  if (history.state.stack.length > 1) {
+    return await stackGoInternal(history.state.stack[history.state.stack.length - 2], { breakPreserves: true });
+  } else {
+    return await stackGoInternal(get_store_value(stackPopUrl), { breakPreserves: true });
+  }
 }
 async function stackGoInternal(url, opts = {}) {
   var _a, _b;
@@ -194,7 +235,10 @@ async function stackGoInternal(url, opts = {}) {
       ...mutableStack.slice(0, remainderCount),
       getRelativeUrl(newUrl)
     ];
-    const newPreservedIndexes = opts.breakPreserves ? preservedIndexes.filter((i) => i < remainderCount) : preservedIndexes;
+    const newPreservedIndexes = [
+      ...opts.breakPreserves ? preservedIndexes.filter((i) => i < remainderCount) : preservedIndexes,
+      ...opts.preserveStack ? [preservedCount + remainderCount - 1] : []
+    ];
     await goto(url, {
       ...opts ?? {},
       replaceState: replace,
@@ -220,5 +264,5 @@ async function stackGoInternal(url, opts = {}) {
 export {
   activateNavigationStackBehaviour as a,
   stackBack as b,
-  stackPopUrl as s
+  stackContainsParent as s
 };

@@ -52,7 +52,17 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
     }
   });
 };
-const matchers = {};
+const match = (param) => {
+  switch (true) {
+    case param === "":
+    case /^accounts\/\d+\/spend$/.test(param):
+    case /^accounts\/\d+\/deposit$/.test(param):
+      return true;
+    default:
+      return false;
+  }
+};
+const matchers = { camera_paths: match };
 function create_else_block_1(ctx) {
   let switch_instance;
   let switch_instance_anchor;
@@ -933,26 +943,26 @@ class Root extends SvelteComponent {
   }
 }
 const nodes = [
-  () => __vitePreload(() => import("../nodes/0.cc53bbd6.js"), true ? ["../nodes/0.cc53bbd6.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/index.ce7817dc.js","../chunks/navigation.8c11ec17.js","../chunks/singletons.559c154c.js","../chunks/index.d60672bb.js","../chunks/stores.cdbb8ead.js","../chunks/PortalTarget.b8bf6a9a.js","../chunks/index.6e691c29.js","../assets/0.76cea4a8.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/1.9eb4af79.js"), true ? ["../nodes/1.9eb4af79.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/stores.cdbb8ead.js","../chunks/singletons.559c154c.js","../chunks/index.d60672bb.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/2.7226766f.js"), true ? ["../nodes/2.7226766f.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/form-submitter.5b8d9ddf.js","../chunks/elevation.b359ddc5.js","../chunks/list-item.cb4e9d2c.js","../chunks/item.33c7e580.js","../chunks/icon.ebc2319f.js","../chunks/stores.cdbb8ead.js","../chunks/singletons.559c154c.js","../chunks/index.d60672bb.js","../chunks/index.ce7817dc.js","../chunks/navigation.8c11ec17.js","../chunks/AppBar.287d37ee.js","../assets/AppBar.138ac21a.css","../chunks/PortalTarget.b8bf6a9a.js","../chunks/index.6e691c29.js","../chunks/Card.71a55d86.js","../assets/Card.10f3de3a.css","../assets/2.e8866089.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/3.c9fe884b.js"), true ? ["../nodes/3.c9fe884b.js","../chunks/navigation.8c11ec17.js","../chunks/singletons.559c154c.js","../chunks/index.d60672bb.js","../chunks/utils.08e12359.js","../chunks/stores.cdbb8ead.js","../chunks/_commonjsHelpers.ebbb3f54.js"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/4.e6928f91.js"), true ? ["../nodes/4.e6928f91.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/index.d60672bb.js","../assets/4.54c136a2.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/5.b41169af.js"), true ? ["../nodes/5.b41169af.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/icon.ebc2319f.js","../chunks/form-submitter.5b8d9ddf.js","../chunks/filled-button.7c9e55d4.js","../chunks/elevation.b359ddc5.js","../chunks/style-map.8be08b03.js","../chunks/item.33c7e580.js","../chunks/navigation.8c11ec17.js","../chunks/singletons.559c154c.js","../chunks/index.d60672bb.js","../chunks/stores.cdbb8ead.js","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../assets/5.0c03ff02.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/6.ac149eab.js"), true ? ["../nodes/6.ac149eab.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/Card.71a55d86.js","../assets/Card.10f3de3a.css","../chunks/icon.ebc2319f.js","../chunks/form-submitter.5b8d9ddf.js","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/index.d60672bb.js","../chunks/index.ce7817dc.js","../chunks/navigation.8c11ec17.js","../chunks/singletons.559c154c.js","../chunks/stores.cdbb8ead.js","../assets/6.a8e395e9.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/7.060cc1b2.js"), true ? ["../nodes/7.060cc1b2.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/Card.71a55d86.js","../assets/Card.10f3de3a.css","../assets/7.0eedd3ba.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/8.e3682fb8.js"), true ? ["../nodes/8.e3682fb8.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/singletons.559c154c.js","../chunks/index.d60672bb.js","../chunks/filled-button.7c9e55d4.js","../chunks/form-submitter.5b8d9ddf.js","../chunks/elevation.b359ddc5.js","../chunks/icon.ebc2319f.js","../chunks/Card.71a55d86.js","../assets/Card.10f3de3a.css","../chunks/AppBar.287d37ee.js","../assets/AppBar.138ac21a.css","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/list-item.cb4e9d2c.js","../chunks/item.33c7e580.js","../chunks/index.ce7817dc.js","../chunks/navigation.8c11ec17.js","../chunks/stores.cdbb8ead.js","../assets/8.11de8fd7.css"] : void 0, import.meta.url),
-  () => __vitePreload(() => import("../nodes/9.e2a9664d.js"), true ? ["../nodes/9.e2a9664d.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/AppBar.287d37ee.js","../assets/AppBar.138ac21a.css","../chunks/_commonjsHelpers.ebbb3f54.js","../chunks/filled-button.7c9e55d4.js","../chunks/form-submitter.5b8d9ddf.js","../chunks/elevation.b359ddc5.js","../chunks/style-map.8be08b03.js","../assets/9.2ff97218.css"] : void 0, import.meta.url)
+  () => __vitePreload(() => import("../nodes/0.ea5c8a57.js"), true ? ["../nodes/0.ea5c8a57.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/index.82aa11ca.js","../chunks/navigation.75d1feee.js","../chunks/singletons.1ef98ffa.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js","../chunks/stores.84616ea4.js","../chunks/PortalTarget.b8bf6a9a.js","../chunks/index.6e691c29.js","../assets/0.76cea4a8.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/1.91b6e1c6.js"), true ? ["../nodes/1.91b6e1c6.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/stores.84616ea4.js","../chunks/singletons.1ef98ffa.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/2.fe7fd639.js"), true ? ["../nodes/2.fe7fd639.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/icon.8232ecae.js","../chunks/elevation.7713943e.js","../chunks/list-item.46dd92f9.js","../chunks/item.ff3dd161.js","../chunks/stores.84616ea4.js","../chunks/singletons.1ef98ffa.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js","../chunks/AppBar.287d37ee.js","../assets/AppBar.138ac21a.css","../chunks/PortalTarget.b8bf6a9a.js","../chunks/index.6e691c29.js","../chunks/Card.29d8f6d9.js","../assets/Card.7de82bfd.css","../assets/2.56301022.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/3.e358fbb1.js"), true ? ["../nodes/3.e358fbb1.js","../chunks/navigation.75d1feee.js","../chunks/singletons.1ef98ffa.js","../chunks/index.d60672bb.js","../chunks/utils.08e12359.js","../chunks/paths.6590256a.js","../chunks/stores.84616ea4.js","../chunks/_commonjsHelpers.ebbb3f54.js"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/4.7833f416.js"), true ? ["../nodes/4.7833f416.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/AppBar.287d37ee.js","../assets/AppBar.138ac21a.css","../chunks/_commonjsHelpers.ebbb3f54.js","../chunks/filled-button.15dbafb4.js","../chunks/icon.8232ecae.js","../chunks/elevation.7713943e.js","../chunks/style-map.eefe9fbf.js","../chunks/index.82aa11ca.js","../chunks/navigation.75d1feee.js","../chunks/singletons.1ef98ffa.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js","../chunks/stores.84616ea4.js","../assets/4.2ff97218.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/5.b9dffd27.js"), true ? ["../nodes/5.b9dffd27.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/index.d60672bb.js","../assets/5.54c136a2.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/6.b204ff9d.js"), true ? ["../nodes/6.b204ff9d.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/icon.8232ecae.js","../chunks/filled-button.15dbafb4.js","../chunks/elevation.7713943e.js","../chunks/style-map.eefe9fbf.js","../chunks/item.ff3dd161.js","../chunks/navigation.75d1feee.js","../chunks/singletons.1ef98ffa.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js","../chunks/stores.84616ea4.js","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../assets/6.0c03ff02.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/7.a82a6672.js"), true ? ["../nodes/7.a82a6672.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/Card.29d8f6d9.js","../chunks/icon.8232ecae.js","../assets/Card.7de82bfd.css","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js","../assets/7.a8e395e9.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/8.236892ce.js"), true ? ["../nodes/8.236892ce.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/Card.29d8f6d9.js","../chunks/icon.8232ecae.js","../assets/Card.7de82bfd.css","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/index.d60672bb.js","../chunks/paths.6590256a.js","../assets/7.a8e395e9.css"] : void 0, import.meta.url),
+  () => __vitePreload(() => import("../nodes/9.a85c5292.js"), true ? ["../nodes/9.a85c5292.js","../chunks/utils.08e12359.js","../chunks/scheduler.6906c812.js","../chunks/index.f9624644.js","../chunks/paths.6590256a.js","../chunks/filled-button.15dbafb4.js","../chunks/icon.8232ecae.js","../chunks/elevation.7713943e.js","../chunks/Card.29d8f6d9.js","../assets/Card.7de82bfd.css","../chunks/AppBar.287d37ee.js","../assets/AppBar.138ac21a.css","../chunks/Portal.e01d24b0.js","../chunks/index.6e691c29.js","../chunks/index.d60672bb.js","../chunks/list-item.46dd92f9.js","../chunks/item.ff3dd161.js","../chunks/index.82aa11ca.js","../chunks/navigation.75d1feee.js","../chunks/singletons.1ef98ffa.js","../chunks/stores.84616ea4.js","../assets/9.b8a87163.css"] : void 0, import.meta.url)
 ];
 const server_loads = [];
 const dictionary = {
   "/": [3],
-  "/accounts": [4, [2]],
-  "/accounts/[id]": [5, [2]],
-  "/accounts/[id]/deposit": [6, [2]],
-  "/accounts/[id]/spend": [7, [2]],
-  "/offer/offline": [9],
-  "/offer/[id]": [8]
+  "/accounts": [5, [2]],
+  "/accounts/[id]": [6, [2]],
+  "/accounts/[id]/deposit": [7, [2]],
+  "/accounts/[id]/spend": [8, [2]],
+  "/offer/[id]": [9],
+  "/[...path=camera_paths]/camera": [4]
 };
 const hooks = {
   handleError: ({ error }) => {

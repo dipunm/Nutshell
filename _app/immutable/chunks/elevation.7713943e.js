@@ -1,4 +1,4 @@
-import { s, x, i, _ as __decorate, e } from "./form-submitter.5b8d9ddf.js";
+import { s, x, i, _ as __decorate, e } from "./icon.8232ecae.js";
 /**
  * @license
  * Copyright 2022 Google LLC

@@ -725,9 +725,9 @@ const ATTACHABLE_CONTROLLER = Symbol("attachableController");
 let FOR_ATTRIBUTE_OBSERVER;
 {
   FOR_ATTRIBUTE_OBSERVER = new MutationObserver((records) => {
-    var _a;
+    var _a2;
     for (const record of records) {
-      (_a = record.target[ATTACHABLE_CONTROLLER]) == null ? void 0 : _a.hostConnected();
+      (_a2 = record.target[ATTACHABLE_CONTROLLER]) == null ? void 0 : _a2.hostConnected();
     }
   });
 }
@@ -1031,12 +1031,12 @@ class Ripple extends s$1 {
     return { startPoint, endPoint };
   }
   startPressAnimation(positionEvent) {
-    var _a;
+    var _a2;
     if (!this.mdRoot) {
       return;
     }
     this.pressed = true;
-    (_a = this.growAnimation) == null ? void 0 : _a.cancel();
+    (_a2 = this.growAnimation) == null ? void 0 : _a2.cancel();
     this.determineRippleSize();
     const { startPoint, endPoint } = this.getTranslationCoordinates(positionEvent);
     const translateStart = `${startPoint.x}px, ${startPoint.y}px`;
@@ -1157,7 +1157,7 @@ __decorate([
   * Copyright 2022 Google LLC
   * SPDX-License-Identifier: Apache-2.0
   */
-const styles$1 = i$3`:host{--_hover-color: var(--md-ripple-hover-color, var(--md-sys-color-on-surface, #1d1b20));--_hover-opacity: var(--md-ripple-hover-opacity, 0.08);--_pressed-color: var(--md-ripple-pressed-color, var(--md-sys-color-on-surface, #1d1b20));--_pressed-opacity: var(--md-ripple-pressed-opacity, 0.12);display:flex;margin:auto;pointer-events:none}:host([disabled]){display:none}@media(forced-colors: active){:host{display:none}}:host,.surface{border-radius:inherit;position:absolute;inset:0;overflow:hidden}.surface{-webkit-tap-highlight-color:rgba(0,0,0,0)}.surface::before,.surface::after{content:"";opacity:0;position:absolute}.surface::before{background-color:var(--_hover-color);inset:0;transition:opacity 15ms linear,background-color 15ms linear}.surface::after{background:radial-gradient(closest-side, var(--_pressed-color) max(100% - 70px, 65%), transparent 100%);transform-origin:center center;transition:opacity 375ms linear}.hovered::before{background-color:var(--_hover-color);opacity:var(--_hover-opacity)}.pressed::after{opacity:var(--_pressed-opacity);transition-duration:105ms}/*# sourceMappingURL=ripple-styles.css.map */
+const styles$4 = i$3`:host{--_hover-color: var(--md-ripple-hover-color, var(--md-sys-color-on-surface, #1d1b20));--_hover-opacity: var(--md-ripple-hover-opacity, 0.08);--_pressed-color: var(--md-ripple-pressed-color, var(--md-sys-color-on-surface, #1d1b20));--_pressed-opacity: var(--md-ripple-pressed-opacity, 0.12);display:flex;margin:auto;pointer-events:none}:host([disabled]){display:none}@media(forced-colors: active){:host{display:none}}:host,.surface{border-radius:inherit;position:absolute;inset:0;overflow:hidden}.surface{-webkit-tap-highlight-color:rgba(0,0,0,0)}.surface::before,.surface::after{content:"";opacity:0;position:absolute}.surface::before{background-color:var(--_hover-color);inset:0;transition:opacity 15ms linear,background-color 15ms linear}.surface::after{background:radial-gradient(closest-side, var(--_pressed-color) max(100% - 70px, 65%), transparent 100%);transform-origin:center center;transition:opacity 375ms linear}.hovered::before{background-color:var(--_hover-color);opacity:var(--_hover-opacity)}.pressed::after{opacity:var(--_pressed-opacity);transition-duration:105ms}/*# sourceMappingURL=ripple-styles.css.map */
 `;
 /**
  * @license
@@ -1166,7 +1166,7 @@ const styles$1 = i$3`:host{--_hover-color: var(--md-ripple-hover-color, var(--md
  */
 let MdRipple = class MdRipple2 extends Ripple {
 };
-MdRipple.styles = [styles$1];
+MdRipple.styles = [styles$4];
 MdRipple = __decorate([
   e$7("md-ripple")
 ], MdRipple);
@@ -1364,7 +1364,7 @@ class FocusRing extends s$1 {
   }
   /** @private */
   handleEvent(event) {
-    var _a;
+    var _a2;
     if (event[HANDLED_BY_FOCUS_RING]) {
       return;
     }
@@ -1372,7 +1372,7 @@ class FocusRing extends s$1 {
       default:
         return;
       case "focusin":
-        this.visible = ((_a = this.control) == null ? void 0 : _a.matches(":focus-visible")) ?? false;
+        this.visible = ((_a2 = this.control) == null ? void 0 : _a2.matches(":focus-visible")) ?? false;
         break;
       case "focusout":
       case "pointerdown":
@@ -1406,7 +1406,7 @@ const HANDLED_BY_FOCUS_RING = Symbol("handledByFocusRing");
   * Copyright 2022 Google LLC
   * SPDX-License-Identifier: Apache-2.0
   */
-const styles = i$3`:host{animation-delay:0s,calc(var(--md-focus-ring-duration, 600ms)*.25);animation-duration:calc(var(--md-focus-ring-duration, 600ms)*.25),calc(var(--md-focus-ring-duration, 600ms)*.75);animation-timing-function:cubic-bezier(0.2, 0, 0, 1);box-sizing:border-box;color:var(--md-focus-ring-color, var(--md-sys-color-secondary, #625b71));display:none;pointer-events:none;position:absolute}:host([visible]){display:flex}:host(:not([inward])){animation-name:outward-grow,outward-shrink;border-end-end-radius:calc(var(--md-focus-ring-shape-end-end, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));border-end-start-radius:calc(var(--md-focus-ring-shape-end-start, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));border-start-end-radius:calc(var(--md-focus-ring-shape-start-end, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));border-start-start-radius:calc(var(--md-focus-ring-shape-start-start, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));inset:calc(-1*var(--md-focus-ring-outward-offset, 2px));outline:var(--md-focus-ring-width, 3px) solid currentColor}:host([inward]){animation-name:inward-grow,inward-shrink;border-end-end-radius:calc(var(--md-focus-ring-shape-end-end, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border-end-start-radius:calc(var(--md-focus-ring-shape-end-start, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border-start-end-radius:calc(var(--md-focus-ring-shape-start-end, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border-start-start-radius:calc(var(--md-focus-ring-shape-start-start, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border:var(--md-focus-ring-width, 3px) solid currentColor;inset:var(--md-focus-ring-inward-offset, 0px)}@keyframes outward-grow{from{outline-width:0}to{outline-width:var(--md-focus-ring-active-width, 8px)}}@keyframes outward-shrink{from{outline-width:var(--md-focus-ring-active-width, 8px)}}@keyframes inward-grow{from{border-width:0}to{border-width:var(--md-focus-ring-active-width, 8px)}}@keyframes inward-shrink{from{border-width:var(--md-focus-ring-active-width, 8px)}}@media(prefers-reduced-motion){:host{animation:none}}/*# sourceMappingURL=focus-ring-styles.css.map */
+const styles$3 = i$3`:host{animation-delay:0s,calc(var(--md-focus-ring-duration, 600ms)*.25);animation-duration:calc(var(--md-focus-ring-duration, 600ms)*.25),calc(var(--md-focus-ring-duration, 600ms)*.75);animation-timing-function:cubic-bezier(0.2, 0, 0, 1);box-sizing:border-box;color:var(--md-focus-ring-color, var(--md-sys-color-secondary, #625b71));display:none;pointer-events:none;position:absolute}:host([visible]){display:flex}:host(:not([inward])){animation-name:outward-grow,outward-shrink;border-end-end-radius:calc(var(--md-focus-ring-shape-end-end, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));border-end-start-radius:calc(var(--md-focus-ring-shape-end-start, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));border-start-end-radius:calc(var(--md-focus-ring-shape-start-end, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));border-start-start-radius:calc(var(--md-focus-ring-shape-start-start, var(--md-focus-ring-shape, 9999px)) + var(--md-focus-ring-outward-offset, 2px));inset:calc(-1*var(--md-focus-ring-outward-offset, 2px));outline:var(--md-focus-ring-width, 3px) solid currentColor}:host([inward]){animation-name:inward-grow,inward-shrink;border-end-end-radius:calc(var(--md-focus-ring-shape-end-end, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border-end-start-radius:calc(var(--md-focus-ring-shape-end-start, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border-start-end-radius:calc(var(--md-focus-ring-shape-start-end, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border-start-start-radius:calc(var(--md-focus-ring-shape-start-start, var(--md-focus-ring-shape, 9999px)) - var(--md-focus-ring-inward-offset, 0px));border:var(--md-focus-ring-width, 3px) solid currentColor;inset:var(--md-focus-ring-inward-offset, 0px)}@keyframes outward-grow{from{outline-width:0}to{outline-width:var(--md-focus-ring-active-width, 8px)}}@keyframes outward-shrink{from{outline-width:var(--md-focus-ring-active-width, 8px)}}@keyframes inward-grow{from{border-width:0}to{border-width:var(--md-focus-ring-active-width, 8px)}}@keyframes inward-shrink{from{border-width:var(--md-focus-ring-active-width, 8px)}}@media(prefers-reduced-motion){:host{animation:none}}/*# sourceMappingURL=focus-ring-styles.css.map */
 `;
 /**
  * @license
@@ -1415,7 +1415,7 @@ const styles = i$3`:host{animation-delay:0s,calc(var(--md-focus-ring-duration, 6
  */
 let MdFocusRing = class MdFocusRing2 extends FocusRing {
 };
-MdFocusRing.styles = [styles];
+MdFocusRing.styles = [styles$3];
 MdFocusRing = __decorate([
   e$7("md-focus-ring")
 ], MdFocusRing);
@@ -1511,31 +1511,268 @@ function setupFormSubmitter(ctor) {
     });
   });
 }
+/**
+ * @license
+ * Copyright 2022 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+function isRtl(el, shouldCheck = true) {
+  return shouldCheck && getComputedStyle(el).getPropertyValue("direction").trim() === "rtl";
+}
+/**
+ * @license
+ * Copyright 2018 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+var _a;
+class IconButton extends s$1 {
+  constructor() {
+    super(...arguments);
+    this.disabled = false;
+    this.flipIconInRtl = false;
+    this.href = "";
+    this.target = "";
+    this.ariaLabelSelected = "";
+    this.toggle = false;
+    this.selected = false;
+    this.type = "submit";
+    this.value = "";
+    this.flipIcon = isRtl(this, this.flipIconInRtl);
+    this[_a] = this.attachInternals();
+  }
+  get name() {
+    return this.getAttribute("name") ?? "";
+  }
+  set name(name) {
+    this.setAttribute("name", name);
+  }
+  /**
+   * The associated form element with which this element's value will submit.
+   */
+  get form() {
+    return this[internals].form;
+  }
+  /**
+   * The labels this element is associated with.
+   */
+  get labels() {
+    return this[internals].labels;
+  }
+  /**
+   * Link buttons cannot be disabled.
+   */
+  willUpdate() {
+    if (this.href) {
+      this.disabled = false;
+    }
+  }
+  render() {
+    const tag = this.href ? i2`div` : i2`button`;
+    const { ariaLabel, ariaHasPopup, ariaExpanded } = this;
+    const hasToggledAriaLabel = ariaLabel && this.ariaLabelSelected;
+    const ariaPressedValue = !this.toggle ? A : this.selected;
+    let ariaLabelValue = A;
+    if (!this.href) {
+      ariaLabelValue = hasToggledAriaLabel && this.selected ? this.ariaLabelSelected : ariaLabel;
+    }
+    return n`<${tag}
+        class="icon-button ${o2(this.getRenderClasses())}"
+        id="button"
+        aria-label="${ariaLabelValue || A}"
+        aria-haspopup="${!this.href && ariaHasPopup || A}"
+        aria-expanded="${!this.href && ariaExpanded || A}"
+        aria-pressed="${ariaPressedValue}"
+        ?disabled="${!this.href && this.disabled}"
+        @click="${this.handleClick}">
+        ${this.renderFocusRing()}
+        ${this.renderRipple()}
+        ${!this.selected ? this.renderIcon() : A}
+        ${this.selected ? this.renderSelectedIcon() : A}
+        ${this.renderTouchTarget()}
+        ${this.href && this.renderLink()}
+  </${tag}>`;
+  }
+  renderLink() {
+    const { ariaLabel } = this;
+    return x`
+      <a class="link"
+        id="link"
+        href="${this.href}"
+        target="${this.target || A}"
+        aria-label="${ariaLabel || A}"
+      ></a>
+    `;
+  }
+  getRenderClasses() {
+    return {
+      "flip-icon": this.flipIcon,
+      "selected": this.toggle && this.selected
+    };
+  }
+  renderIcon() {
+    return x`<span class="icon"><slot></slot></span>`;
+  }
+  renderSelectedIcon() {
+    return x`<span class="icon icon--selected"><slot name="selected"><slot></slot></slot></span>`;
+  }
+  renderTouchTarget() {
+    return x`<span class="touch"></span>`;
+  }
+  renderFocusRing() {
+    return x`<md-focus-ring part="focus-ring" for=${this.href ? "link" : "button"}></md-focus-ring>`;
+  }
+  renderRipple() {
+    return x`<md-ripple
+      for=${this.href ? "link" : A}
+      ?disabled="${!this.href && this.disabled}"
+    ></md-ripple>`;
+  }
+  connectedCallback() {
+    this.flipIcon = isRtl(this, this.flipIconInRtl);
+    super.connectedCallback();
+  }
+  async handleClick(event) {
+    await 0;
+    if (!this.toggle || this.disabled || event.defaultPrevented) {
+      return;
+    }
+    this.selected = !this.selected;
+    this.dispatchEvent(new InputEvent("input", { bubbles: true, composed: true }));
+    this.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+}
+_a = internals;
+(() => {
+  requestUpdateOnAriaChange(IconButton);
+  setupFormSubmitter(IconButton);
+})();
+IconButton.formAssociated = true;
+IconButton.shadowRootOptions = { mode: "open", delegatesFocus: true };
+__decorate([
+  n$6({ type: Boolean, reflect: true })
+], IconButton.prototype, "disabled", void 0);
+__decorate([
+  n$6({ type: Boolean, attribute: "flip-icon-in-rtl" })
+], IconButton.prototype, "flipIconInRtl", void 0);
+__decorate([
+  n$6()
+], IconButton.prototype, "href", void 0);
+__decorate([
+  n$6()
+], IconButton.prototype, "target", void 0);
+__decorate([
+  n$6({ attribute: "aria-label-selected" })
+], IconButton.prototype, "ariaLabelSelected", void 0);
+__decorate([
+  n$6({ type: Boolean })
+], IconButton.prototype, "toggle", void 0);
+__decorate([
+  n$6({ type: Boolean, reflect: true })
+], IconButton.prototype, "selected", void 0);
+__decorate([
+  n$6()
+], IconButton.prototype, "type", void 0);
+__decorate([
+  n$6()
+], IconButton.prototype, "value", void 0);
+__decorate([
+  t$3()
+], IconButton.prototype, "flipIcon", void 0);
+/**
+  * @license
+  * Copyright 2022 Google LLC
+  * SPDX-License-Identifier: Apache-2.0
+  */
+const styles$2 = i$3`:host{display:inline-flex;outline:none;-webkit-tap-highlight-color:rgba(0,0,0,0);height:var(--_container-height);width:var(--_container-width);justify-content:center}:host([touch-target=wrapper]){margin:max(0px,(48px - var(--_container-height))/2) max(0px,(48px - var(--_container-width))/2)}md-focus-ring{--md-focus-ring-shape-start-start: var(--_container-shape-start-start);--md-focus-ring-shape-start-end: var(--_container-shape-start-end);--md-focus-ring-shape-end-end: var(--_container-shape-end-end);--md-focus-ring-shape-end-start: var(--_container-shape-end-start)}:host([disabled]){pointer-events:none}.icon-button{place-items:center;background:none;border:none;box-sizing:border-box;cursor:pointer;display:flex;place-content:center;outline:none;padding:0;position:relative;text-decoration:none;user-select:none;z-index:0;flex:1;border-start-start-radius:var(--_container-shape-start-start);border-start-end-radius:var(--_container-shape-start-end);border-end-start-radius:var(--_container-shape-end-start);border-end-end-radius:var(--_container-shape-end-end)}.icon ::slotted(*){font-size:var(--_icon-size);height:var(--_icon-size);width:var(--_icon-size);font-weight:inherit}md-ripple{z-index:-1;border-start-start-radius:var(--_container-shape-start-start);border-start-end-radius:var(--_container-shape-start-end);border-end-start-radius:var(--_container-shape-end-start);border-end-end-radius:var(--_container-shape-end-end)}.flip-icon .icon{transform:scaleX(-1)}.icon{display:inline-flex}.link{height:100%;outline:none;position:absolute;width:100%}.touch{position:absolute;height:max(48px,100%);width:max(48px,100%)}:host([touch-target=none]) .touch{display:none}@media(forced-colors: active){:host([disabled]){--_disabled-icon-opacity: 1}}/*# sourceMappingURL=shared-styles.css.map */
+`;
+/**
+  * @license
+  * Copyright 2022 Google LLC
+  * SPDX-License-Identifier: Apache-2.0
+  */
+const styles$1 = i$3`:host{--_disabled-icon-color: var(--md-icon-button-disabled-icon-color, var(--md-sys-color-on-surface, #1d1b20));--_disabled-icon-opacity: var(--md-icon-button-disabled-icon-opacity, 0.38);--_icon-size: var(--md-icon-button-icon-size, 24px);--_selected-focus-icon-color: var(--md-icon-button-selected-focus-icon-color, var(--md-sys-color-primary, #6750a4));--_selected-hover-icon-color: var(--md-icon-button-selected-hover-icon-color, var(--md-sys-color-primary, #6750a4));--_selected-hover-state-layer-color: var(--md-icon-button-selected-hover-state-layer-color, var(--md-sys-color-primary, #6750a4));--_selected-hover-state-layer-opacity: var(--md-icon-button-selected-hover-state-layer-opacity, 0.08);--_selected-icon-color: var(--md-icon-button-selected-icon-color, var(--md-sys-color-primary, #6750a4));--_selected-pressed-icon-color: var(--md-icon-button-selected-pressed-icon-color, var(--md-sys-color-primary, #6750a4));--_selected-pressed-state-layer-color: var(--md-icon-button-selected-pressed-state-layer-color, var(--md-sys-color-primary, #6750a4));--_selected-pressed-state-layer-opacity: var(--md-icon-button-selected-pressed-state-layer-opacity, 0.12);--_state-layer-height: var(--md-icon-button-state-layer-height, 40px);--_state-layer-shape: var(--md-icon-button-state-layer-shape, 9999px);--_state-layer-width: var(--md-icon-button-state-layer-width, 40px);--_focus-icon-color: var(--md-icon-button-focus-icon-color, var(--md-sys-color-on-surface-variant, #49454f));--_hover-icon-color: var(--md-icon-button-hover-icon-color, var(--md-sys-color-on-surface-variant, #49454f));--_hover-state-layer-color: var(--md-icon-button-hover-state-layer-color, var(--md-sys-color-on-surface-variant, #49454f));--_hover-state-layer-opacity: var(--md-icon-button-hover-state-layer-opacity, 0.08);--_icon-color: var(--md-icon-button-icon-color, var(--md-sys-color-on-surface-variant, #49454f));--_pressed-icon-color: var(--md-icon-button-pressed-icon-color, var(--md-sys-color-on-surface-variant, #49454f));--_pressed-state-layer-color: var(--md-icon-button-pressed-state-layer-color, var(--md-sys-color-on-surface-variant, #49454f));--_pressed-state-layer-opacity: var(--md-icon-button-pressed-state-layer-opacity, 0.12);--_container-shape-start-start: 0;--_container-shape-start-end: 0;--_container-shape-end-end: 0;--_container-shape-end-start: 0;--_container-height: 0;--_container-width: 0;height:var(--_state-layer-height);width:var(--_state-layer-width)}:host([touch-target=wrapper]){margin:max(0px,(48px - var(--_state-layer-height))/2) max(0px,(48px - var(--_state-layer-width))/2)}md-focus-ring{--md-focus-ring-shape-start-start: var(--_state-layer-shape);--md-focus-ring-shape-start-end: var(--_state-layer-shape);--md-focus-ring-shape-end-end: var(--_state-layer-shape);--md-focus-ring-shape-end-start: var(--_state-layer-shape)}.standard{background-color:rgba(0,0,0,0);color:var(--_icon-color);--md-ripple-hover-color: var(--_hover-state-layer-color);--md-ripple-hover-opacity: var(--_hover-state-layer-opacity);--md-ripple-pressed-color: var(--_pressed-state-layer-color);--md-ripple-pressed-opacity: var(--_pressed-state-layer-opacity)}.standard:hover{color:var(--_hover-icon-color)}.standard:focus{color:var(--_focus-icon-color)}.standard:active{color:var(--_pressed-icon-color)}.standard:disabled{color:var(--_disabled-icon-color)}md-ripple{border-radius:var(--_state-layer-shape)}.standard:disabled .icon{opacity:var(--_disabled-icon-opacity)}.selected{--md-ripple-hover-color: var(--_selected-hover-state-layer-color);--md-ripple-hover-opacity: var(--_selected-hover-state-layer-opacity);--md-ripple-pressed-color: var(--_selected-pressed-state-layer-color);--md-ripple-pressed-opacity: var(--_selected-pressed-state-layer-opacity)}.selected:not(:disabled){color:var(--_selected-icon-color)}.selected:not(:disabled):hover{color:var(--_selected-hover-icon-color)}.selected:not(:disabled):focus{color:var(--_selected-focus-icon-color)}.selected:not(:disabled):active{color:var(--_selected-pressed-icon-color)}/*# sourceMappingURL=standard-styles.css.map */
+`;
+/**
+ * @license
+ * Copyright 2021 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+let MdIconButton = class MdIconButton2 extends IconButton {
+  getRenderClasses() {
+    return {
+      ...super.getRenderClasses(),
+      "standard": true
+    };
+  }
+};
+MdIconButton.styles = [styles$2, styles$1];
+MdIconButton = __decorate([
+  e$7("md-icon-button")
+], MdIconButton);
+/**
+ * @license
+ * Copyright 2022 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+class Icon extends s$1 {
+  render() {
+    return x`<slot></slot>`;
+  }
+  connectedCallback() {
+    super.connectedCallback();
+    const ariaHidden = this.getAttribute("aria-hidden");
+    if (ariaHidden === "false") {
+      this.removeAttribute("aria-hidden");
+      return;
+    }
+    this.setAttribute("aria-hidden", "true");
+  }
+}
+/**
+  * @license
+  * Copyright 2022 Google LLC
+  * SPDX-License-Identifier: Apache-2.0
+  */
+const styles = i$3`:host{font-size:24px;width:24px;height:24px;color:inherit;font-variation-settings:inherit;font-weight:400;font-family:var(--md-icon-font, Material Symbols Outlined);display:inline-flex;font-style:normal;line-height:1;overflow:hidden;letter-spacing:normal;text-transform:none;user-select:none;white-space:nowrap;word-wrap:normal;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale}::slotted(svg){fill:currentColor}::slotted(*){height:100%;width:100%}/*# sourceMappingURL=icon-styles.css.map */
+`;
+/**
+ * @license
+ * Copyright 2022 Google LLC
+ * SPDX-License-Identifier: Apache-2.0
+ */
+let MdIcon = class MdIcon2 extends Icon {
+};
+MdIcon.styles = [styles];
+MdIcon = __decorate([
+  e$7("md-icon")
+], MdIcon);
 export {
   A,
   D,
   EASING as E,
+  IconButton as I,
   T,
   __decorate as _,
   setupHostAria as a,
   i$4 as b,
   o2 as c,
-  e$1 as d,
+  styles$2 as d,
   e$7 as e,
-  i$1 as f,
-  t as g,
-  n as h,
+  e$1 as f,
+  i$1 as g,
+  t as h,
   i$3 as i,
-  i2 as j,
-  createAnimationSignal as k,
+  n as j,
+  i2 as k,
   l$4 as l,
-  setupFormSubmitter as m,
+  createAnimationSignal as m,
   n$6 as n,
   o$5 as o,
   polyfillElementInternalsAria as p,
-  internals as q,
+  setupFormSubmitter as q,
   requestUpdateOnAriaChange as r,
   s$1 as s,
   t$3 as t,
+  internals as u,
   x
 };

@@ -1,55 +1,33 @@
-import { s as safe_not_equal, b as component_subscribe, n as noop } from "../chunks/utils.08e12359.js";
+import { s as safe_not_equal, n as noop } from "../chunks/utils.08e12359.js";
 import { s as space, b as element, c as claim_space, f as claim_element, g as children, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, x as set_custom_element_data } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.f9624644.js";
-import { C as Card } from "../chunks/Card.71a55d86.js";
-import "../chunks/icon.ebc2319f.js";
+import { C as Card } from "../chunks/Card.29d8f6d9.js";
+import "../chunks/icon.8232ecae.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
-import { s as stackPopUrl } from "../chunks/index.ce7817dc.js";
-import { e as base } from "../chunks/singletons.559c154c.js";
+import { b as base } from "../chunks/paths.6590256a.js";
 const _page_svelte_svelte_type_style_lang = "";
 function create_default_slot_4(ctx) {
   let md_icon_button;
-  let md_icon;
-  let textContent = "arrow_back";
+  let textContent = `<md-icon>arrow_back</md-icon>`;
   return {
     c() {
       md_icon_button = element("md-icon-button");
-      md_icon = element("md-icon");
-      md_icon.textContent = textContent;
+      md_icon_button.innerHTML = textContent;
       this.h();
     },
     l(nodes) {
-      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { href: true });
-      var md_icon_button_nodes = children(md_icon_button);
-      md_icon = claim_element(md_icon_button_nodes, "MD-ICON", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_icon) !== "svelte-1vfm1s3")
-        md_icon.textContent = textContent;
-      md_icon_button_nodes.forEach(detach);
+      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { href: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_icon_button) !== "svelte-r7bc1z")
+        md_icon_button.innerHTML = textContent;
       this.h();
     },
     h() {
-      set_custom_element_data(
-        md_icon_button,
-        "href",
-        /*$stackPopUrl*/
-        ctx[0]
-      );
+      set_custom_element_data(md_icon_button, "href", "router:pop-stack");
     },
     m(target, anchor) {
       insert_hydration(target, md_icon_button, anchor);
-      append_hydration(md_icon_button, md_icon);
     },
-    p(ctx2, dirty) {
-      if (dirty & /*$stackPopUrl*/
-      1) {
-        set_custom_element_data(
-          md_icon_button,
-          "href",
-          /*$stackPopUrl*/
-          ctx2[0]
-        );
-      }
-    },
+    p: noop,
     d(detaching) {
       if (detaching) {
         detach(md_icon_button);
@@ -201,7 +179,7 @@ function create_fragment(ctx) {
   });
   card0 = new Card({
     props: {
-      color: "surface-container-high",
+      color: "primary",
       href: "#",
       $$slots: { default: [create_default_slot_2] },
       $$scope: { ctx }
@@ -209,8 +187,8 @@ function create_fragment(ctx) {
   });
   card1 = new Card({
     props: {
-      color: "surface-container-high",
-      href: base + "/offer/offline",
+      color: "primary",
+      href: base + "/camera",
       preserveStack: true,
       $$slots: { default: [create_default_slot_1] },
       $$scope: { ctx }
@@ -218,7 +196,7 @@ function create_fragment(ctx) {
   });
   card2 = new Card({
     props: {
-      color: "surface-container-high",
+      color: "primary",
       href: "#",
       $$slots: { default: [create_default_slot] },
       $$scope: { ctx }
@@ -271,32 +249,32 @@ function create_fragment(ctx) {
     },
     p(ctx2, [dirty]) {
       const portal0_changes = {};
-      if (dirty & /*$$scope, $stackPopUrl*/
-      3) {
+      if (dirty & /*$$scope*/
+      1) {
         portal0_changes.$$scope = { dirty, ctx: ctx2 };
       }
       portal0.$set(portal0_changes);
       const portal1_changes = {};
       if (dirty & /*$$scope*/
-      2) {
+      1) {
         portal1_changes.$$scope = { dirty, ctx: ctx2 };
       }
       portal1.$set(portal1_changes);
       const card0_changes = {};
       if (dirty & /*$$scope*/
-      2) {
+      1) {
         card0_changes.$$scope = { dirty, ctx: ctx2 };
       }
       card0.$set(card0_changes);
       const card1_changes = {};
       if (dirty & /*$$scope*/
-      2) {
+      1) {
         card1_changes.$$scope = { dirty, ctx: ctx2 };
       }
       card1.$set(card1_changes);
       const card2_changes = {};
       if (dirty & /*$$scope*/
-      2) {
+      1) {
         card2_changes.$$scope = { dirty, ctx: ctx2 };
       }
       card2.$set(card2_changes);
@@ -333,15 +311,10 @@ function create_fragment(ctx) {
     }
   };
 }
-function instance($$self, $$props, $$invalidate) {
-  let $stackPopUrl;
-  component_subscribe($$self, stackPopUrl, ($$value) => $$invalidate(0, $stackPopUrl = $$value));
-  return [$stackPopUrl];
-}
 class Page extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance, create_fragment, safe_not_equal, {});
+    init(this, options, null, create_fragment, safe_not_equal, {});
   }
 }
 export {

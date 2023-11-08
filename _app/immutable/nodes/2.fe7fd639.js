@@ -1,17 +1,15 @@
-import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, b as component_subscribe, n as noop } from "../chunks/utils.08e12359.js";
+import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, u as toggle_class, i as insert_hydration, r as append_hydration, v as listen, w as get_svelte_dataset, x as set_custom_element_data, k as text, l as claim_text, y as destroy_each, e as empty } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { l, o as o$1, _ as __decorate, n, s, i, e, a as setupHostAria, b as i$1, t, p as polyfillElementInternalsAria, x, c as o$2, A, E as EASING } from "../chunks/form-submitter.5b8d9ddf.js";
-import "../chunks/elevation.b359ddc5.js";
-import "../chunks/list-item.cb4e9d2c.js";
-import "../chunks/icon.ebc2319f.js";
-import { p as page } from "../chunks/stores.cdbb8ead.js";
-import { e as base } from "../chunks/singletons.559c154c.js";
-import { s as stackPopUrl } from "../chunks/index.ce7817dc.js";
+import { l, o as o$1, _ as __decorate, n, s, i, e, a as setupHostAria, b as i$1, t, p as polyfillElementInternalsAria, x, c as o$2, A, E as EASING } from "../chunks/icon.8232ecae.js";
+import "../chunks/elevation.7713943e.js";
+import "../chunks/list-item.46dd92f9.js";
+import { p as page } from "../chunks/stores.84616ea4.js";
+import { b as base } from "../chunks/paths.6590256a.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as PortalTarget } from "../chunks/PortalTarget.b8bf6a9a.js";
 import { p as portalActive } from "../chunks/index.6e691c29.js";
-import { C as Card } from "../chunks/Card.71a55d86.js";
+import { C as Card } from "../chunks/Card.29d8f6d9.js";
 function ensure_array_like(array_like_or_iterator) {
   return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
 }
@@ -555,7 +553,7 @@ function create_default_slot_2(ctx) {
           md_icon_button,
           "click",
           /*toggleMenu*/
-          ctx[3]
+          ctx[2]
         );
         mounted = true;
       }
@@ -580,13 +578,13 @@ function create_default_slot_1$1(ctx) {
   let dispose;
   const list_headline_slot_template = (
     /*#slots*/
-    ctx[4]["list-headline"]
+    ctx[3]["list-headline"]
   );
   const list_headline_slot = create_slot(
     list_headline_slot_template,
     ctx,
     /*$$scope*/
-    ctx[5],
+    ctx[4],
     get_list_headline_slot_context
   );
   return {
@@ -627,7 +625,7 @@ function create_default_slot_1$1(ctx) {
           md_icon_button,
           "click",
           /*toggleMenu*/
-          ctx[3]
+          ctx[2]
         );
         mounted = true;
       }
@@ -635,20 +633,20 @@ function create_default_slot_1$1(ctx) {
     p(ctx2, dirty) {
       if (list_headline_slot) {
         if (list_headline_slot.p && (!current || dirty & /*$$scope*/
-        32)) {
+        16)) {
           update_slot_base(
             list_headline_slot,
             list_headline_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[5],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[5]
+              ctx2[4]
             ) : get_slot_changes(
               list_headline_slot_template,
               /*$$scope*/
-              ctx2[5],
+              ctx2[4],
               dirty,
               get_list_headline_slot_changes
             ),
@@ -683,30 +681,29 @@ function create_default_slot_1$1(ctx) {
 function create_default_slot$1(ctx) {
   let t0;
   let md_icon_button;
-  let md_icon;
-  let textContent = "arrow_back";
+  let textContent = `<md-icon>arrow_back</md-icon>`;
   let t2;
   let current;
   const content_appbar_start_slot_template = (
     /*#slots*/
-    ctx[4]["content-appbar-start"]
+    ctx[3]["content-appbar-start"]
   );
   const content_appbar_start_slot = create_slot(
     content_appbar_start_slot_template,
     ctx,
     /*$$scope*/
-    ctx[5],
+    ctx[4],
     get_content_appbar_start_slot_context
   );
   const content_appbar_slot_template = (
     /*#slots*/
-    ctx[4]["content-appbar"]
+    ctx[3]["content-appbar"]
   );
   const content_appbar_slot = create_slot(
     content_appbar_slot_template,
     ctx,
     /*$$scope*/
-    ctx[5],
+    ctx[4],
     get_content_appbar_slot_context
   );
   return {
@@ -715,8 +712,7 @@ function create_default_slot$1(ctx) {
         content_appbar_start_slot.c();
       t0 = space();
       md_icon_button = element("md-icon-button");
-      md_icon = element("md-icon");
-      md_icon.textContent = textContent;
+      md_icon_button.innerHTML = textContent;
       t2 = space();
       if (content_appbar_slot)
         content_appbar_slot.c();
@@ -726,12 +722,13 @@ function create_default_slot$1(ctx) {
       if (content_appbar_start_slot)
         content_appbar_start_slot.l(nodes);
       t0 = claim_space(nodes);
-      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { class: true, href: true });
-      var md_icon_button_nodes = children(md_icon_button);
-      md_icon = claim_element(md_icon_button_nodes, "MD-ICON", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_icon) !== "svelte-1vfm1s3")
-        md_icon.textContent = textContent;
-      md_icon_button_nodes.forEach(detach);
+      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", {
+        class: true,
+        href: true,
+        ["data-svelte-h"]: true
+      });
+      if (get_svelte_dataset(md_icon_button) !== "svelte-ukxzln")
+        md_icon_button.innerHTML = textContent;
       t2 = claim_space(nodes);
       if (content_appbar_slot)
         content_appbar_slot.l(nodes);
@@ -739,12 +736,7 @@ function create_default_slot$1(ctx) {
     },
     h() {
       set_custom_element_data(md_icon_button, "class", "backbutton");
-      set_custom_element_data(
-        md_icon_button,
-        "href",
-        /*$stackPopUrl*/
-        ctx[2]
-      );
+      set_custom_element_data(md_icon_button, "href", "router:pop-stack");
     },
     m(target, anchor) {
       if (content_appbar_start_slot) {
@@ -752,7 +744,6 @@ function create_default_slot$1(ctx) {
       }
       insert_hydration(target, t0, anchor);
       insert_hydration(target, md_icon_button, anchor);
-      append_hydration(md_icon_button, md_icon);
       insert_hydration(target, t2, anchor);
       if (content_appbar_slot) {
         content_appbar_slot.m(target, anchor);
@@ -762,20 +753,20 @@ function create_default_slot$1(ctx) {
     p(ctx2, dirty) {
       if (content_appbar_start_slot) {
         if (content_appbar_start_slot.p && (!current || dirty & /*$$scope*/
-        32)) {
+        16)) {
           update_slot_base(
             content_appbar_start_slot,
             content_appbar_start_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[5],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[5]
+              ctx2[4]
             ) : get_slot_changes(
               content_appbar_start_slot_template,
               /*$$scope*/
-              ctx2[5],
+              ctx2[4],
               dirty,
               get_content_appbar_start_slot_changes
             ),
@@ -783,31 +774,22 @@ function create_default_slot$1(ctx) {
           );
         }
       }
-      if (!current || dirty & /*$stackPopUrl*/
-      4) {
-        set_custom_element_data(
-          md_icon_button,
-          "href",
-          /*$stackPopUrl*/
-          ctx2[2]
-        );
-      }
       if (content_appbar_slot) {
         if (content_appbar_slot.p && (!current || dirty & /*$$scope*/
-        32)) {
+        16)) {
           update_slot_base(
             content_appbar_slot,
             content_appbar_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[5],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[5]
+              ctx2[4]
             ) : get_slot_changes(
               content_appbar_slot_template,
               /*$$scope*/
-              ctx2[5],
+              ctx2[4],
               dirty,
               get_content_appbar_slot_changes
             ),
@@ -868,13 +850,13 @@ function create_fragment$1(ctx) {
   });
   const menu_slot_template = (
     /*#slots*/
-    ctx[4].menu
+    ctx[3].menu
   );
   const menu_slot = create_slot(
     menu_slot_template,
     ctx,
     /*$$scope*/
-    ctx[5],
+    ctx[4],
     get_menu_slot_context
   );
   appbar1 = new AppBar({
@@ -885,13 +867,13 @@ function create_fragment$1(ctx) {
   });
   const list_slot_template = (
     /*#slots*/
-    ctx[4].list
+    ctx[3].list
   );
   const list_slot = create_slot(
     list_slot_template,
     ctx,
     /*$$scope*/
-    ctx[5],
+    ctx[4],
     get_list_slot_context
   );
   appbar2 = new AppBar({
@@ -902,13 +884,13 @@ function create_fragment$1(ctx) {
   });
   const default_slot_template = (
     /*#slots*/
-    ctx[4].default
+    ctx[3].default
   );
   const default_slot = create_slot(
     default_slot_template,
     ctx,
     /*$$scope*/
-    ctx[5],
+    ctx[4],
     null
   );
   return {
@@ -1023,7 +1005,7 @@ function create_fragment$1(ctx) {
           div1,
           "click",
           /*toggleMenu*/
-          ctx[3]
+          ctx[2]
         );
         mounted = true;
       }
@@ -1031,26 +1013,26 @@ function create_fragment$1(ctx) {
     p(ctx2, [dirty]) {
       const appbar0_changes = {};
       if (dirty & /*$$scope*/
-      32) {
+      16) {
         appbar0_changes.$$scope = { dirty, ctx: ctx2 };
       }
       appbar0.$set(appbar0_changes);
       if (menu_slot) {
         if (menu_slot.p && (!current || dirty & /*$$scope*/
-        32)) {
+        16)) {
           update_slot_base(
             menu_slot,
             menu_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[5],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[5]
+              ctx2[4]
             ) : get_slot_changes(
               menu_slot_template,
               /*$$scope*/
-              ctx2[5],
+              ctx2[4],
               dirty,
               get_menu_slot_changes
             ),
@@ -1069,26 +1051,26 @@ function create_fragment$1(ctx) {
       }
       const appbar1_changes = {};
       if (dirty & /*$$scope*/
-      32) {
+      16) {
         appbar1_changes.$$scope = { dirty, ctx: ctx2 };
       }
       appbar1.$set(appbar1_changes);
       if (list_slot) {
         if (list_slot.p && (!current || dirty & /*$$scope*/
-        32)) {
+        16)) {
           update_slot_base(
             list_slot,
             list_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[5],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[5]
+              ctx2[4]
             ) : get_slot_changes(
               list_slot_template,
               /*$$scope*/
-              ctx2[5],
+              ctx2[4],
               dirty,
               get_list_slot_changes
             ),
@@ -1097,27 +1079,27 @@ function create_fragment$1(ctx) {
         }
       }
       const appbar2_changes = {};
-      if (dirty & /*$$scope, $stackPopUrl*/
-      36) {
+      if (dirty & /*$$scope*/
+      16) {
         appbar2_changes.$$scope = { dirty, ctx: ctx2 };
       }
       appbar2.$set(appbar2_changes);
       if (default_slot) {
         if (default_slot.p && (!current || dirty & /*$$scope*/
-        32)) {
+        16)) {
           update_slot_base(
             default_slot,
             default_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[5],
+            ctx2[4],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[5]
+              ctx2[4]
             ) : get_slot_changes(
               default_slot_template,
               /*$$scope*/
-              ctx2[5],
+              ctx2[4],
               dirty,
               null
             ),
@@ -1174,8 +1156,6 @@ function create_fragment$1(ctx) {
   };
 }
 function instance$1($$self, $$props, $$invalidate) {
-  let $stackPopUrl;
-  component_subscribe($$self, stackPopUrl, ($$value) => $$invalidate(2, $stackPopUrl = $$value));
   let { $$slots: slots = {}, $$scope } = $$props;
   let { contentActive = false } = $$props;
   let menuOpen = false;
@@ -1186,9 +1166,9 @@ function instance$1($$self, $$props, $$invalidate) {
     if ("contentActive" in $$props2)
       $$invalidate(0, contentActive = $$props2.contentActive);
     if ("$$scope" in $$props2)
-      $$invalidate(5, $$scope = $$props2.$$scope);
+      $$invalidate(4, $$scope = $$props2.$$scope);
   };
-  return [contentActive, menuOpen, $stackPopUrl, toggleMenu, slots, $$scope];
+  return [contentActive, menuOpen, toggleMenu, slots, $$scope];
 }
 class ListDetailMenu extends SvelteComponent {
   constructor(options) {
@@ -1361,7 +1341,7 @@ function create_default_slot(ctx) {
     },
     h() {
       attr(h2, "class", "title-large");
-      attr(div, "class", "wallet-item-inner svelte-wkktkl");
+      attr(div, "class", "wallet-item-inner svelte-c1hm0t");
     },
     m(target, anchor) {
       insert_hydration(target, div, anchor);
@@ -1414,7 +1394,7 @@ function create_each_block(ctx) {
       this.h();
     },
     h() {
-      attr(li, "class", "wallet-item svelte-wkktkl");
+      attr(li, "class", "wallet-item svelte-c1hm0t");
     },
     m(target, anchor) {
       insert_hydration(target, li, anchor);

@@ -1,8 +1,6 @@
-var _a, _b;
 import { w as writable } from "./index.d60672bb.js";
-const base = ((_a = globalThis.__sveltekit_14xymxd) == null ? void 0 : _a.base) ?? "/Nutshell";
-const assets = ((_b = globalThis.__sveltekit_14xymxd) == null ? void 0 : _b.assets) ?? base;
-const version = "1699330231737";
+import { a as assets } from "./paths.6590256a.js";
+const version = "1699418246566";
 const SNAPSHOT_KEY = "sveltekit:snapshot";
 const SCROLL_KEY = "sveltekit:scroll";
 const INDEX_KEY = "sveltekit:index";
@@ -62,14 +60,14 @@ function find_anchor(element, target) {
     parent_element(element);
   }
 }
-function get_link_info(a, base2) {
+function get_link_info(a, base) {
   let url;
   try {
     url = new URL(a instanceof SVGAElement ? a.href.baseVal : a.href, document.baseURI);
   } catch {
   }
   const target = a instanceof SVGAElement ? a.target.baseVal : a.target;
-  const external = !url || !!target || is_external_url(url, base2) || (a.getAttribute("rel") || "").split(/\s+/).includes("external");
+  const external = !url || !!target || is_external_url(url, base) || (a.getAttribute("rel") || "").split(/\s+/).includes("external");
   const download = (url == null ? void 0 : url.origin) === location.origin && a.hasAttribute("download");
   return { url, external, target, download };
 }
@@ -170,8 +168,8 @@ function create_updated_store() {
     check
   };
 }
-function is_external_url(url, base2) {
-  return url.origin !== location.origin || !url.pathname.startsWith(base2);
+function is_external_url(url, base) {
+  return url.origin !== location.origin || !url.pathname.startsWith(base);
 }
 let client;
 function init(opts) {
@@ -199,11 +197,10 @@ export {
   get_link_info as b,
   get_router_options as c,
   stores as d,
-  base as e,
+  init as e,
   find_anchor as f,
   get_base_uri as g,
-  init as h,
+  client_method as h,
   is_external_url as i,
-  client_method as j,
   scroll_state as s
 };

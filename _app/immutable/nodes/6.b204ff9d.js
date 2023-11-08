@@ -1,16 +1,15 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe, d as action_destroyer, r as run_all } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, d as detach, c as claim_space, x as set_custom_element_data, j as set_style, i as insert_hydration, r as append_hydration, v as listen, n as binding_callbacks, w as get_svelte_dataset, k as text, l as claim_text, h as attr, e as empty, t as tick, m as set_data } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, a as transition_in, t as transition_out, b as create_component, d as claim_component, m as mount_component, c as check_outros, e as destroy_component, g as group_outros } from "../chunks/index.f9624644.js";
-import { s as styles$e, I as IconButton } from "../chunks/icon.ebc2319f.js";
-import { i, _ as __decorate, e as e$1, t, n, l as l$1, b as i$1, s as s$1, x, c as o, A, D, E as EASING, d as e$2, f as i$2, g as t$1, T, r as requestUpdateOnAriaChange, h as n$1, j as i$3, a as setupHostAria, k as createAnimationSignal, p as polyfillElementInternalsAria } from "../chunks/form-submitter.5b8d9ddf.js";
-import { B as Button, s as styles$f, r as redispatchEvent } from "../chunks/filled-button.7c9e55d4.js";
-import { o as o$1 } from "../chunks/style-map.8be08b03.js";
-import { N as NavigableKeys, L as ListController, g as getActiveItem, a as getLastActivatableItem, b as getFirstActivatableItem } from "../chunks/item.33c7e580.js";
-import { o as onNavigate } from "../chunks/navigation.8c11ec17.js";
-import { e as base } from "../chunks/singletons.559c154c.js";
-import { p as page } from "../chunks/stores.cdbb8ead.js";
+import { i, d as styles$e, _ as __decorate, I as IconButton, e as e$1, t, n, l as l$1, b as i$1, s as s$1, x, c as o, A, D, E as EASING, f as e$2, g as i$2, h as t$1, T, r as requestUpdateOnAriaChange, j as n$1, k as i$3, a as setupHostAria, m as createAnimationSignal, p as polyfillElementInternalsAria } from "../chunks/icon.8232ecae.js";
+import { B as Button, s as styles$f, r as redispatchEvent } from "../chunks/filled-button.15dbafb4.js";
+import { o as o$1 } from "../chunks/style-map.eefe9fbf.js";
+import { N as NavigableKeys, L as ListController, g as getActiveItem, a as getLastActivatableItem, b as getFirstActivatableItem } from "../chunks/item.ff3dd161.js";
+import { o as onNavigate } from "../chunks/navigation.75d1feee.js";
+import { b as base } from "../chunks/paths.6590256a.js";
+import { p as page } from "../chunks/stores.84616ea4.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
-import "../chunks/elevation.b359ddc5.js";
+import "../chunks/elevation.7713943e.js";
 /**
   * @license
   * Copyright 2022 Google LLC
@@ -3057,7 +3056,10 @@ function create_fragment(ctx) {
   let md_filled_button0_href_value;
   let t6;
   let md_filled_button1;
-  let textContent_2 = `<md-icon slot="icon">file_upload</md-icon>Spend`;
+  let md_icon1;
+  let textContent_2 = "file_upload";
+  let t8;
+  let md_filled_button1_href_value;
   let t9;
   let ul;
   let textContent_3 = `<li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">account_balance_wallet</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 13 500 sats</span> <span class="title-small">For beer</span></div> <span class="label-medium">just now</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 50 sats</span> <span class="title-small">zap on nostr</span></div> <span class="label-medium">2 mins ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 1 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">2 days ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="svelte-1aak7bc">account_balance_wallet</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">+ 500 sats</span> <span class="title-small">Gift from Ben</span></div> <span class="label-medium">2 weeks ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">+ 500 sats</span> <span class="title-small">block clock sale</span></div> <span class="label-medium">2 months ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">6 months ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-1"><md-focus-ring for="${`transaction-1`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">For beer</span></div> <span class="label-medium">1 year ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-2"><md-focus-ring for="${`transaction-2`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">zap on nostr</span></div> <span class="label-medium">2 years ago</span></li> <li class="transaction svelte-1aak7bc" id="transaction-3"><md-focus-ring for="${`transaction-3`}"></md-focus-ring> <md-ripple></md-ripple> <md-icon class="neg svelte-1aak7bc">bolt</md-icon> <div class="col svelte-1aak7bc"><span class="title-large">- 500 sats</span> <span class="title-small">tip to barry@zeus.ln</span></div> <span class="label-medium">2 years ago</span></li>`;
@@ -3092,7 +3094,9 @@ function create_fragment(ctx) {
       t5 = text("Deposit");
       t6 = space();
       md_filled_button1 = element("md-filled-button");
-      md_filled_button1.innerHTML = textContent_2;
+      md_icon1 = element("md-icon");
+      md_icon1.textContent = textContent_2;
+      t8 = text("Spend");
       t9 = space();
       ul = element("ul");
       ul.innerHTML = textContent_3;
@@ -3122,9 +3126,13 @@ function create_fragment(ctx) {
       t5 = claim_text(md_filled_button0_nodes, "Deposit");
       md_filled_button0_nodes.forEach(detach);
       t6 = claim_space(div1_nodes);
-      md_filled_button1 = claim_element(div1_nodes, "MD-FILLED-BUTTON", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_filled_button1) !== "svelte-1wp7swn")
-        md_filled_button1.innerHTML = textContent_2;
+      md_filled_button1 = claim_element(div1_nodes, "MD-FILLED-BUTTON", { href: true });
+      var md_filled_button1_nodes = children(md_filled_button1);
+      md_icon1 = claim_element(md_filled_button1_nodes, "MD-ICON", { slot: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_icon1) !== "svelte-pxyw60")
+        md_icon1.textContent = textContent_2;
+      t8 = claim_text(md_filled_button1_nodes, "Spend");
+      md_filled_button1_nodes.forEach(detach);
       div1_nodes.forEach(detach);
       section_nodes.forEach(detach);
       t9 = claim_space(div11_nodes);
@@ -3137,8 +3145,11 @@ function create_fragment(ctx) {
     h() {
       attr(div0, "class", "amount headline-medium svelte-1aak7bc");
       set_custom_element_data(md_icon0, "slot", "icon");
-      set_custom_element_data(md_filled_button0, "href", md_filled_button0_href_value = `${base}/accounts/${/*$page*/
-      ctx[1].params.id}/deposit`);
+      set_custom_element_data(md_filled_button0, "href", md_filled_button0_href_value = base + "/accounts/" + /*$page*/
+      ctx[1].params.id + "/deposit");
+      set_custom_element_data(md_icon1, "slot", "icon");
+      set_custom_element_data(md_filled_button1, "href", md_filled_button1_href_value = base + "/accounts/" + /*$page*/
+      ctx[1].params.id + "/spend");
       attr(div1, "class", "btn-row svelte-1aak7bc");
       attr(section, "class", "header svelte-1aak7bc");
       attr(ul, "class", "transactions svelte-1aak7bc");
@@ -3160,6 +3171,8 @@ function create_fragment(ctx) {
       append_hydration(md_filled_button0, t5);
       append_hydration(div1, t6);
       append_hydration(div1, md_filled_button1);
+      append_hydration(md_filled_button1, md_icon1);
+      append_hydration(md_filled_button1, t8);
       append_hydration(div11, t9);
       append_hydration(div11, ul);
       current = true;
@@ -3194,9 +3207,14 @@ function create_fragment(ctx) {
       }
       portal.$set(portal_changes);
       if (!current || dirty & /*$page*/
-      2 && md_filled_button0_href_value !== (md_filled_button0_href_value = `${base}/accounts/${/*$page*/
-      ctx2[1].params.id}/deposit`)) {
+      2 && md_filled_button0_href_value !== (md_filled_button0_href_value = base + "/accounts/" + /*$page*/
+      ctx2[1].params.id + "/deposit")) {
         set_custom_element_data(md_filled_button0, "href", md_filled_button0_href_value);
+      }
+      if (!current || dirty & /*$page*/
+      2 && md_filled_button1_href_value !== (md_filled_button1_href_value = base + "/accounts/" + /*$page*/
+      ctx2[1].params.id + "/spend")) {
+        set_custom_element_data(md_filled_button1, "href", md_filled_button1_href_value);
       }
     },
     i(local) {

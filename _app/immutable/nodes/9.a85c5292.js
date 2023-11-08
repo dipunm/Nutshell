@@ -1,18 +1,17 @@
-import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, b as component_subscribe, e as compute_slots } from "../chunks/utils.08e12359.js";
-import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, k as text, w as get_svelte_dataset, l as claim_text, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks } from "../chunks/scheduler.6906c812.js";
+import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
+import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { e as base } from "../chunks/singletons.559c154c.js";
-import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.7c9e55d4.js";
-import "../chunks/icon.ebc2319f.js";
-import { C as Card } from "../chunks/Card.71a55d86.js";
+import { b as base } from "../chunks/paths.6590256a.js";
+import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.15dbafb4.js";
+import { x, i, _ as __decorate, e } from "../chunks/icon.8232ecae.js";
+import { C as Card } from "../chunks/Card.29d8f6d9.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
-import { x, i, _ as __decorate, e } from "../chunks/form-submitter.5b8d9ddf.js";
-import "../chunks/elevation.b359ddc5.js";
-import "../chunks/list-item.cb4e9d2c.js";
-import { s as stackPopUrl, b as stackBack } from "../chunks/index.ce7817dc.js";
-import { a as afterNavigate } from "../chunks/navigation.8c11ec17.js";
-import { p as page } from "../chunks/stores.cdbb8ead.js";
+import "../chunks/elevation.7713943e.js";
+import "../chunks/list-item.46dd92f9.js";
+import { b as stackBack } from "../chunks/index.82aa11ca.js";
+import { a as afterNavigate } from "../chunks/navigation.75d1feee.js";
+import { p as page } from "../chunks/stores.84616ea4.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -191,7 +190,7 @@ function create_fragment$5(ctx) {
     }
   };
 }
-function instance$3($$self, $$props, $$invalidate) {
+function instance$2($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
   $$self.$$set = ($$props2) => {
     if ("$$scope" in $$props2)
@@ -202,7 +201,7 @@ function instance$3($$self, $$props, $$invalidate) {
 class SinglePane extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$3, create_fragment$5, safe_not_equal, {});
+    init(this, options, instance$2, create_fragment$5, safe_not_equal, {});
   }
 }
 /**
@@ -255,7 +254,7 @@ function create_fragment$4(ctx) {
   let t25;
   let div6;
   let md_filled_button;
-  let t26;
+  let textContent_5 = "Lets Go!";
   return {
     c() {
       md_list = element("md-list");
@@ -275,7 +274,7 @@ function create_fragment$4(ctx) {
       t25 = space();
       div6 = element("div");
       md_filled_button = element("md-filled-button");
-      t26 = text("Lets Go!");
+      md_filled_button.textContent = textContent_5;
       this.h();
     },
     l(nodes) {
@@ -309,10 +308,9 @@ function create_fragment$4(ctx) {
       t25 = claim_space(nodes);
       div6 = claim_element(nodes, "DIV", { style: true });
       var div6_nodes = children(div6);
-      md_filled_button = claim_element(div6_nodes, "MD-FILLED-BUTTON", { href: true });
-      var md_filled_button_nodes = children(md_filled_button);
-      t26 = claim_text(md_filled_button_nodes, "Lets Go!");
-      md_filled_button_nodes.forEach(detach);
+      md_filled_button = claim_element(div6_nodes, "MD-FILLED-BUTTON", { href: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_filled_button) !== "svelte-1uxlemu")
+        md_filled_button.textContent = textContent_5;
       div6_nodes.forEach(detach);
       this.h();
     },
@@ -326,12 +324,7 @@ function create_fragment$4(ctx) {
       set_style(h21, "display", "flex");
       set_style(h21, "align-items", "center");
       attr(p4, "class", "svelte-eojriw");
-      set_custom_element_data(
-        md_filled_button,
-        "href",
-        /*$stackPopUrl*/
-        ctx[0]
-      );
+      set_custom_element_data(md_filled_button, "href", "router:pop-stack");
       set_style(md_filled_button, "margin", `2rem 0`);
       set_style(div6, "display", "flex");
       set_style(div6, "align-items", "center");
@@ -350,19 +343,8 @@ function create_fragment$4(ctx) {
       insert_hydration(target, t25, anchor);
       insert_hydration(target, div6, anchor);
       append_hydration(div6, md_filled_button);
-      append_hydration(md_filled_button, t26);
     },
-    p(ctx2, [dirty]) {
-      if (dirty & /*$stackPopUrl*/
-      1) {
-        set_custom_element_data(
-          md_filled_button,
-          "href",
-          /*$stackPopUrl*/
-          ctx2[0]
-        );
-      }
-    },
+    p: noop,
     i: noop,
     o: noop,
     d(detaching) {
@@ -382,15 +364,10 @@ function create_fragment$4(ctx) {
     }
   };
 }
-function instance$2($$self, $$props, $$invalidate) {
-  let $stackPopUrl;
-  component_subscribe($$self, stackPopUrl, ($$value) => $$invalidate(0, $stackPopUrl = $$value));
-  return [$stackPopUrl];
-}
 class What_is_a_mint extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$2, create_fragment$4, safe_not_equal, {});
+    init(this, options, null, create_fragment$4, safe_not_equal, {});
   }
 }
 const Modal_svelte_svelte_type_style_lang = "";
@@ -819,47 +796,26 @@ function create_default_slot_1$1(ctx) {
 }
 function create_appbar_start_slot(ctx) {
   let md_icon_button;
-  let md_icon;
-  let textContent = "arrow_back";
+  let textContent = `<md-icon>arrow_back</md-icon>`;
   return {
     c() {
       md_icon_button = element("md-icon-button");
-      md_icon = element("md-icon");
-      md_icon.textContent = textContent;
+      md_icon_button.innerHTML = textContent;
       this.h();
     },
     l(nodes) {
-      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { href: true });
-      var md_icon_button_nodes = children(md_icon_button);
-      md_icon = claim_element(md_icon_button_nodes, "MD-ICON", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_icon) !== "svelte-1vfm1s3")
-        md_icon.textContent = textContent;
-      md_icon_button_nodes.forEach(detach);
+      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", { href: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(md_icon_button) !== "svelte-1ntinmj")
+        md_icon_button.innerHTML = textContent;
       this.h();
     },
     h() {
-      set_custom_element_data(
-        md_icon_button,
-        "href",
-        /*$stackPopUrl*/
-        ctx[1]
-      );
+      set_custom_element_data(md_icon_button, "href", "router:pop-stack");
     },
     m(target, anchor) {
       insert_hydration(target, md_icon_button, anchor);
-      append_hydration(md_icon_button, md_icon);
     },
-    p(ctx2, dirty) {
-      if (dirty & /*$stackPopUrl*/
-      2) {
-        set_custom_element_data(
-          md_icon_button,
-          "href",
-          /*$stackPopUrl*/
-          ctx2[1]
-        );
-      }
-    },
+    p: noop,
     d(detaching) {
       if (detaching) {
         detach(md_icon_button);
@@ -893,7 +849,7 @@ function create_default_slot$1(ctx) {
     props: {
       condition: (
         /*func*/
-        ctx[2]
+        ctx[1]
       ),
       $$slots: {
         "appbar-title": [create_appbar_title_slot],
@@ -906,7 +862,7 @@ function create_default_slot$1(ctx) {
   modal.$on(
     "close",
     /*close_handler*/
-    ctx[3]
+    ctx[2]
   );
   return {
     c() {
@@ -924,9 +880,9 @@ function create_default_slot$1(ctx) {
       if (dirty & /*$page*/
       1)
         modal_changes.condition = /*func*/
-        ctx2[2];
-      if (dirty & /*$$scope, $stackPopUrl*/
-      18) {
+        ctx2[1];
+      if (dirty & /*$$scope*/
+      8) {
         modal_changes.$$scope = { dirty, ctx: ctx2 };
       }
       modal.$set(modal_changes);
@@ -1017,8 +973,8 @@ function create_fragment$2(ctx) {
     },
     p(ctx2, [dirty]) {
       const portal_changes = {};
-      if (dirty & /*$$scope, $page, $stackPopUrl*/
-      19) {
+      if (dirty & /*$$scope, $page*/
+      9) {
         portal_changes.$$scope = { dirty, ctx: ctx2 };
       }
       portal.$set(portal_changes);
@@ -1048,12 +1004,10 @@ function create_fragment$2(ctx) {
 }
 function instance($$self, $$props, $$invalidate) {
   let $page;
-  let $stackPopUrl;
   component_subscribe($$self, page, ($$value) => $$invalidate(0, $page = $$value));
-  component_subscribe($$self, stackPopUrl, ($$value) => $$invalidate(1, $stackPopUrl = $$value));
   const func = () => $page.url.searchParams.has("modal");
   const close_handler = () => stackBack();
-  return [$page, $stackPopUrl, func, close_handler];
+  return [$page, func, close_handler];
 }
 class Mint_info extends SvelteComponent {
   constructor(options) {
@@ -1064,7 +1018,7 @@ class Mint_info extends SvelteComponent {
 const amount_svelte_svelte_type_style_lang = "";
 function create_fragment$1(ctx) {
   let h2;
-  let textContent = `<span class="zeros svelte-u90l8j">0</span><span class="amount headline-medium svelte-u90l8j">.</span><span class="zeros svelte-u90l8j">00 0</span><span class="amount headline-medium svelte-u90l8j">50 204</span> <span class="label-large">BTC</span>`;
+  let textContent = `<span class="zeros svelte-1va1xwa">0</span><span class="amount headline-medium svelte-1va1xwa">.</span><span class="zeros svelte-1va1xwa">00 0</span><span class="amount headline-medium svelte-1va1xwa">50 204</span> <span class="label-large">BTC</span>`;
   return {
     c() {
       h2 = element("h2");
@@ -1078,7 +1032,7 @@ function create_fragment$1(ctx) {
       this.h();
     },
     h() {
-      attr(h2, "class", "headline-small zeros svelte-u90l8j");
+      attr(h2, "class", "headline-small zeros svelte-1va1xwa");
     },
     m(target, anchor) {
       insert_hydration(target, h2, anchor);
@@ -1187,11 +1141,12 @@ function create_default_slot(ctx) {
   let card;
   let t2;
   let section2;
-  let textContent_1 = `<md-filled-button href="${`${base}/accounts`}">Claim the offer</md-filled-button>`;
+  let textContent_1 = `<md-filled-button href="${base}/accounts">Claim the offer</md-filled-button>`;
   let current;
   card = new Card({
     props: {
       color: "surface-container-highest",
+      maxWidth: "450px",
       $$slots: {
         icon: [create_icon_slot],
         default: [create_default_slot_1]
@@ -1222,14 +1177,14 @@ function create_default_slot(ctx) {
       section1_nodes.forEach(detach);
       t2 = claim_space(nodes);
       section2 = claim_element(nodes, "SECTION", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(section2) !== "svelte-6efo10")
+      if (get_svelte_dataset(section2) !== "svelte-7xmims")
         section2.innerHTML = textContent_1;
       this.h();
     },
     h() {
-      attr(section0, "class", "details svelte-qtnb9g");
-      attr(section1, "class", "svelte-qtnb9g");
-      attr(section2, "class", "calltoaction svelte-qtnb9g");
+      attr(section0, "class", "details svelte-11hllfo");
+      attr(section1, "class", "svelte-11hllfo");
+      attr(section2, "class", "calltoaction svelte-11hllfo");
     },
     m(target, anchor) {
       insert_hydration(target, section0, anchor);

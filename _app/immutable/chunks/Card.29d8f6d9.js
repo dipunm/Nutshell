@@ -1,6 +1,7 @@
 import { s as safe_not_equal, e as compute_slots, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes } from "./utils.08e12359.js";
-import { e as empty, i as insert_hydration, d as detach, b as element, s as space, f as claim_element, g as children, c as claim_space, h as attr, j as set_style, u as toggle_class, r as append_hydration } from "./scheduler.6906c812.js";
+import { e as empty, i as insert_hydration, d as detach, b as element, s as space, f as claim_element, g as children, c as claim_space, h as attr, u as toggle_class, j as set_style, r as append_hydration } from "./scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, g as group_outros, t as transition_out, c as check_outros, a as transition_in } from "./index.f9624644.js";
+import "./icon.8232ecae.js";
 const Card_svelte_svelte_type_style_lang = "";
 const get_icon_slot_changes = (dirty) => ({});
 const get_icon_slot_context = (ctx) => ({});
@@ -13,13 +14,13 @@ function create_if_block_2(ctx) {
   let current;
   const default_slot_template = (
     /*#slots*/
-    ctx[10].default
+    ctx[13].default
   );
   const default_slot = create_slot(
     default_slot_template,
     ctx,
     /*$$scope*/
-    ctx[9],
+    ctx[12],
     null
   );
   return {
@@ -57,40 +58,26 @@ function create_if_block_2(ctx) {
         a,
         "href",
         /*href*/
-        ctx[4]
+        ctx[1]
       );
       attr(
         a,
         "data-preserve-stack",
         /*preserveStack*/
-        ctx[5]
+        ctx[2]
       );
-      set_style(a, "background-color", "var(--md-sys-color-" + /*color*/
-      ctx[0] + ")");
-      set_style(
+      attr(
         a,
-        "height",
-        /*height*/
-        ctx[1]
-      );
-      set_style(
-        a,
-        "border-radius",
-        /*borderRadius*/
+        "style",
+        /*styles*/
         ctx[3]
       );
-      set_style(
-        a,
-        "--md-focus-ring-shape",
-        /*borderRadius*/
-        ctx[3]
-      );
-      attr(a, "class", "svelte-mak2o4");
+      attr(a, "class", "svelte-1dtjxqp");
       toggle_class(
         a,
         "shadow",
         /*shadow*/
-        ctx[2]
+        ctx[0]
       );
       set_style(a, "position", `relative`);
     },
@@ -108,20 +95,20 @@ function create_if_block_2(ctx) {
     p(ctx2, dirty) {
       if (default_slot) {
         if (default_slot.p && (!current || dirty & /*$$scope*/
-        512)) {
+        4096)) {
           update_slot_base(
             default_slot,
             default_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[9],
+            ctx2[12],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[9]
+              ctx2[12]
             ) : get_slot_changes(
               default_slot_template,
               /*$$scope*/
-              ctx2[9],
+              ctx2[12],
               dirty,
               null
             ),
@@ -130,68 +117,45 @@ function create_if_block_2(ctx) {
         }
       }
       if (!current || dirty & /*href*/
-      16) {
+      2) {
         attr(
           a,
           "href",
           /*href*/
-          ctx2[4]
+          ctx2[1]
         );
       }
       if (!current || dirty & /*preserveStack*/
-      32) {
+      4) {
         attr(
           a,
           "data-preserve-stack",
           /*preserveStack*/
-          ctx2[5]
+          ctx2[2]
         );
       }
-      if (!current || dirty & /*color*/
-      1) {
-        set_style(a, "background-color", "var(--md-sys-color-" + /*color*/
-        ctx2[0] + ")");
-      }
-      if (!current || dirty & /*height*/
-      2) {
-        set_style(
-          a,
-          "height",
-          /*height*/
-          ctx2[1]
-        );
-      }
-      if (!current || dirty & /*borderRadius*/
+      if (!current || dirty & /*styles*/
       8) {
-        set_style(
+        attr(
           a,
-          "border-radius",
-          /*borderRadius*/
-          ctx2[3]
-        );
-      }
-      if (!current || dirty & /*borderRadius*/
-      8) {
-        set_style(
-          a,
-          "--md-focus-ring-shape",
-          /*borderRadius*/
+          "style",
+          /*styles*/
           ctx2[3]
         );
       }
       if (!current || dirty & /*shadow*/
-      4) {
+      1) {
         toggle_class(
           a,
           "shadow",
           /*shadow*/
-          ctx2[2]
+          ctx2[0]
         );
       }
-      const style_changed = dirty & /*color, height, borderRadius*/
-      11;
-      if (dirty & /*color, height, borderRadius*/
-      11 || style_changed) {
+      const style_changed = dirty & /*styles*/
+      8;
+      if (dirty & /*styles*/
+      8 || style_changed) {
         set_style(a, "position", `relative`);
       }
     },
@@ -220,17 +184,17 @@ function create_if_block(ctx) {
   let current;
   let if_block = (
     /*$$slots*/
-    ctx[8].icon && create_if_block_1(ctx)
+    ctx[5].icon && create_if_block_1(ctx)
   );
   const default_slot_template = (
     /*#slots*/
-    ctx[10].default
+    ctx[13].default
   );
   const default_slot = create_slot(
     default_slot_template,
     ctx,
     /*$$scope*/
-    ctx[9],
+    ctx[12],
     null
   );
   return {
@@ -255,28 +219,18 @@ function create_if_block(ctx) {
       this.h();
     },
     h() {
-      set_style(section, "background-color", "var(--md-sys-color-" + /*color*/
-      ctx[0] + ")");
-      set_style(section, "padding-top", 0.75 + /*iconSpace*/
-      ctx[7] + "rem");
-      set_style(
+      attr(
         section,
-        "height",
-        /*height*/
-        ctx[1]
-      );
-      set_style(
-        section,
-        "border-radius",
-        /*borderRadius*/
+        "style",
+        /*styles*/
         ctx[3]
       );
-      attr(section, "class", "svelte-mak2o4");
+      attr(section, "class", "svelte-1dtjxqp");
       toggle_class(
         section,
         "shadow",
         /*shadow*/
-        ctx[2]
+        ctx[0]
       );
     },
     m(target, anchor) {
@@ -292,12 +246,12 @@ function create_if_block(ctx) {
     p(ctx2, dirty) {
       if (
         /*$$slots*/
-        ctx2[8].icon
+        ctx2[5].icon
       ) {
         if (if_block) {
           if_block.p(ctx2, dirty);
           if (dirty & /*$$slots*/
-          256) {
+          32) {
             transition_in(if_block, 1);
           }
         } else {
@@ -315,20 +269,20 @@ function create_if_block(ctx) {
       }
       if (default_slot) {
         if (default_slot.p && (!current || dirty & /*$$scope*/
-        512)) {
+        4096)) {
           update_slot_base(
             default_slot,
             default_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[9],
+            ctx2[12],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[9]
+              ctx2[12]
             ) : get_slot_changes(
               default_slot_template,
               /*$$scope*/
-              ctx2[9],
+              ctx2[12],
               dirty,
               null
             ),
@@ -336,36 +290,22 @@ function create_if_block(ctx) {
           );
         }
       }
-      if (!current || dirty & /*color*/
-      1) {
-        set_style(section, "background-color", "var(--md-sys-color-" + /*color*/
-        ctx2[0] + ")");
-      }
-      if (!current || dirty & /*height*/
-      2) {
-        set_style(
-          section,
-          "height",
-          /*height*/
-          ctx2[1]
-        );
-      }
-      if (!current || dirty & /*borderRadius*/
+      if (!current || dirty & /*styles*/
       8) {
-        set_style(
+        attr(
           section,
-          "border-radius",
-          /*borderRadius*/
+          "style",
+          /*styles*/
           ctx2[3]
         );
       }
       if (!current || dirty & /*shadow*/
-      4) {
+      1) {
         toggle_class(
           section,
           "shadow",
           /*shadow*/
-          ctx2[2]
+          ctx2[0]
         );
       }
     },
@@ -397,13 +337,13 @@ function create_if_block_1(ctx) {
   let current;
   const icon_slot_template = (
     /*#slots*/
-    ctx[10].icon
+    ctx[13].icon
   );
   const icon_slot = create_slot(
     icon_slot_template,
     ctx,
     /*$$scope*/
-    ctx[9],
+    ctx[12],
     get_icon_slot_context
   );
   return {
@@ -422,7 +362,7 @@ function create_if_block_1(ctx) {
       this.h();
     },
     h() {
-      attr(div, "class", "icon svelte-mak2o4");
+      attr(div, "class", "icon svelte-1dtjxqp");
     },
     m(target, anchor) {
       insert_hydration(target, div, anchor);
@@ -434,20 +374,20 @@ function create_if_block_1(ctx) {
     p(ctx2, dirty) {
       if (icon_slot) {
         if (icon_slot.p && (!current || dirty & /*$$scope*/
-        512)) {
+        4096)) {
           update_slot_base(
             icon_slot,
             icon_slot_template,
             ctx2,
             /*$$scope*/
-            ctx2[9],
+            ctx2[12],
             !current ? get_all_dirty_from_scope(
               /*$$scope*/
-              ctx2[9]
+              ctx2[12]
             ) : get_slot_changes(
               icon_slot_template,
               /*$$scope*/
-              ctx2[9],
+              ctx2[12],
               dirty,
               get_icon_slot_changes
             ),
@@ -485,12 +425,12 @@ function create_fragment(ctx) {
   function select_block_type(ctx2, dirty) {
     if (
       /*type*/
-      ctx2[6] === "card"
+      ctx2[4] === "card"
     )
       return 0;
     if (
       /*type*/
-      ctx2[6] === "anchor"
+      ctx2[4] === "anchor"
     )
       return 1;
     return -1;
@@ -567,48 +507,87 @@ function create_fragment(ctx) {
   };
 }
 function instance($$self, $$props, $$invalidate) {
+  let onColor;
+  let ripple;
   let type;
+  let styles;
   let { $$slots: slots = {}, $$scope } = $$props;
   const $$slots = compute_slots(slots);
+  const surfaceVariantColors = [
+    "surface-tint",
+    "surface-container-highest",
+    "surface-container-high",
+    "surface-container",
+    "surface-container-low",
+    "surface-container-lowest",
+    "surface-dim",
+    "surface-bright"
+  ];
   let { color } = $$props;
   let { height = "auto" } = $$props;
   let { shadow = false } = $$props;
   let { borderRadius = "1.5rem" } = $$props;
+  let { maxWidth = "auto" } = $$props;
   const iconSpace = $$slots.icon ? 1.25 : 0;
   let { href = null } = $$props;
   let { preserveStack = false } = $$props;
   $$self.$$set = ($$props2) => {
     if ("color" in $$props2)
-      $$invalidate(0, color = $$props2.color);
+      $$invalidate(6, color = $$props2.color);
     if ("height" in $$props2)
-      $$invalidate(1, height = $$props2.height);
+      $$invalidate(7, height = $$props2.height);
     if ("shadow" in $$props2)
-      $$invalidate(2, shadow = $$props2.shadow);
+      $$invalidate(0, shadow = $$props2.shadow);
     if ("borderRadius" in $$props2)
-      $$invalidate(3, borderRadius = $$props2.borderRadius);
+      $$invalidate(8, borderRadius = $$props2.borderRadius);
+    if ("maxWidth" in $$props2)
+      $$invalidate(9, maxWidth = $$props2.maxWidth);
     if ("href" in $$props2)
-      $$invalidate(4, href = $$props2.href);
+      $$invalidate(1, href = $$props2.href);
     if ("preserveStack" in $$props2)
-      $$invalidate(5, preserveStack = $$props2.preserveStack);
+      $$invalidate(2, preserveStack = $$props2.preserveStack);
     if ("$$scope" in $$props2)
-      $$invalidate(9, $$scope = $$props2.$$scope);
+      $$invalidate(12, $$scope = $$props2.$$scope);
   };
   $$self.$$.update = () => {
+    if ($$self.$$.dirty & /*color*/
+    64) {
+      $$invalidate(10, onColor = surfaceVariantColors.includes(color) ? "surface" : color);
+    }
+    if ($$self.$$.dirty & /*color*/
+    64) {
+      $$invalidate(11, ripple = ["primary", "secondary", "error"].includes(color) ? `--md-ripple-pressed-color: var(--md-ref-palette-${color}20);` : "");
+    }
     if ($$self.$$.dirty & /*href*/
-    16) {
-      $$invalidate(6, type = href != null ? "anchor" : "card");
+    2) {
+      $$invalidate(4, type = href != null ? "anchor" : "card");
+    }
+    if ($$self.$$.dirty & /*color, height, maxWidth, borderRadius, ripple, onColor*/
+    4032) {
+      $$invalidate(3, styles = `
+    background-color: var(--md-sys-color-${color});
+    padding-top: ${iconSpace}rem;
+    height: ${height};
+    max-width: ${maxWidth};
+    border-radius: ${borderRadius};
+    --md-focus-ring-shape: ${borderRadius};
+    ${ripple}
+    color: var(--md-sys-color-on-${onColor});`);
     }
   };
   return [
-    color,
-    height,
     shadow,
-    borderRadius,
     href,
     preserveStack,
+    styles,
     type,
-    iconSpace,
     $$slots,
+    color,
+    height,
+    borderRadius,
+    maxWidth,
+    onColor,
+    ripple,
     $$scope,
     slots
   ];
@@ -617,12 +596,13 @@ class Card extends SvelteComponent {
   constructor(options) {
     super();
     init(this, options, instance, create_fragment, safe_not_equal, {
-      color: 0,
-      height: 1,
-      shadow: 2,
-      borderRadius: 3,
-      href: 4,
-      preserveStack: 5
+      color: 6,
+      height: 7,
+      shadow: 0,
+      borderRadius: 8,
+      maxWidth: 9,
+      href: 1,
+      preserveStack: 2
     });
   }
 }

@@ -1,11 +1,12 @@
 import { s as safe_not_equal, n as noop } from "../chunks/utils.08e12359.js";
-import { b as element, f as claim_element, w as get_svelte_dataset, h as attr, i as insert_hydration, d as detach, s as space, g as children, c as claim_space, r as append_hydration, v as listen } from "../chunks/scheduler.6906c812.js";
+import { b as element, f as claim_element, w as get_svelte_dataset, h as attr, i as insert_hydration, d as detach, s as space, g as children, c as claim_space, r as append_hydration, v as listen, e as empty, x as set_custom_element_data } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.f9624644.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { c as commonjsGlobal, a as getDefaultExportFromCjs } from "../chunks/_commonjsHelpers.ebbb3f54.js";
-import "../chunks/filled-button.7c9e55d4.js";
-import { r as requestUpdateOnAriaChange, _ as __decorate, n, s, x, c as o, A, i, e } from "../chunks/form-submitter.5b8d9ddf.js";
-import { o as o$1 } from "../chunks/style-map.8be08b03.js";
+import "../chunks/filled-button.15dbafb4.js";
+import { r as requestUpdateOnAriaChange, _ as __decorate, n, s, x, c as o, A, i, e } from "../chunks/icon.8232ecae.js";
+import { o as o$1 } from "../chunks/style-map.eefe9fbf.js";
+import { s as stackContainsParent } from "../chunks/index.82aa11ca.js";
 function _mergeNamespaces(n2, m) {
   for (var i2 = 0; i2 < m.length; i2++) {
     const e2 = m[i2];
@@ -28070,6 +28071,71 @@ MdLinearProgress = __decorate([
   e("md-linear-progress")
 ], MdLinearProgress);
 const _page_svelte_svelte_type_style_lang = "";
+function create_if_block(ctx) {
+  let md_icon_button;
+  let textContent = `<md-icon>arrow_back</md-icon>`;
+  return {
+    c() {
+      md_icon_button = element("md-icon-button");
+      md_icon_button.innerHTML = textContent;
+      this.h();
+    },
+    l(nodes) {
+      md_icon_button = claim_element(nodes, "MD-ICON-BUTTON", {
+        class: true,
+        href: true,
+        "data-": true,
+        ["data-svelte-h"]: true
+      });
+      if (get_svelte_dataset(md_icon_button) !== "svelte-1pzb6xc")
+        md_icon_button.innerHTML = textContent;
+      this.h();
+    },
+    h() {
+      set_custom_element_data(md_icon_button, "class", "backbutton");
+      set_custom_element_data(md_icon_button, "href", "router:pop-stack");
+      set_custom_element_data(md_icon_button, "data-", "");
+    },
+    m(target, anchor) {
+      insert_hydration(target, md_icon_button, anchor);
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(md_icon_button);
+      }
+    }
+  };
+}
+function create_default_slot(ctx) {
+  let show_if = stackContainsParent();
+  let if_block_anchor;
+  let if_block = show_if && create_if_block();
+  return {
+    c() {
+      if (if_block)
+        if_block.c();
+      if_block_anchor = empty();
+    },
+    l(nodes) {
+      if (if_block)
+        if_block.l(nodes);
+      if_block_anchor = empty();
+    },
+    m(target, anchor) {
+      if (if_block)
+        if_block.m(target, anchor);
+      insert_hydration(target, if_block_anchor, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(if_block_anchor);
+      }
+      if (if_block)
+        if_block.d(detaching);
+    }
+  };
+}
 function create_fragment(ctx) {
   let div3;
   let appbar;
@@ -28088,7 +28154,12 @@ function create_fragment(ctx) {
   let current;
   let mounted;
   let dispose;
-  appbar = new AppBar({});
+  appbar = new AppBar({
+    props: {
+      $$slots: { default: [create_default_slot] },
+      $$scope: { ctx }
+    }
+  });
   details = new Details({});
   return {
     c() {
@@ -28170,7 +28241,14 @@ function create_fragment(ctx) {
         mounted = true;
       }
     },
-    p: noop,
+    p(ctx2, [dirty]) {
+      const appbar_changes = {};
+      if (dirty & /*$$scope*/
+      2) {
+        appbar_changes.$$scope = { dirty, ctx: ctx2 };
+      }
+      appbar.$set(appbar_changes);
+    },
     i(local) {
       if (current)
         return;
