@@ -1,5 +1,5 @@
-import { b as beforeNavigate, g as goto } from "./navigation.f69c3b0f.js";
-import { p as page } from "./stores.b3723d8e.js";
+import { b as beforeNavigate, g as goto } from "./navigation.83baf1cf.js";
+import { p as page } from "./stores.aeaee850.js";
 import { w as writable } from "./index.d60672bb.js";
 import { f as get_store_value } from "./utils.08e12359.js";
 function getOptionState(value) {
@@ -40,6 +40,9 @@ function getRouterOptions(element) {
   };
 }
 const getRelativeUrl = (url) => `${url.pathname}${url.search}${url.hash}`;
+function promoteToElement(target) {
+  return true;
+}
 const container = document.documentElement;
 const lastClickedLink = writable(null);
 const initClickedAnchorTracker = () => {
@@ -70,7 +73,7 @@ function interceptAnchorWithProtocol(protocol, handler) {
       if (element === container)
         break;
     }
-    if (!element || element.nodeName !== "A" || !promoteToElement(element))
+    if (!element || element.nodeName !== "A" || !promoteToElement())
       return;
     const href = element.getAttribute("href");
     if (href && href.startsWith(`${protocol}`)) {

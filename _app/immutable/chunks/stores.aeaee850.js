@@ -1,4 +1,4 @@
-import { d as stores } from "./singletons.b621ad90.js";
+import { d as stores } from "./singletons.efa7018d.js";
 const getStores = () => {
   const stores$1 = stores;
   return {
