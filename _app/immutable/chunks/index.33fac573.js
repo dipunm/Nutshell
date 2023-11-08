@@ -1,7 +1,6 @@
-import { b as beforeNavigate, g as goto } from "./navigation.75d1feee.js";
-import { p as page } from "./stores.84616ea4.js";
+import { b as beforeNavigate, g as goto } from "./navigation.f69c3b0f.js";
+import { p as page } from "./stores.b3723d8e.js";
 import { w as writable } from "./index.d60672bb.js";
-import "./paths.6590256a.js";
 import { f as get_store_value } from "./utils.08e12359.js";
 function getOptionState(value) {
   switch (value) {
@@ -40,6 +39,7 @@ function getRouterOptions(element) {
     replaceState: getOptionState(replace_state)
   };
 }
+const getRelativeUrl = (url) => `${url.pathname}${url.search}${url.hash}`;
 const container = document.documentElement;
 const lastClickedLink = writable(null);
 const initClickedAnchorTracker = () => {
@@ -62,6 +62,24 @@ const initClickedAnchorTracker = () => {
     lastClickedLink.set(anchorElement);
   }, { passive: true, capture: true });
 };
+function interceptAnchorWithProtocol(protocol, handler) {
+  container.addEventListener("click", function(event) {
+    let element = event.composedPath()[0];
+    while (element && element.nodeName !== "A") {
+      element = element.parentNode;
+      if (element === container)
+        break;
+    }
+    if (!element || element.nodeName !== "A" || !promoteToElement(element))
+      return;
+    const href = element.getAttribute("href");
+    if (href && href.startsWith(`${protocol}`)) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      handler(new URL(href, window.location.href));
+    }
+  });
+}
 const initializeHistoryStack = async () => {
   var _a, _b;
   if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
@@ -70,7 +88,8 @@ const initializeHistoryStack = async () => {
       replaceState: true,
       state: {
         ...history.state,
-        stack
+        stack,
+        preservedIndexes: []
       }
     });
   }
@@ -91,28 +110,6 @@ function stackContainsParent() {
     throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
   }
   return history.state.stack.length > 1;
-}
-const getRelativeUrl = (url) => `${url.pathname}${url.search}${url.hash}`;
-function promoteToElement(target) {
-  return true;
-}
-function interceptAnchorWithProtocol(protocol, handler) {
-  container.addEventListener("click", function(event) {
-    let element = event.composedPath()[0];
-    while (element && element.nodeName !== "A") {
-      element = element.parentNode;
-      if (element === container)
-        break;
-    }
-    if (!element || element.nodeName !== "A" || !promoteToElement())
-      return;
-    const href = element.getAttribute("href");
-    if (href && href.startsWith(`${protocol}`)) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      handler(new URL(href, window.location.href));
-    }
-  });
 }
 const activateNavigationStackBehaviour = () => {
   initializeHistoryStack();
