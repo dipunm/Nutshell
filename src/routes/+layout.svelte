@@ -10,7 +10,7 @@
      * Source: https://github.com/sveltejs/kit/issues/9868#issue-1700272768
      */
     export let data;
-    if (data.savedState) {
+    if (data?.savedState) {
         history.replaceState({
 			...data.savedState
 		}, '');

@@ -9,7 +9,6 @@
     import "@material/web/icon/icon.js"
     
 	import AppBar from "$lib/components/primitives/AppBar.svelte";
-	import { stackPopUrl } from "$lib/navigation";
 
     export let contentActive: boolean = false;
     let menuOpen = false;
@@ -43,7 +42,7 @@
         <section class="nav">
             <AppBar>
                 <slot name="content-appbar-start"></slot>
-                <md-icon-button class="backbutton" href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
+                <md-icon-button class="backbutton" href="router:pop-stack"><md-icon>arrow_back</md-icon></md-icon-button>
                 <slot name="content-appbar"></slot>
             </AppBar>
         </section>

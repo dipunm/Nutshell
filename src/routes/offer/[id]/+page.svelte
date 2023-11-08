@@ -13,14 +13,14 @@
         <h1 class="headline-small">You received an offer for:</h1>
     </section>
     <section>
-        <Card color="surface-container-highest">
+        <Card color="surface-container-highest" maxWidth="450px">
             <md-icon slot="icon" style="color: #F7931A;">currency_bitcoin</md-icon>
             <Amount />
             <MintInfo />
         </Card>
     </section>
     <section class="calltoaction">
-        <md-filled-button href={`${base}/accounts`}>Claim the offer</md-filled-button>
+        <md-filled-button href="{base}/accounts">Claim the offer</md-filled-button>
     </section>
 </SinglePane>
 
@@ -31,5 +31,5 @@
     }
     .details {
         padding: 0 1rem;
-    }    
+    }
 </style>

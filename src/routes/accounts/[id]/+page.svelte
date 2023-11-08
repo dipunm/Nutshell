@@ -97,8 +97,8 @@
             1 00 000 000 sats
         </div>
         <div class="btn-row">
-            <md-filled-button href={`${base}/accounts/${$page.params.id}/deposit`}><md-icon slot="icon">download</md-icon>Deposit</md-filled-button>
-            <md-filled-button><md-icon slot="icon">file_upload</md-icon>Spend</md-filled-button>
+            <md-filled-button href="{base}/accounts/{$page.params.id}/deposit"><md-icon slot="icon">download</md-icon>Deposit</md-filled-button>
+            <md-filled-button href="{base}/accounts/{$page.params.id}/spend"><md-icon slot="icon">file_upload</md-icon>Spend</md-filled-button>
         </div>
     </section>
     <ul class="transactions">

@@ -3,7 +3,6 @@
     import "@material/web/list/list"
     import "@material/web/list/list-item"
     import "@material/web/button/filled-button"
-	import { stackPopUrl } from "$lib/navigation";
 </script>
 <style>
     p {
@@ -77,7 +76,7 @@
 </p>
 
 <div style="display: flex; align-items:center; flex-direction:column">
-<md-filled-button href={$stackPopUrl}
+<md-filled-button href="router:pop-stack"
     style:margin="2rem 0"
 >Lets Go!</md-filled-button>
 </div>

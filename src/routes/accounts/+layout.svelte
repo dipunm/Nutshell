@@ -10,7 +10,6 @@
     
 	import { page } from "$app/stores";
 	import { base } from "$app/paths";
-	import { stackGo } from "$lib/navigation";
 	import ListDetailMenu from "$lib/components/layouts/ListDetailMenu.svelte";
 	import PortalTarget from "$lib/portals/PortalTarget.svelte";
 	import { portalActive } from "$lib/portals/index.js";
@@ -89,6 +88,6 @@
 
     .wallet-item-inner {
         padding: 2rem;
-        color: var(--md-sys-color-on-surface);
+        /* color: var(--md-sys-color-on-surface); */
     }
 </style>

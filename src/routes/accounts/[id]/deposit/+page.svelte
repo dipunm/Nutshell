@@ -4,7 +4,6 @@
     import "@material/web/icon/icon"
 
 	import Portal from "$lib/portals/Portal.svelte";
-	import { stackPopUrl } from "$lib/navigation";
 	import { base } from "$app/paths";
 </script>
 <style>
@@ -41,28 +40,28 @@
 </style>
 
 <Portal target="content-appbar-start">
-    <md-icon-button href={$stackPopUrl}><md-icon>arrow_back</md-icon></md-icon-button>
+    <md-icon-button href="router:pop-stack"><md-icon>arrow_back</md-icon></md-icon-button>
 </Portal>
 <Portal target="content-appbar">
     <h1 class="headline-small">Deposit</h1>
 </Portal>
 
 <div class="container-grid">
-    <Card color="surface-container-high" href="#">
+    <Card color="primary" href="#">
         <div class="card-inner">
             <h1 class="headline-small">Create an invoice</h1>
             <p>Request a payment on the Bitcoin Lightning Network</p>
             <md-icon class="icon">bolt</md-icon>
         </div>
     </Card>
-    <Card color="surface-container-high" href="{base}/offer/offline" preserveStack>
+    <Card color="primary" href="{base}/camera" preserveStack>
         <div class="card-inner">
             <h1 class="headline-small">Import an offer</h1>
             <p>Scan or import a mint offer</p>
             <md-icon class="icon">file_download</md-icon>
         </div>
     </Card>
-    <Card color="surface-container-high" href="#">
+    <Card color="primary" href="#">
         <div class="card-inner">
             <h1 class="headline-small">Reclaim an offer</h1>
             <p>Take back an unclaimed offer</p>

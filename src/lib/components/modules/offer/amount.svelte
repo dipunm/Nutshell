@@ -7,6 +7,7 @@
         text-align: center;
         font-weight: 400;
         margin-bottom: 1rem;
+        margin-top: 0.75rem;
     }
 
     h2 .zeros {

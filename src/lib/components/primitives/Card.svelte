@@ -1,18 +1,47 @@
 <script lang="ts">
-    export let color: 
+    import "@material/web/focus/md-focus-ring"
+    import "@material/web/ripple/ripple"
+
+    const surfaceVariantColors = [
+        "surface-tint",
+        "surface-container-highest",
+        "surface-container-high",
+        "surface-container",
+        "surface-container-low",
+        "surface-container-lowest",
+        "surface-dim",
+        "surface-bright",
+    ] as const;
+
+    type surfaceVariantColors = typeof surfaceVariantColors;
+    type colors = 
+    "primary" |
     "primary-container" | 
-    "secondary-container" |
-    "tertiary-container" |
+    "primary-fixed" |
+    "primary-fixed-variant" |
+    "secondary" |
+    "secondary-container" | 
+    "secondary-fixed" |
+    "secondary-fixed-variant" |
+    "tertiary" |
+    "tertiary-container" | 
+    "tertiary-fixed" |
+    "tertiary-fixed-variant" |
+    "error" |
     "error-container" |
-    "surface-container-highest" |
-    "surface-container-high" |
-    "surface-container" |
-    "surface-container-low" |
-    "surface-container-lowest";
+    "background" |
+    "surface" |
+    "surface-variant" | 
+    surfaceVariantColors[number];
+
+    export let color: colors;
+    $: onColor = (surfaceVariantColors.includes(color as any) ? 'surface' : color);
+    $: ripple = ["primary", "secondary", "error"].includes(color) ? `--md-ripple-pressed-color: var(--md-ref-palette-${color}20);` : '';
 
     export let height: string = 'auto';
     export let shadow: boolean = false;
     export let borderRadius: string = '1.5rem';
+    export let maxWidth: string = 'auto';
 
     const iconSpace = $$slots.icon ? 1.25 : 0;
 
@@ -21,16 +50,19 @@
     export let preserveStack: boolean = false;
 
     $: type = href != null ? 'anchor' : 'card';
+    $: styles = `
+    background-color: var(--md-sys-color-${color});
+    padding-top: ${iconSpace}rem;
+    height: ${height};
+    max-width: ${maxWidth};
+    border-radius: ${borderRadius};
+    --md-focus-ring-shape: ${borderRadius};
+    ${ripple}
+    color: var(--md-sys-color-on-${onColor});`;
 </script>
 
 {#if type === 'card'}
-    <section class:shadow style="
-    background-color: var(--md-sys-color-{color});
-    padding-top: {0.75 + iconSpace}rem;
-    height: {height};
-    border-radius: {borderRadius}
-
-        ">
+    <section class:shadow style="{styles}">
         {#if $$slots.icon}        
             <div class="icon">
                 <slot name="icon"></slot>
@@ -44,12 +76,7 @@
 
     class:shadow
 
-    style="
-    background-color: var(--md-sys-color-{color});
-    height: {height};
-    border-radius: {borderRadius};
-    --md-focus-ring-shape: {borderRadius};
-        "
+    style="{styles}"
 >
     <md-focus-ring />
     <md-ripple />
@@ -63,10 +90,8 @@
         
         position: relative;
 
-        width: fit-content;
         margin-left: auto;
         margin-right: auto;
-        max-width: 450px;
 
         display: flex;
         flex-direction: column;

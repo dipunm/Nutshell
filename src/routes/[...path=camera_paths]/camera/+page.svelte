@@ -5,6 +5,9 @@
     import {type Html5QrcodeResult, Html5Qrcode} from "html5-qrcode";
     import '@material/web/button/filled-button';
     import '@material/web/progress/linear-progress';
+    import '@material/web/icon/icon';
+    import '@material/web/iconbutton/icon-button';
+	import { stackContainsParent } from "$lib/navigation";
 
     function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
         // handle the scanned code as you like, for example:
@@ -57,7 +60,12 @@
 </style>
 
 <div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
-    <AppBar />
+    <AppBar>
+        {#if stackContainsParent()}
+            <md-icon-button class="backbutton" href="router:pop-stack" data-><md-icon>arrow_back</md-icon></md-icon-button>
+        {/if}
+    </AppBar>
+
     <!-- <Card color="tertiary" height="12rem">
         <img class="hero" src="{assets}/offer-hero.png" alt="">
     </Card> -->

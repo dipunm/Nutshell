@@ -2,10 +2,11 @@ import { goto, beforeNavigate } from "$app/navigation";
 import { page } from "$app/stores";
 import { get, writable } from "svelte/store";
 import { getOptionState, getRouterOptions } from "./utils";
+import { base } from "$app/paths";
 
+const container = document.documentElement; // TODO: allow this to be overridden for library purposes.
 const lastClickedLink = writable<HTMLAnchorElement | SVGAElement | null>(null);
 const initClickedAnchorTracker = () => {
-    const container = document.documentElement; // TODO: allow this to be overridden for library purposes.
     container.addEventListener('click', (event) => {
         // Adapted from Sveltekit
         // https://github.com/sveltejs/kit/blob/ce4fd764e271b1a461979dfaf9698af6f36e3714/packages/kit/src/runtime/client/client.js#L1508
@@ -52,11 +53,58 @@ page.subscribe((p) => {
     }
 });
 
+export function stackContainsParent() {
+    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
+        throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
+    }
+
+    return history.state.stack.length > 1;
+}
+
 const getRelativeUrl = (url: URL | Location) => `${url.pathname}${url.search}${url.hash}`;
+
+function promoteToElement(target: EventTarget): target is Element {
+    return true;
+}
+
+function interceptAnchorWithProtocol(protocol: string, handler: (url: URL) => void) {
+    container.addEventListener('click', function(event) {
+        let element = event.composedPath()[0] as ParentNode | null;
+    
+        // Traverse up to find the closest anchor if the target is not the anchor itself
+        while (element && element.nodeName !== 'A') {
+          element = element.parentNode;
+          if (element === container) break;
+        }
+    
+        // If no anchor is found, exit the function
+        if (!element || element.nodeName !== 'A' || !promoteToElement(element)) return;
+    
+        // Parse the URL from the href attribute
+        const href = element.getAttribute('href');
+        if (href && href.startsWith(`${protocol}`)) {
+          // Prevent the default link behavior
+          event.preventDefault();
+          event.stopImmediatePropagation();
+    
+          // Execute the handler and pass the URL
+          handler(new URL(href, window.location.href));
+        }
+      });
+}
 
 export const activateNavigationStackBehaviour = () => {
     initializeHistoryStack();
     initClickedAnchorTracker();
+    interceptAnchorWithProtocol('router:', async (url) => {
+        switch (url.pathname) {
+            case 'pop-stack':
+                return await stackBack();                        
+            default: 
+                throw new Error(`Unable to handle router command, URI was unrecognized: '${url.toString()}'.`);
+        }
+    });
+
     beforeNavigate(async nav => {
         // introduce form handling when necessary
         if (nav.type === 'link' /*|| nav.type === 'form'*/) {
@@ -77,27 +125,34 @@ export const activateNavigationStackBehaviour = () => {
                 noScroll = false,
                 replaceState = false
             } = anchor === null ? {} : {
-                preserveStack: getOptionState(anchor?.getAttribute('data-preserve-stack') ?? ''),
+                preserveStack: getOptionState(anchor?.getAttribute('data-preserve-stack') ?? 'false'),
                 ...getRouterOptions(anchor)
             };
 
             // Allow normal link behaviour. We can't inject history state in a reload anyway.
             if (reload) return;
 
-            nav.cancel()
-            console.log('PRESERVESTACK', preserveStack);
-            await stackGo(nav.to.url.toString(), { 
+            nav.cancel();
+            await stackGoInternal(nav.to.url.toString(), { 
                 preserveStack, 
                 keepFocus,
                 noScroll,
-                replaceState
+                replaceState,
             });
         }
     });
 }
 
 export async function stackBack() {
-    return await stackGoInternal(get(stackPopUrl), {breakPreserves: true});
+    if (!Array.isArray(history.state?.stack) || history.state?.stack.length === 0) {
+        throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
+    }
+
+    if (history.state.stack.length > 1) {
+        return await stackGoInternal(history.state.stack[history.state.stack.length - 2], {breakPreserves: true});
+    } else {
+        return await stackGoInternal(get(stackPopUrl), {breakPreserves: true});
+    }
 }
 
 export async function stackGo(url: string, opts: {
@@ -211,9 +266,12 @@ async function stackGoInternal(url: string, opts: {
             getRelativeUrl(newUrl)
         ];
 
-        const newPreservedIndexes = opts.breakPreserves ? 
-            preservedIndexes.filter(i => i < remainderCount) :
-            preservedIndexes;
+        const newPreservedIndexes = [
+            ...(opts.breakPreserves ? 
+                preservedIndexes.filter(i => i < remainderCount) :
+                preservedIndexes),
+            ...(opts.preserveStack ? [preservedCount + remainderCount - 1] : [])
+        ];
         
         await goto(url, {        
             ...(opts ?? {}),
