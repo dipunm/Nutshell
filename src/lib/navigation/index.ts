@@ -1,7 +1,7 @@
 import { goto, beforeNavigate } from "$app/navigation";
 import { page } from "$app/stores";
 import { get, writable } from "svelte/store";
-import { getOptionState, getRelativeUrl, getRouterOptions } from "./utils";
+import { getOptionState, getRelativeUrl, getRouterOptions, promoteToElement } from "./utils";
 
 const container = document.documentElement; // TODO: allow this to be overridden for library purposes.
 const lastClickedLink = writable<HTMLAnchorElement | SVGAElement | null>(null);
