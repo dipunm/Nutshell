@@ -49,7 +49,7 @@ export function isHistoryStateInitialized(state: unknown): state is { stack: str
 }
 
 export function assertHistoryStateInitialized(state: unknown): asserts state is { stack: string[], preservedIndexes?: number[] } {
-    if (isHistoryStateInitialized(state)) {
+    if (!isHistoryStateInitialized(state)) {
         throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
     }
 }
