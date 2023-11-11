@@ -7,7 +7,7 @@
     import '@material/web/progress/linear-progress';
     import '@material/web/icon/icon';
     import '@material/web/iconbutton/icon-button';
-	import { stackContainsParent } from "$lib/navigation";
+	import { navCanPopStack } from "$lib/navigation";
 
     function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
         // handle the scanned code as you like, for example:
@@ -61,7 +61,7 @@
 
 <div class="container" data-sveltekit-noscroll data-sveltekit-keepfocus>
     <AppBar>
-        {#if stackContainsParent()}
+        {#if navCanPopStack()}
             <md-icon-button class="backbutton" href="router:pop-stack" data-><md-icon>arrow_back</md-icon></md-icon-button>
         {/if}
     </AppBar>

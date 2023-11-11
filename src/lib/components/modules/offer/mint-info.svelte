@@ -4,7 +4,7 @@
     import "@material/web/icon/icon"
     import "@material/web/iconbutton/icon-button"
 	import WhatIsAMint from "./what-is-a-mint.svelte";
-	import { stackBack } from "$lib/navigation";
+	import { navPopStack } from "$lib/navigation";
 	import Modal from "$lib/components/primitives/Modal.svelte";
 	import { page } from "$app/stores";
 </script>
@@ -15,7 +15,7 @@
 <md-filled-tonal-button href="?modal=true">What's a mint<md-icon slot="icon">help_outline</md-icon></md-filled-tonal-button>
 
 <Portal target="target:modal">
-    <Modal condition={() => $page.url.searchParams.has('modal')} on:close={() => stackBack()}>
+    <Modal condition={() => $page.url.searchParams.has('modal')} on:close={() => navPopStack()}>
         <svelte:fragment slot="appbar-start">
             <md-icon-button href="router:pop-stack">
                 <md-icon>arrow_back</md-icon>
