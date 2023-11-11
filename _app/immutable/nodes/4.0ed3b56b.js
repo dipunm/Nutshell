@@ -1,12 +1,12 @@
 import { s as safe_not_equal, n as noop } from "../chunks/utils.08e12359.js";
-import { b as element, f as claim_element, w as get_svelte_dataset, h as attr, i as insert_hydration, d as detach, s as space, g as children, c as claim_space, r as append_hydration, v as listen, e as empty, x as set_custom_element_data } from "../chunks/scheduler.6906c812.js";
+import { b as element, f as claim_element, w as get_svelte_dataset, h as attr, i as insert_hydration, d as detach, s as space, g as children, c as claim_space, r as append_hydration, v as listen, z as onDestroy, e as empty, x as set_custom_element_data } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.f9624644.js";
 import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { c as commonjsGlobal, a as getDefaultExportFromCjs } from "../chunks/_commonjsHelpers.ebbb3f54.js";
 import "../chunks/filled-button.15dbafb4.js";
 import { r as requestUpdateOnAriaChange, _ as __decorate, n, s, x, c as o, A, i, e } from "../chunks/icon.8232ecae.js";
 import { o as o$1 } from "../chunks/style-map.eefe9fbf.js";
-import { n as navCanPopStack } from "../chunks/index.fb939b4a.js";
+import { n as navCanPopStack } from "../chunks/index.31968527.js";
 function _mergeNamespaces(n2, m) {
   for (var i2 = 0; i2 < m.length; i2++) {
     const e2 = m[i2];
@@ -28244,7 +28244,7 @@ function create_fragment(ctx) {
     p(ctx2, [dirty]) {
       const appbar_changes = {};
       if (dirty & /*$$scope*/
-      2) {
+      4) {
         appbar_changes.$$scope = { dirty, ctx: ctx2 };
       }
       appbar.$set(appbar_changes);
@@ -28277,13 +28277,15 @@ function onScanSuccess(decodedText, decodedResult) {
   alert(`Code matched = ${decodedText} ${JSON.stringify(decodedResult)}`);
 }
 function onScanFailure(error) {
-  console.warn(`Code scan error = ${error}`);
 }
 function instance($$self) {
-  function startCamera() {
-    const scanner = new Html5Qrcode("reader");
-    scanner.start({ facingMode: "environment" }, { fps: 10 }, onScanSuccess, onScanFailure);
+  let scanner;
+  async function startCamera() {
+    await (scanner == null ? void 0 : scanner.stop());
+    scanner = new Html5Qrcode("reader");
+    await scanner.start({ facingMode: "environment" }, { fps: 10 }, onScanSuccess, onScanFailure);
   }
+  onDestroy(async () => await (scanner == null ? void 0 : scanner.stop()));
   return [startCamera];
 }
 class Page extends SvelteComponent {
