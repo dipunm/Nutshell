@@ -8,6 +8,7 @@
     import '@material/web/icon/icon';
     import '@material/web/iconbutton/icon-button';
 	import { navCanPopStack } from "$lib/navigation";
+	import { onDestroy, onMount } from "svelte";
 
     function onScanSuccess(decodedText: string, decodedResult: Html5QrcodeResult) {
         // handle the scanned code as you like, for example:
@@ -18,13 +19,18 @@
     function onScanFailure(error: string) {
         // handle scan failure, usually better to ignore and keep scanning.
         // for example:
-        console.warn(`Code scan error = ${error}`);
+        // This is quite noisy!
+        // console.warn(`Code scan error = ${error}`);
     }
 
-    function startCamera() {
-        const scanner = new Html5Qrcode('reader');
-        scanner.start({ facingMode: "environment" }, { fps: 10 }, onScanSuccess, onScanFailure);
+    let scanner: Html5Qrcode;
+    async function startCamera() {
+        await scanner?.stop();
+        scanner = new Html5Qrcode('reader');
+        await scanner.start({ facingMode: "environment" }, { fps: 10 }, onScanSuccess, onScanFailure);
     }
+
+    onDestroy(async () => await scanner?.stop())
 </script>
 <style>
     .container {

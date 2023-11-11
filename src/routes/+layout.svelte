@@ -10,7 +10,9 @@
      * Source: https://github.com/sveltejs/kit/issues/9868#issue-1700272768
      */
     export let data;
+    console.log('state lost', history.state);
     if (data?.savedState) {
+        console.log('state replaced', data.savedState);
         history.replaceState({
 			...data.savedState
 		}, '');
