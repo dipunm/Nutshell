@@ -1,7 +1,7 @@
-import { b as beforeNavigate, g as goto } from "./navigation.83baf1cf.js";
-import { p as page } from "./stores.aeaee850.js";
-import { w as writable } from "./index.d60672bb.js";
+import { b as beforeNavigate, g as goto } from "./navigation.cbd53176.js";
 import { f as get_store_value } from "./utils.08e12359.js";
+import { w as writable } from "./index.d60672bb.js";
+import { p as page } from "./stores.39a6b5a1.js";
 function getOptionState(value) {
   switch (value) {
     case "":
@@ -17,7 +17,6 @@ function getRouterOptions(element) {
   let keep_focus = null;
   let noscroll = null;
   let reload = null;
-  let replace_state = null;
   let node = element;
   while (node && node !== document.documentElement) {
     if (keep_focus === null)
@@ -26,8 +25,6 @@ function getRouterOptions(element) {
       noscroll = node.getAttribute(`data-sveltekit-noscroll`);
     if (reload === null)
       reload = node.getAttribute(`data-sveltekit-reload`);
-    if (replace_state === null)
-      replace_state = node.getAttribute(`data-sveltekit-replacestate`);
     node = node.assignedSlot ?? node.parentNode;
     if ((node == null ? void 0 : node.nodeType) === 11)
       node = node.host;
@@ -35,17 +32,27 @@ function getRouterOptions(element) {
   return {
     keepFocus: getOptionState(keep_focus),
     noScroll: getOptionState(noscroll),
-    reload: getOptionState(reload),
-    replaceState: getOptionState(replace_state)
+    reload: getOptionState(reload)
   };
 }
 const getRelativeUrl = (url) => `${url.pathname}${url.search}${url.hash}`;
 function promoteToElement(target) {
   return true;
 }
+function isHistoryStateInitialized(state) {
+  return typeof state === "object" && state !== null && "stack" in state && Array.isArray(state.stack) && state.stack.length > 0;
+}
+function assertHistoryStateInitialized(state) {
+  if (isHistoryStateInitialized(state)) {
+    throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
+  }
+}
+function matchesCurrentOrigin(url) {
+  return url.protocol === window.location.protocol && url.host === window.location.host;
+}
 const container = document.documentElement;
-const lastClickedLink = writable(null);
-const initClickedAnchorTracker = () => {
+const createClickedAnchorTracker = () => {
+  const lastClickedLink = writable(null);
   container.addEventListener("click", (event) => {
     if (event.button || event.which !== 1)
       return;
@@ -64,8 +71,22 @@ const initClickedAnchorTracker = () => {
       anchorElement = anchorElement.host;
     lastClickedLink.set(anchorElement);
   }, { passive: true, capture: true });
+  return lastClickedLink;
 };
-function interceptAnchorWithProtocol(protocol, handler) {
+function interceptAnchorSameOrigin(handler, { lastClickedAnchor }) {
+  beforeNavigate(async (nav) => {
+    if (nav.type === "link") {
+      if (nav.to === null)
+        return;
+      if (!matchesCurrentOrigin(nav.to.url)) {
+        return;
+      }
+      const anchor = get_store_value(lastClickedAnchor);
+      await handler({ url: nav.to.url, anchor, preventDefault: () => nav.cancel() });
+    }
+  });
+}
+function interceptAnchorWithProtocol(handler, { protocol, lastClickedAnchor }) {
   container.addEventListener("click", function(event) {
     let element = event.composedPath()[0];
     while (element && element.nodeName !== "A") {
@@ -77,17 +98,26 @@ function interceptAnchorWithProtocol(protocol, handler) {
       return;
     const href = element.getAttribute("href");
     if (href && href.startsWith(`${protocol}`)) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-      handler(new URL(href, window.location.href));
+      const anchor = get_store_value(lastClickedAnchor);
+      handler({ url: new URL(href, window.location.href), anchor, preventDefault: () => {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      } });
     }
   });
 }
-const initializeHistoryStack = async () => {
-  var _a, _b;
-  if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
+function getPopUrl() {
+  const url = get_store_value(page).url;
+  if (url.search !== "" || url.hash !== "") {
+    return url.pathname;
+  } else {
+    return url.pathname.replace(/\/[^/]+\/?$/, "");
+  }
+}
+async function initializeHistoryStack() {
+  if (!isHistoryStateInitialized(history.state)) {
     const stack = [getRelativeUrl(window.location)];
-    await goto(window.location.toString(), {
+    return await goto(window.location.toString(), {
       replaceState: true,
       state: {
         ...history.state,
@@ -96,85 +126,65 @@ const initializeHistoryStack = async () => {
       }
     });
   }
+}
+const handleRouterLinkIntercept = async ({ url, preventDefault }) => {
+  switch (url.pathname) {
+    case "pop-stack":
+      preventDefault();
+      return await navPopStack();
+    default:
+      throw new Error(`Unable to handle router command, URI was unrecognized: '${url.toString()}'.`);
+  }
 };
-const stackPopUrl = writable("");
-page.subscribe((p) => {
-  if (!(p == null ? void 0 : p.url))
+const anchorHandler = async ({ url, anchor, preventDefault }) => {
+  const {
+    preserveStack = false,
+    reload = false,
+    keepFocus = false,
+    noScroll = false
+  } = anchor === null ? {} : {
+    preserveStack: getOptionState((anchor == null ? void 0 : anchor.getAttribute("data-preserve-stack")) ?? "false"),
+    ...getRouterOptions(anchor)
+  };
+  if (reload)
     return;
-  if (p.url.search !== "" || p.url.hash !== "") {
-    stackPopUrl.set(p.url.pathname);
-  } else {
-    stackPopUrl.set("/" + p.url.pathname.replace(/\/[^/]+\/?$/, "").replace(/^\//, ""));
-  }
-});
-function stackContainsParent() {
-  var _a, _b;
-  if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
-    throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
-  }
+  preventDefault();
+  await navPushStackInternal(url.toString(), {
+    preserveStack,
+    keepFocus,
+    noScroll
+  });
+};
+function activateNavigationStackBehaviour() {
+  initializeHistoryStack();
+  const lastClickedAnchor = createClickedAnchorTracker();
+  interceptAnchorWithProtocol(
+    handleRouterLinkIntercept,
+    { protocol: "router:", lastClickedAnchor }
+  );
+  interceptAnchorSameOrigin(
+    anchorHandler,
+    { lastClickedAnchor }
+  );
+}
+function navCanPopStack() {
+  assertHistoryStateInitialized(history.state);
   return history.state.stack.length > 1;
 }
-const activateNavigationStackBehaviour = () => {
-  initializeHistoryStack();
-  initClickedAnchorTracker();
-  interceptAnchorWithProtocol("router:", async (url) => {
-    switch (url.pathname) {
-      case "pop-stack":
-        return await stackBack();
-      default:
-        throw new Error(`Unable to handle router command, URI was unrecognized: '${url.toString()}'.`);
-    }
-  });
-  beforeNavigate(async (nav) => {
-    if (nav.type === "link") {
-      if (nav.to === null)
-        return;
-      if (nav.to.url.protocol !== window.location.protocol || nav.to.url.host !== window.location.host) {
-        return;
-      }
-      const anchor = get_store_value(lastClickedLink);
-      const {
-        preserveStack = false,
-        reload = false,
-        keepFocus = false,
-        noScroll = false,
-        replaceState = false
-      } = anchor === null ? {} : {
-        preserveStack: getOptionState((anchor == null ? void 0 : anchor.getAttribute("data-preserve-stack")) ?? "false"),
-        ...getRouterOptions(anchor)
-      };
-      if (reload)
-        return;
-      nav.cancel();
-      await stackGoInternal(nav.to.url.toString(), {
-        preserveStack,
-        keepFocus,
-        noScroll,
-        replaceState
-      });
-    }
-  });
-};
-async function stackBack() {
-  var _a, _b;
-  if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
-    throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
-  }
+async function navPopStack() {
+  assertHistoryStateInitialized(history.state);
   if (history.state.stack.length > 1) {
-    return await stackGoInternal(history.state.stack[history.state.stack.length - 2], { breakPreserves: true });
+    return await navPushStackInternal(history.state.stack[history.state.stack.length - 2], { breakPreserves: true });
   } else {
-    return await stackGoInternal(get_store_value(stackPopUrl), { breakPreserves: true });
+    return await navPushStackInternal(getPopUrl(), { breakPreserves: true });
   }
 }
-async function stackGoInternal(url, opts = {}) {
-  var _a, _b;
+async function navPushStackInternal(url, opts = {}) {
   const newUrl = new URL(url, window.location.href);
-  if (newUrl.protocol !== window.location.protocol || newUrl.host !== window.location.host) {
-    throw new Error("Navigating away from site, cannot be performed by stackGo.");
+  if (!matchesCurrentOrigin(newUrl)) {
+    throw new Error("Navigating away from site cannot be performed by navPushStack.");
   }
-  if (!Array.isArray((_a = history.state) == null ? void 0 : _a.stack) || ((_b = history.state) == null ? void 0 : _b.stack.length) === 0) {
-    throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
-  }
+  assertHistoryStateInitialized(history.state);
   if (opts.preserveStack && opts.breakPreserves) {
     throw new Error(`Options 'preserveStack' and 'breakPreserves' cannot both be true.`);
   }
@@ -263,6 +273,6 @@ async function stackGoInternal(url, opts = {}) {
 }
 export {
   activateNavigationStackBehaviour as a,
-  stackBack as b,
-  stackContainsParent as s
+  navPopStack as b,
+  navCanPopStack as n
 };

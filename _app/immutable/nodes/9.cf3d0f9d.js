@@ -1,7 +1,7 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { b as base } from "../chunks/paths.d48b2615.js";
+import { b as base } from "../chunks/paths.3da337d9.js";
 import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.15dbafb4.js";
 import { x, i, _ as __decorate, e } from "../chunks/icon.8232ecae.js";
 import { C as Card } from "../chunks/Card.29d8f6d9.js";
@@ -9,9 +9,9 @@ import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
 import "../chunks/elevation.7713943e.js";
 import "../chunks/list-item.46dd92f9.js";
-import { b as stackBack } from "../chunks/index.e32985d1.js";
-import { a as afterNavigate } from "../chunks/navigation.83baf1cf.js";
-import { p as page } from "../chunks/stores.aeaee850.js";
+import { b as navPopStack } from "../chunks/index.008ec43b.js";
+import { a as afterNavigate } from "../chunks/navigation.cbd53176.js";
+import { p as page } from "../chunks/stores.39a6b5a1.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -1006,7 +1006,7 @@ function instance($$self, $$props, $$invalidate) {
   let $page;
   component_subscribe($$self, page, ($$value) => $$invalidate(0, $page = $$value));
   const func = () => $page.url.searchParams.has("modal");
-  const close_handler = () => stackBack();
+  const close_handler = () => navPopStack();
   return [$page, func, close_handler];
 }
 class Mint_info extends SvelteComponent {

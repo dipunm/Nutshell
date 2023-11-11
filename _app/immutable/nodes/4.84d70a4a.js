@@ -6,7 +6,7 @@ import { c as commonjsGlobal, a as getDefaultExportFromCjs } from "../chunks/_co
 import "../chunks/filled-button.15dbafb4.js";
 import { r as requestUpdateOnAriaChange, _ as __decorate, n, s, x, c as o, A, i, e } from "../chunks/icon.8232ecae.js";
 import { o as o$1 } from "../chunks/style-map.eefe9fbf.js";
-import { s as stackContainsParent } from "../chunks/index.e32985d1.js";
+import { n as navCanPopStack } from "../chunks/index.008ec43b.js";
 function _mergeNamespaces(n2, m) {
   for (var i2 = 0; i2 < m.length; i2++) {
     const e2 = m[i2];
@@ -28107,7 +28107,7 @@ function create_if_block(ctx) {
   };
 }
 function create_default_slot(ctx) {
-  let show_if = stackContainsParent();
+  let show_if = navCanPopStack();
   let if_block_anchor;
   let if_block = show_if && create_if_block();
   return {
