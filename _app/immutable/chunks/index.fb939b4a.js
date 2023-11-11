@@ -1,7 +1,7 @@
-import { b as beforeNavigate, g as goto } from "./navigation.cbd53176.js";
+import { b as beforeNavigate, g as goto } from "./navigation.61099afb.js";
 import { f as get_store_value } from "./utils.08e12359.js";
 import { w as writable } from "./index.d60672bb.js";
-import { p as page } from "./stores.39a6b5a1.js";
+import { p as page } from "./stores.aa49f1a6.js";
 function getOptionState(value) {
   switch (value) {
     case "":
@@ -43,7 +43,7 @@ function isHistoryStateInitialized(state) {
   return typeof state === "object" && state !== null && "stack" in state && Array.isArray(state.stack) && state.stack.length > 0;
 }
 function assertHistoryStateInitialized(state) {
-  if (isHistoryStateInitialized(state)) {
+  if (!isHistoryStateInitialized(state)) {
     throw new Error(`History API not properly configured! Ensure that initializeHistoryStack() is called when the page loads.`);
   }
 }
