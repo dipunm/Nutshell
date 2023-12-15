@@ -6,7 +6,7 @@ import { c as commonjsGlobal, a as getDefaultExportFromCjs } from "../chunks/_co
 import "../chunks/filled-button.15dbafb4.js";
 import { r as requestUpdateOnAriaChange, _ as __decorate, n, s, x, c as o, A, i, e } from "../chunks/icon.8232ecae.js";
 import { o as o$1 } from "../chunks/style-map.eefe9fbf.js";
-import { n as navCanPopStack } from "../chunks/index.c15cf925.js";
+import { n as navCanPopStack } from "../chunks/index.055c5581.js";
 function _mergeNamespaces(n2, m) {
   for (var i2 = 0; i2 < m.length; i2++) {
     const e2 = m[i2];

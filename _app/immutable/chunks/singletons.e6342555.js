@@ -1,6 +1,6 @@
 import { w as writable } from "./index.d60672bb.js";
-import { a as assets } from "./paths.49cb14d9.js";
-const version = "1702610517792";
+import { a as assets } from "./paths.8fda56c4.js";
+const version = "1702612241831";
 const SNAPSHOT_KEY = "sveltekit:snapshot";
 const SCROLL_KEY = "sveltekit:scroll";
 const INDEX_KEY = "sveltekit:index";
