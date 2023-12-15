@@ -48,8 +48,9 @@
                 information or track your financial activity.
             </p> -->
             <p>
-                Mints don't demand sensitive personal information,
-                and they cannot track your financial activity.
+                Mints don't demand sensitive personal information, 
+                they don't know who you are, and they cannot monitor 
+                your financial activities.
             </p>
         </div>
     </md-list-item>
