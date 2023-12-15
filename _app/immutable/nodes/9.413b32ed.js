@@ -1,7 +1,7 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { b as base } from "../chunks/paths.b96b0ba3.js";
+import { b as base } from "../chunks/paths.49cb14d9.js";
 import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.15dbafb4.js";
 import { x, i, _ as __decorate, e } from "../chunks/icon.8232ecae.js";
 import { C as Card } from "../chunks/Card.29d8f6d9.js";
@@ -9,9 +9,9 @@ import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
 import "../chunks/elevation.7713943e.js";
 import "../chunks/list-item.46dd92f9.js";
-import { b as navPopStack } from "../chunks/index.31968527.js";
-import { a as afterNavigate } from "../chunks/navigation.adf0e5fc.js";
-import { p as page } from "../chunks/stores.88d81313.js";
+import { b as navPopStack } from "../chunks/index.c15cf925.js";
+import { a as afterNavigate } from "../chunks/navigation.9373b82f.js";
+import { p as page } from "../chunks/stores.64d11410.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -236,8 +236,9 @@ const whatIsAMint_svelte_svelte_type_style_lang = "";
 function create_fragment$4(ctx) {
   let md_list;
   let textContent = `<md-list-item><md-icon slot="start">Language</md-icon> <div slot="headline">Digital Cash</div> <div slot="supporting-text"><p class="svelte-eojriw">Mints are online servers that facilitate bitcoin payments
-                on behalf of the bearer of their assets.</p></div></md-list-item> <md-list-item><md-icon slot="start">Privacy</md-icon> <div slot="headline">Privacy First</div> <div slot="supporting-text"><p class="svelte-eojriw">Using a bearer asset mechanism, mints don&#39;t demand personal 
-                information or track your financial activity.</p></div></md-list-item> <md-list-item><md-icon slot="start">security</md-icon> <div slot="headline">Simple, Secure &amp; Safe</div> <div slot="supporting-text"><p class="svelte-eojriw">Cash-like payments eliminate the risk of targeted intrusions 
+                for anyone who presents a signed digital IOU, just like 
+                handing cash to a bank to send abroad.</p></div></md-list-item> <md-list-item><md-icon slot="start">Privacy</md-icon> <div slot="headline">Privacy First</div> <div slot="supporting-text"><p class="svelte-eojriw">Mints don&#39;t demand sensitive personal information,
+                and they cannot track your financial activity.</p></div></md-list-item> <md-list-item><md-icon slot="start">security</md-icon> <div slot="headline">Simple, Secure &amp; Safe</div> <div slot="supporting-text"><p class="svelte-eojriw">Cash-like payments eliminate the risk of targeted intrusions 
                 and identity fraud due to data breaches.</p></div></md-list-item>`;
   let t17;
   let h20;
@@ -250,7 +251,7 @@ function create_fragment$4(ctx) {
   let textContent_3 = "Educate yourself";
   let t23;
   let p4;
-  let textContent_4 = "This wallet provides educational resources to guide you\n    in eliminating counterparty risk completely — unlocking \n    the real power of Bitcoin.";
+  let textContent_4 = "This wallet provides educational resources to guide you\n    to eliminating counterparty risk completely — unlocking \n    the real power of Bitcoin.";
   let t25;
   let div6;
   let md_filled_button;
@@ -279,7 +280,7 @@ function create_fragment$4(ctx) {
     },
     l(nodes) {
       md_list = claim_element(nodes, "MD-LIST", { ["data-svelte-h"]: true });
-      if (get_svelte_dataset(md_list) !== "svelte-e0efok")
+      if (get_svelte_dataset(md_list) !== "svelte-116k39q")
         md_list.innerHTML = textContent;
       t17 = claim_space(nodes);
       h20 = claim_element(nodes, "H2", {
@@ -303,7 +304,7 @@ function create_fragment$4(ctx) {
         h21.textContent = textContent_3;
       t23 = claim_space(nodes);
       p4 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(p4) !== "svelte-1ne1at")
+      if (get_svelte_dataset(p4) !== "svelte-1j0jew7")
         p4.textContent = textContent_4;
       t25 = claim_space(nodes);
       div6 = claim_element(nodes, "DIV", { style: true });
