@@ -1,7 +1,7 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, q as head_selector, f as claim_element, d as detach, c as claim_space, g as children, h as attr, r as append_hydration, i as insert_hydration } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component } from "../chunks/index.f9624644.js";
-import { a as activateNavigationStackBehaviour } from "../chunks/index.055c5581.js";
+import { a as activateNavigationStackBehaviour } from "../chunks/index.b117ea22.js";
 import { P as PortalTarget } from "../chunks/PortalTarget.b8bf6a9a.js";
 const ssr = false;
 function load() {

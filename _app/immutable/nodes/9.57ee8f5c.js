@@ -1,7 +1,7 @@
 import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
 import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
 import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
-import { b as base } from "../chunks/paths.8fda56c4.js";
+import { b as base } from "../chunks/paths.6af5e2d2.js";
 import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.15dbafb4.js";
 import { x, i, _ as __decorate, e } from "../chunks/icon.8232ecae.js";
 import { C as Card } from "../chunks/Card.29d8f6d9.js";
@@ -9,9 +9,9 @@ import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
 import "../chunks/elevation.7713943e.js";
 import "../chunks/list-item.46dd92f9.js";
-import { b as navPopStack } from "../chunks/index.055c5581.js";
-import { a as afterNavigate } from "../chunks/navigation.794b48db.js";
-import { p as page } from "../chunks/stores.c902b067.js";
+import { b as navPopStack } from "../chunks/index.b117ea22.js";
+import { a as afterNavigate } from "../chunks/navigation.72f80f28.js";
+import { p as page } from "../chunks/stores.a7179f18.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
@@ -246,7 +246,7 @@ function create_fragment$4(ctx) {
   let textContent_1 = "What about the risks?";
   let t19;
   let p3;
-  let textContent_2 = "Like banks, exchanges and other custodial service providers, \n    mints are susceptible to risks such as cyber attacks, \n    vulnerabilities, and regulatory changes which could lead \n    to loss of funds.";
+  let textContent_2 = "Like banks, exchanges and other custodial service providers, \n    mints are still susceptible to risks such as cyber attacks, \n    vulnerabilities, and regulatory changes which could lead \n    to loss of funds.";
   let t21;
   let h21;
   let textContent_3 = "Educate yourself";
@@ -293,7 +293,7 @@ function create_fragment$4(ctx) {
         h20.textContent = textContent_1;
       t19 = claim_space(nodes);
       p3 = claim_element(nodes, "P", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(p3) !== "svelte-176iv73")
+      if (get_svelte_dataset(p3) !== "svelte-1wp7bu9")
         p3.textContent = textContent_2;
       t21 = claim_space(nodes);
       h21 = claim_element(nodes, "H2", {
