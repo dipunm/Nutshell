@@ -71,7 +71,7 @@
 </h2>
 <p>
     Like banks, exchanges and other custodial service providers, 
-    mints are susceptible to risks such as cyber attacks, 
+    mints are still susceptible to risks such as cyber attacks, 
     vulnerabilities, and regulatory changes which could lead 
     to loss of funds.
 </p>
