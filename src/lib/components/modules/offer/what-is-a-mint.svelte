@@ -28,9 +28,14 @@
         <md-icon slot="start">Language</md-icon>
         <div slot="headline">Digital Cash</div>
         <div slot="supporting-text">
-            <p>
+            <!-- <p>
                 Mints are online servers that facilitate bitcoin payments
                 on behalf of the bearer of their assets.
+            </p> -->
+            <p>
+                Mints are online servers that facilitate bitcoin payments
+                for anyone who presents a signed digital IOU, just like 
+                handing cash to a bank to send abroad.
             </p>
         </div>
     </md-list-item>
@@ -38,9 +43,13 @@
         <md-icon slot="start">Privacy</md-icon>
         <div slot="headline">Privacy First</div>
         <div slot="supporting-text">
-            <p>
+            <!-- <p>
                 Using a bearer asset mechanism, mints don't demand personal 
                 information or track your financial activity.
+            </p> -->
+            <p>
+                Mints don't demand sensitive personal information,
+                and they cannot track your financial activity.
             </p>
         </div>
     </md-list-item>
@@ -71,7 +80,7 @@
 </h2>
 <p>
     This wallet provides educational resources to guide you
-    in eliminating counterparty risk completely &mdash; unlocking 
+    to eliminating counterparty risk completely &mdash; unlocking 
     the real power of Bitcoin.
 </p>
 
