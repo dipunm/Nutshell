@@ -1,20 +1,21 @@
-import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "./utils.08e12359.js";
-import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, k as text, l as claim_text } from "./scheduler.6906c812.js";
-import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "./index.f9624644.js";
-import "./paths.69a294fa.js";
-import { A as AppBar } from "./AppBar.287d37ee.js";
-import { P as Portal } from "./Portal.e01d24b0.js";
-import { x, i, _ as __decorate, e } from "./icon.8232ecae.js";
-import "./elevation.7713943e.js";
-import { B as Button, s as styles$1, a as styles$2 } from "./filled-button.15dbafb4.js";
-import "./list-item.46dd92f9.js";
-import { b as navPopStack } from "./index.ee5ab4da.js";
-import { a as afterNavigate } from "./navigation.d180aa0e.js";
-import { p as page } from "./stores.d23c2829.js";
+import { s as safe_not_equal, c as create_slot, u as update_slot_base, g as get_all_dirty_from_scope, a as get_slot_changes, n as noop, e as compute_slots, b as component_subscribe } from "../chunks/utils.08e12359.js";
+import { b as element, s as space, f as claim_element, g as children, c as claim_space, d as detach, h as attr, i as insert_hydration, r as append_hydration, w as get_svelte_dataset, j as set_style, x as set_custom_element_data, v as listen, A as createEventDispatcher, e as empty, n as binding_callbacks, k as text, l as claim_text } from "../chunks/scheduler.6906c812.js";
+import { S as SvelteComponent, i as init, b as create_component, d as claim_component, m as mount_component, a as transition_in, t as transition_out, e as destroy_component, g as group_outros, c as check_outros } from "../chunks/index.f9624644.js";
+import { b as base } from "../chunks/paths.8677b0f6.js";
+import { B as Button, s as styles$1, a as styles$2 } from "../chunks/filled-button.15dbafb4.js";
+import { x, i, _ as __decorate, e } from "../chunks/icon.8232ecae.js";
+import { C as Card } from "../chunks/Card.29d8f6d9.js";
+import { A as AppBar } from "../chunks/AppBar.287d37ee.js";
+import { P as Portal } from "../chunks/Portal.e01d24b0.js";
+import "../chunks/elevation.7713943e.js";
+import "../chunks/list-item.46dd92f9.js";
+import { b as navPopStack } from "../chunks/index.4e65411d.js";
+import { a as afterNavigate } from "../chunks/navigation.b7dd2d4b.js";
+import { p as page } from "../chunks/stores.742950fa.js";
 const SinglePane_svelte_svelte_type_style_lang = "";
 const get_appbar_slot_changes = (dirty) => ({});
 const get_appbar_slot_context = (ctx) => ({});
-function create_default_slot$2(ctx) {
+function create_default_slot$3(ctx) {
   let current;
   const appbar_slot_template = (
     /*#slots*/
@@ -83,14 +84,14 @@ function create_default_slot$2(ctx) {
     }
   };
 }
-function create_fragment$4(ctx) {
+function create_fragment$5(ctx) {
   let div;
   let appbar;
   let t;
   let current;
   appbar = new AppBar({
     props: {
-      $$slots: { default: [create_default_slot$2] },
+      $$slots: { default: [create_default_slot$3] },
       $$scope: { ctx }
     }
   });
@@ -200,7 +201,7 @@ function instance$2($$self, $$props, $$invalidate) {
 class SinglePane extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$2, create_fragment$4, safe_not_equal, {});
+    init(this, options, instance$2, create_fragment$5, safe_not_equal, {});
   }
 }
 /**
@@ -232,7 +233,7 @@ MdFilledTonalButton = __decorate([
   e("md-filled-tonal-button")
 ], MdFilledTonalButton);
 const whatIsAMint_svelte_svelte_type_style_lang = "";
-function create_fragment$3(ctx) {
+function create_fragment$4(ctx) {
   let md_list;
   let textContent = `<md-list-item><md-icon slot="start">Language</md-icon> <div slot="headline">Digital Cash</div> <div slot="supporting-text"><p class="svelte-eojriw">Mints are online servers that facilitate bitcoin payments
                 for anyone who presents a signed digital IOU, just like 
@@ -368,7 +369,7 @@ function create_fragment$3(ctx) {
 class What_is_a_mint extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, null, create_fragment$3, safe_not_equal, {});
+    init(this, options, null, create_fragment$4, safe_not_equal, {});
   }
 }
 const Modal_svelte_svelte_type_style_lang = "";
@@ -459,7 +460,7 @@ function create_if_block(ctx) {
     }
   };
 }
-function create_default_slot$1(ctx) {
+function create_default_slot$2(ctx) {
   let t;
   let if_block_anchor;
   let current;
@@ -577,7 +578,7 @@ function create_default_slot$1(ctx) {
     }
   };
 }
-function create_fragment$2(ctx) {
+function create_fragment$3(ctx) {
   let dialog;
   let div1;
   let appbar;
@@ -588,7 +589,7 @@ function create_fragment$2(ctx) {
   let dispose;
   appbar = new AppBar({
     props: {
-      $$slots: { default: [create_default_slot$1] },
+      $$slots: { default: [create_default_slot$2] },
       $$scope: { ctx }
     }
   });
@@ -761,11 +762,11 @@ function instance$1($$self, $$props, $$invalidate) {
 class Modal extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance$1, create_fragment$2, safe_not_equal, { condition: 3 });
+    init(this, options, instance$1, create_fragment$3, safe_not_equal, { condition: 3 });
   }
 }
 const mintInfo_svelte_svelte_type_style_lang = "";
-function create_default_slot_1(ctx) {
+function create_default_slot_1$1(ctx) {
   let whatisamint;
   let current;
   whatisamint = new What_is_a_mint({});
@@ -843,7 +844,7 @@ function create_appbar_title_slot(ctx) {
     }
   };
 }
-function create_default_slot(ctx) {
+function create_default_slot$1(ctx) {
   let modal;
   let current;
   modal = new Modal({
@@ -855,7 +856,7 @@ function create_default_slot(ctx) {
       $$slots: {
         "appbar-title": [create_appbar_title_slot],
         "appbar-start": [create_appbar_start_slot],
-        default: [create_default_slot_1]
+        default: [create_default_slot_1$1]
       },
       $$scope: { ctx }
     }
@@ -903,7 +904,7 @@ function create_default_slot(ctx) {
     }
   };
 }
-function create_fragment$1(ctx) {
+function create_fragment$2(ctx) {
   let h1;
   let textContent = "Deposited at mint:";
   let t1;
@@ -918,7 +919,7 @@ function create_fragment$1(ctx) {
   portal = new Portal({
     props: {
       target: "target:modal",
-      $$slots: { default: [create_default_slot] },
+      $$slots: { default: [create_default_slot$1] },
       $$scope: { ctx }
     }
   });
@@ -1013,11 +1014,11 @@ function instance($$self, $$props, $$invalidate) {
 class Mint_info extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance, create_fragment$1, safe_not_equal, {});
+    init(this, options, instance, create_fragment$2, safe_not_equal, {});
   }
 }
 const amount_svelte_svelte_type_style_lang = "";
-function create_fragment(ctx) {
+function create_fragment$1(ctx) {
   let h2;
   let textContent = `<span class="zeros svelte-1va1xwa">0</span><span class="amount headline-medium svelte-1va1xwa">.</span><span class="zeros svelte-1va1xwa">00 0</span><span class="amount headline-medium svelte-1va1xwa">50 204</span> <span class="label-large">BTC</span>`;
   return {
@@ -1051,11 +1052,230 @@ function create_fragment(ctx) {
 class Amount extends SvelteComponent {
   constructor(options) {
     super();
+    init(this, options, null, create_fragment$1, safe_not_equal, {});
+  }
+}
+const _page_svelte_svelte_type_style_lang = "";
+function create_default_slot_1(ctx) {
+  let amount;
+  let t;
+  let mintinfo;
+  let current;
+  amount = new Amount({});
+  mintinfo = new Mint_info({});
+  return {
+    c() {
+      create_component(amount.$$.fragment);
+      t = space();
+      create_component(mintinfo.$$.fragment);
+    },
+    l(nodes) {
+      claim_component(amount.$$.fragment, nodes);
+      t = claim_space(nodes);
+      claim_component(mintinfo.$$.fragment, nodes);
+    },
+    m(target, anchor) {
+      mount_component(amount, target, anchor);
+      insert_hydration(target, t, anchor);
+      mount_component(mintinfo, target, anchor);
+      current = true;
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(amount.$$.fragment, local);
+      transition_in(mintinfo.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(amount.$$.fragment, local);
+      transition_out(mintinfo.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(t);
+      }
+      destroy_component(amount, detaching);
+      destroy_component(mintinfo, detaching);
+    }
+  };
+}
+function create_icon_slot(ctx) {
+  let md_icon;
+  let textContent = "currency_bitcoin";
+  return {
+    c() {
+      md_icon = element("md-icon");
+      md_icon.textContent = textContent;
+      this.h();
+    },
+    l(nodes) {
+      md_icon = claim_element(nodes, "MD-ICON", {
+        slot: true,
+        style: true,
+        ["data-svelte-h"]: true
+      });
+      if (get_svelte_dataset(md_icon) !== "svelte-1vdwq86")
+        md_icon.textContent = textContent;
+      this.h();
+    },
+    h() {
+      set_custom_element_data(md_icon, "slot", "icon");
+      set_style(md_icon, "color", "#F7931A");
+    },
+    m(target, anchor) {
+      insert_hydration(target, md_icon, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching) {
+        detach(md_icon);
+      }
+    }
+  };
+}
+function create_default_slot(ctx) {
+  let section0;
+  let textContent = `<h1 class="headline-small">You have received:</h1>`;
+  let t1;
+  let section1;
+  let card;
+  let t2;
+  let section2;
+  let textContent_1 = `<md-filled-button href="${base}/accounts">Accept</md-filled-button>`;
+  let current;
+  card = new Card({
+    props: {
+      color: "surface-container-highest",
+      maxWidth: "450px",
+      $$slots: {
+        icon: [create_icon_slot],
+        default: [create_default_slot_1]
+      },
+      $$scope: { ctx }
+    }
+  });
+  return {
+    c() {
+      section0 = element("section");
+      section0.innerHTML = textContent;
+      t1 = space();
+      section1 = element("section");
+      create_component(card.$$.fragment);
+      t2 = space();
+      section2 = element("section");
+      section2.innerHTML = textContent_1;
+      this.h();
+    },
+    l(nodes) {
+      section0 = claim_element(nodes, "SECTION", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(section0) !== "svelte-1atrwk9")
+        section0.innerHTML = textContent;
+      t1 = claim_space(nodes);
+      section1 = claim_element(nodes, "SECTION", { class: true });
+      var section1_nodes = children(section1);
+      claim_component(card.$$.fragment, section1_nodes);
+      section1_nodes.forEach(detach);
+      t2 = claim_space(nodes);
+      section2 = claim_element(nodes, "SECTION", { class: true, ["data-svelte-h"]: true });
+      if (get_svelte_dataset(section2) !== "svelte-11hxiu5")
+        section2.innerHTML = textContent_1;
+      this.h();
+    },
+    h() {
+      attr(section0, "class", "details svelte-11hllfo");
+      attr(section1, "class", "svelte-11hllfo");
+      attr(section2, "class", "calltoaction svelte-11hllfo");
+    },
+    m(target, anchor) {
+      insert_hydration(target, section0, anchor);
+      insert_hydration(target, t1, anchor);
+      insert_hydration(target, section1, anchor);
+      mount_component(card, section1, null);
+      insert_hydration(target, t2, anchor);
+      insert_hydration(target, section2, anchor);
+      current = true;
+    },
+    p(ctx2, dirty) {
+      const card_changes = {};
+      if (dirty & /*$$scope*/
+      1) {
+        card_changes.$$scope = { dirty, ctx: ctx2 };
+      }
+      card.$set(card_changes);
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(card.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(card.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      if (detaching) {
+        detach(section0);
+        detach(t1);
+        detach(section1);
+        detach(t2);
+        detach(section2);
+      }
+      destroy_component(card);
+    }
+  };
+}
+function create_fragment(ctx) {
+  let singlepane;
+  let current;
+  singlepane = new SinglePane({
+    props: {
+      $$slots: { default: [create_default_slot] },
+      $$scope: { ctx }
+    }
+  });
+  return {
+    c() {
+      create_component(singlepane.$$.fragment);
+    },
+    l(nodes) {
+      claim_component(singlepane.$$.fragment, nodes);
+    },
+    m(target, anchor) {
+      mount_component(singlepane, target, anchor);
+      current = true;
+    },
+    p(ctx2, [dirty]) {
+      const singlepane_changes = {};
+      if (dirty & /*$$scope*/
+      1) {
+        singlepane_changes.$$scope = { dirty, ctx: ctx2 };
+      }
+      singlepane.$set(singlepane_changes);
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(singlepane.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(singlepane.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      destroy_component(singlepane, detaching);
+    }
+  };
+}
+class Page extends SvelteComponent {
+  constructor(options) {
+    super();
     init(this, options, null, create_fragment, safe_not_equal, {});
   }
 }
 export {
-  Amount as A,
-  Mint_info as M,
-  SinglePane as S
+  Page as component
 };

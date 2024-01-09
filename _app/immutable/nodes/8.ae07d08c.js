@@ -4,7 +4,7 @@ import { S as SvelteComponent, i as init, b as create_component, d as claim_comp
 import { C as Card } from "../chunks/Card.29d8f6d9.js";
 import "../chunks/icon.8232ecae.js";
 import { P as Portal } from "../chunks/Portal.e01d24b0.js";
-import { b as base } from "../chunks/paths.69a294fa.js";
+import { b as base } from "../chunks/paths.8677b0f6.js";
 const _page_svelte_svelte_type_style_lang = "";
 function create_default_slot_4(ctx) {
   let md_icon_button;
@@ -37,7 +37,7 @@ function create_default_slot_4(ctx) {
 }
 function create_default_slot_3(ctx) {
   let h1;
-  let textContent = "Deposit";
+  let textContent = "Spend";
   return {
     c() {
       h1 = element("h1");
@@ -46,7 +46,7 @@ function create_default_slot_3(ctx) {
     },
     l(nodes) {
       h1 = claim_element(nodes, "H1", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(h1) !== "svelte-1mcvlqz")
+      if (get_svelte_dataset(h1) !== "svelte-43nih")
         h1.textContent = textContent;
       this.h();
     },
@@ -66,7 +66,7 @@ function create_default_slot_3(ctx) {
 }
 function create_default_slot_2(ctx) {
   let div;
-  let textContent = `<h1 class="headline-small svelte-1l072c1">Create an invoice</h1> <p class="svelte-1l072c1">Request a payment on the Bitcoin Lightning Network</p> <md-icon class="icon svelte-1l072c1">bolt</md-icon>`;
+  let textContent = `<h1 class="headline-small svelte-1l072c1">Pay an invoice</h1> <p class="svelte-1l072c1">Request a payment on the Bitcoin Lightning Network</p> <md-icon class="icon svelte-1l072c1">qr_code_scanner</md-icon>`;
   return {
     c() {
       div = element("div");
@@ -75,7 +75,7 @@ function create_default_slot_2(ctx) {
     },
     l(nodes) {
       div = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(div) !== "svelte-1brgmh7")
+      if (get_svelte_dataset(div) !== "svelte-hm0h5o")
         div.innerHTML = textContent;
       this.h();
     },
@@ -95,7 +95,7 @@ function create_default_slot_2(ctx) {
 }
 function create_default_slot_1(ctx) {
   let div;
-  let textContent = `<h1 class="headline-small svelte-1l072c1">Import an offer</h1> <p class="svelte-1l072c1">Scan or import a mint offer</p> <md-icon class="icon svelte-1l072c1">file_download</md-icon>`;
+  let textContent = `<h1 class="headline-small svelte-1l072c1">Create an offer</h1> <p class="svelte-1l072c1">Scan or import a mint offer</p> <md-icon class="icon svelte-1l072c1">file_upload</md-icon>`;
   return {
     c() {
       div = element("div");
@@ -104,7 +104,7 @@ function create_default_slot_1(ctx) {
     },
     l(nodes) {
       div = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(div) !== "svelte-mjdlu3")
+      if (get_svelte_dataset(div) !== "svelte-1kpf9jp")
         div.innerHTML = textContent;
       this.h();
     },
@@ -124,7 +124,7 @@ function create_default_slot_1(ctx) {
 }
 function create_default_slot(ctx) {
   let div;
-  let textContent = `<h1 class="headline-small svelte-1l072c1">Reclaim an offer</h1> <p class="svelte-1l072c1">Take back an unclaimed offer</p> <md-icon class="icon svelte-1l072c1">undo</md-icon>`;
+  let textContent = `<h1 class="headline-small svelte-1l072c1">Sweep wallet</h1> <p class="svelte-1l072c1">Take back an unclaimed offer</p> <md-icon class="icon svelte-1l072c1">clear_all</md-icon>`;
   return {
     c() {
       div = element("div");
@@ -133,7 +133,7 @@ function create_default_slot(ctx) {
     },
     l(nodes) {
       div = claim_element(nodes, "DIV", { class: true, ["data-svelte-h"]: true });
-      if (get_svelte_dataset(div) !== "svelte-17bomsz")
+      if (get_svelte_dataset(div) !== "svelte-wuoma9")
         div.innerHTML = textContent;
       this.h();
     },
@@ -180,7 +180,8 @@ function create_fragment(ctx) {
   card0 = new Card({
     props: {
       color: "primary",
-      href: "#",
+      href: base + "/camera",
+      preserveStack: true,
       $$slots: { default: [create_default_slot_2] },
       $$scope: { ctx }
     }
@@ -188,8 +189,7 @@ function create_fragment(ctx) {
   card1 = new Card({
     props: {
       color: "primary",
-      href: base + "/camera",
-      preserveStack: true,
+      href: "#",
       $$slots: { default: [create_default_slot_1] },
       $$scope: { ctx }
     }
