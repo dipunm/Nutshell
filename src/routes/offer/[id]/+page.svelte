@@ -10,7 +10,7 @@
 
 <SinglePane>
     <section class="details">
-        <h1 class="headline-small">You received an offer for:</h1>
+        <h1 class="headline-small">You have received:</h1>
     </section>
     <section>
         <Card color="surface-container-highest" maxWidth="450px">
@@ -20,7 +20,7 @@
         </Card>
     </section>
     <section class="calltoaction">
-        <md-filled-button href="{base}/accounts">Claim the offer</md-filled-button>
+        <md-filled-button href="{base}/accounts">Accept</md-filled-button>
     </section>
 </SinglePane>
 
